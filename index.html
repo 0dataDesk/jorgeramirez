@@ -121,6 +121,7 @@ section { padding:6rem 2rem; }
 
 /* PROCESO */
 .proceso { background:var(--cream); }
+.proceso-svg-wrap { margin-top:3rem; }
 .proceso-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; margin-top:3rem; }
 .proceso-step { text-align:center; padding:2rem 1.5rem; background:var(--white); border-radius:16px; border:1px solid var(--border); position:relative; }
 .proceso-step::after { content:'→'; position:absolute; right:-1rem; top:50%; transform:translateY(-50%); color:var(--green); font-size:1.25rem; font-weight:700; z-index:1; }
@@ -187,7 +188,7 @@ footer span { color:var(--green); }
     <div class="fade-in">
       <p class="hero-eyebrow">Consultor independiente · MX</p>
       <h1 class="hero-title">Tu negocio ya<br>genera datos.<br>Yo los convierto<br>en <em>decisiones.</em></h1>
-      <p class="hero-sub">No soy proveedor externo ni consultor corporativo. Soy el aliado que se integra a tu equipo, aprende tu operación y te devuelve la información ordenada, procesada y lista para actuar.</p>
+      <p class="hero-sub">No soy proveedor externo ni consultora corporativa. Soy el aliado que se integra a tu equipo, aprende tu operación y te devuelve la información ordenada, procesada y lista para actuar.</p>
       <div class="hero-actions">
         <a href="https://wa.me/525543183792?text=Hola%20Jorge%2C%20me%20interesa%20agendar%20un%20diagn%C3%B3stico." class="btn-primary" target="_blank">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -236,12 +237,46 @@ footer span { color:var(--green); }
     <span class="section-tag fade-in">Cómo trabajo</span>
     <h2 class="section-title fade-in">Construido en entornos<br>de alta exigencia.</h2>
     <p class="section-lead fade-in">Aprendí a trabajar con datos en empresas que no admitían errores. Cada rol que tuve me enseñó algo nuevo — y aprendí a convertirlo en sistema antes de que alguien me lo pidiera.</p>
-    <div class="patron-steps">
-      <div class="patron-step fade-in"><div class="step-dot">1</div><div class="step-content"><h3>Llego y absorbo</h3><p>Antes de proponer cualquier cosa, entiendo cómo funciona tu negocio: cómo genera información, dónde vive y cómo se usa actualmente.</p></div></div>
-      <div class="patron-step fade-in"><div class="step-dot">2</div><div class="step-content"><h3>Domino con rigor</h3><p>Identifico los procesos críticos, los puntos de dolor reales y lo que sí está funcionando. No toco lo que no está roto.</p></div></div>
-      <div class="patron-step fade-in"><div class="step-dot">3</div><div class="step-content"><h3>Convierto en sistema</h3><p>Diseño la estructura, la construyo en la herramienta correcta y la dejo funcionando. No entrego un manual — entrego algo que ya funciona.</p></div></div>
-      <div class="patron-step fade-in"><div class="step-dot">4</div><div class="step-content"><h3>Libero tu tiempo</h3><p>Una vez que el sistema está operando, tú recuperas el tiempo que antes se iba en buscar información. Ese tiempo lo reinviertes en el negocio.</p></div></div>
-      <div class="patron-step fade-in"><div class="step-dot">5</div><div class="step-content"><h3>Escalo contigo</h3><p>El sistema crece conforme crece tu operación. No empezamos de cero cada vez que el negocio cambia.</p></div></div>
+    <div class="patron-steps fade-in">
+      <svg width="100%" viewBox="0 0 680 560" xmlns="http://www.w3.org/2000/svg">
+        <!-- Línea vertical conectora -->
+        <line x1="60" y1="68" x2="60" y2="492" stroke="#4caf82" stroke-width="2" opacity="0.3"/>
+        <!-- Paso 1 -->
+        <circle cx="60" cy="68" r="22" fill="#1e3a5f" stroke="#4caf82" stroke-width="2"/>
+        <text x="60" y="74" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="15" font-weight="700" fill="#4caf82">1</text>
+        <rect x="100" y="44" width="560" height="48" rx="10" fill="none" stroke="#1e3a5f" stroke-width="1" opacity="0.15"/>
+        <rect x="100" y="44" width="4" height="48" rx="2" fill="#1e3a5f"/>
+        <text x="120" y="64" font-family="DM Sans, sans-serif" font-size="14" font-weight="600" fill="#1e3a5f">Llego y absorbo</text>
+        <text x="120" y="82" font-family="DM Sans, sans-serif" font-size="12" fill="#6b7280">Entiendo cómo funciona tu negocio antes de proponer cualquier cosa</text>
+        <!-- Paso 2 -->
+        <circle cx="60" cy="168" r="22" fill="#1e3a5f" stroke="#4caf82" stroke-width="2"/>
+        <text x="60" y="174" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="15" font-weight="700" fill="#4caf82">2</text>
+        <rect x="100" y="144" width="560" height="48" rx="10" fill="none" stroke="#1e3a5f" stroke-width="1" opacity="0.15"/>
+        <rect x="100" y="144" width="4" height="48" rx="2" fill="#1e3a5f"/>
+        <text x="120" y="164" font-family="DM Sans, sans-serif" font-size="14" font-weight="600" fill="#1e3a5f">Domino con rigor</text>
+        <text x="120" y="182" font-family="DM Sans, sans-serif" font-size="12" fill="#6b7280">Identifico procesos críticos y puntos de dolor reales. No toco lo que funciona.</text>
+        <!-- Paso 3 — destacado -->
+        <circle cx="60" cy="268" r="22" fill="#4caf82" stroke="#4caf82" stroke-width="2"/>
+        <text x="60" y="274" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="15" font-weight="700" fill="#ffffff">3</text>
+        <rect x="100" y="244" width="560" height="48" rx="10" fill="#4caf82" fill-opacity="0.08"/>
+        <rect x="100" y="244" width="4" height="48" rx="2" fill="#4caf82"/>
+        <text x="120" y="264" font-family="DM Sans, sans-serif" font-size="14" font-weight="600" fill="#1e3a5f">Convierto en sistema</text>
+        <text x="120" y="282" font-family="DM Sans, sans-serif" font-size="12" fill="#6b7280">Diseño, construyo y entrego algo que ya funciona — no un manual.</text>
+        <!-- Paso 4 -->
+        <circle cx="60" cy="368" r="22" fill="#1e3a5f" stroke="#4caf82" stroke-width="2"/>
+        <text x="60" y="374" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="15" font-weight="700" fill="#4caf82">4</text>
+        <rect x="100" y="344" width="560" height="48" rx="10" fill="none" stroke="#1e3a5f" stroke-width="1" opacity="0.15"/>
+        <rect x="100" y="344" width="4" height="48" rx="2" fill="#1e3a5f"/>
+        <text x="120" y="364" font-family="DM Sans, sans-serif" font-size="14" font-weight="600" fill="#1e3a5f">Libero tu tiempo</text>
+        <text x="120" y="382" font-family="DM Sans, sans-serif" font-size="12" fill="#6b7280">Recuperas las horas que se iban en buscar información. Las reinviertes en el negocio.</text>
+        <!-- Paso 5 -->
+        <circle cx="60" cy="468" r="22" fill="#1e3a5f" stroke="#4caf82" stroke-width="2"/>
+        <text x="60" y="474" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="15" font-weight="700" fill="#4caf82">5</text>
+        <rect x="100" y="444" width="560" height="48" rx="10" fill="none" stroke="#1e3a5f" stroke-width="1" opacity="0.15"/>
+        <rect x="100" y="444" width="4" height="48" rx="2" fill="#1e3a5f"/>
+        <text x="120" y="464" font-family="DM Sans, sans-serif" font-size="14" font-weight="600" fill="#1e3a5f">Escalo contigo</text>
+        <text x="120" y="482" font-family="DM Sans, sans-serif" font-size="12" fill="#6b7280">El sistema crece conforme crece tu operación. No empezamos de cero cada vez.</text>
+      </svg>
     </div>
     <div class="credencial-box fade-in">
       <p>"Este patrón lo apliqué gestionando más de 6,000 colaboradores en una aseguradora nacional, diseñando estructuras para expansiones internacionales y generando reportería ejecutiva para presidencia y dirección general. La escala cambia. La metodología no."</p>
@@ -373,11 +408,46 @@ footer span { color:var(--green); }
     <span class="section-tag fade-in">El proceso</span>
     <h2 class="section-title fade-in">Así funciona trabajar conmigo.</h2>
     <p class="section-lead fade-in">Sin contratos complicados, sin promesas vacías. Cuatro pasos del primer contacto al sistema funcionando.</p>
-    <div class="proceso-grid">
-      <div class="proceso-step fade-in"><div class="proceso-num">01</div><h3>Diagnóstico</h3><p>Conversación sin costo para entender tu operación, tus datos y tu dolor real. Sin compromisos.</p></div>
-      <div class="proceso-step fade-in"><div class="proceso-num">02</div><h3>Propuesta</h3><p>Te presento un plan concreto: qué vamos a hacer, en cuánto tiempo y a qué costo. Sin letra chica.</p></div>
-      <div class="proceso-step fade-in"><div class="proceso-num">03</div><h3>Construcción</h3><p>Me pongo a trabajar. Te mantengo informado en cada paso y valido contigo antes de entregar.</p></div>
-      <div class="proceso-step fade-in"><div class="proceso-num">04</div><h3>Entrega y seguimiento</h3><p>Te entrego algo que funciona, no un manual. Y si decides continuar, me quedo como tu aliado permanente.</p></div>
+    <div class="proceso-svg-wrap fade-in">
+      <svg width="100%" viewBox="0 0 680 195" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="#4caf82" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <!-- Línea horizontal -->
+        <line x1="82" y1="72" x2="598" y2="72" stroke="#4caf82" stroke-width="1.5" opacity="0.25"/>
+        <!-- Paso 1 -->
+        <circle cx="82" cy="72" r="26" fill="#1e3a5f" stroke="#4caf82" stroke-width="2"/>
+        <text x="82" y="68" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="13" font-weight="700" fill="#4caf82">01</text>
+        <text x="82" y="121" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="13" font-weight="600" fill="#1e3a5f">Diagnóstico</text>
+        <text x="82" y="139" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" fill="#6b7280">Sin costo,</text>
+        <text x="82" y="154" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" fill="#6b7280">sin compromisos</text>
+        <!-- Flecha 1→2 -->
+        <line x1="112" y1="72" x2="196" y2="72" stroke="#4caf82" stroke-width="1.5" marker-end="url(#arr)" opacity="0.6"/>
+        <!-- Paso 2 -->
+        <circle cx="224" cy="72" r="26" fill="#1e3a5f" stroke="#4caf82" stroke-width="2"/>
+        <text x="224" y="68" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="13" font-weight="700" fill="#4caf82">02</text>
+        <text x="224" y="121" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="13" font-weight="600" fill="#1e3a5f">Propuesta</text>
+        <text x="224" y="139" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" fill="#6b7280">Qué, cuánto tiempo</text>
+        <text x="224" y="154" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" fill="#6b7280">y a qué costo</text>
+        <!-- Flecha 2→3 -->
+        <line x1="254" y1="72" x2="338" y2="72" stroke="#4caf82" stroke-width="1.5" marker-end="url(#arr)" opacity="0.6"/>
+        <!-- Paso 3 — destacado -->
+        <circle cx="366" cy="72" r="26" fill="#4caf82" stroke="#4caf82" stroke-width="2"/>
+        <text x="366" y="68" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="13" font-weight="700" fill="#ffffff">03</text>
+        <text x="366" y="121" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="13" font-weight="600" fill="#1e3a5f">Construcción</text>
+        <text x="366" y="139" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" fill="#6b7280">Te mantengo al tanto</text>
+        <text x="366" y="154" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" fill="#6b7280">en cada paso</text>
+        <!-- Flecha 3→4 -->
+        <line x1="396" y1="72" x2="480" y2="72" stroke="#4caf82" stroke-width="1.5" marker-end="url(#arr)" opacity="0.6"/>
+        <!-- Paso 4 -->
+        <circle cx="508" cy="72" r="26" fill="#1e3a5f" stroke="#4caf82" stroke-width="2"/>
+        <text x="508" y="68" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="13" font-weight="700" fill="#4caf82">04</text>
+        <text x="508" y="121" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="13" font-weight="600" fill="#1e3a5f">Entrega</text>
+        <text x="508" y="139" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" fill="#6b7280">Algo que funciona,</text>
+        <text x="508" y="154" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" fill="#6b7280">no un manual</text>
+      </svg>
     </div>
   </div>
 </section>
