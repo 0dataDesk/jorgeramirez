@@ -37,7 +37,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(255,2
 .hero { min-height:100vh; background:var(--navy); display:flex; align-items:center; padding:100px 2rem 4rem; position:relative; overflow:hidden; }
 .hero::before { content:''; position:absolute; top:-200px; right:-200px; width:600px; height:600px; background:radial-gradient(circle, rgba(76,175,130,0.12) 0%, transparent 70%); border-radius:50%; pointer-events:none; }
 .hero::after { content:''; position:absolute; bottom:-100px; left:-100px; width:400px; height:400px; background:radial-gradient(circle, rgba(76,175,130,0.07) 0%, transparent 70%); border-radius:50%; pointer-events:none; }
-.hero-inner { max-width:1100px; margin:0 auto; width:100%; display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; position:relative; z-index:1; }
+.hero-inner { max-width:1100px; margin:0 auto; width:100%; display:grid; grid-template-columns:1fr; gap:4rem; align-items:center; position:relative; z-index:1; }
 .hero-eyebrow { font-size:0.8rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--green); margin-bottom:1.25rem; }
 .hero-title { font-family:'DM Serif Display',serif; font-size:clamp(2.5rem,5vw,3.75rem); color:var(--white); line-height:1.1; margin-bottom:1.5rem; letter-spacing:-0.02em; }
 .hero-title em { font-style:italic; color:var(--green); }
@@ -49,7 +49,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(255,2
 .btn-ghost:hover { border-color:rgba(255,255,255,0.6); color:var(--white); }
 
 /* FOTO HERO */
-.hero-visual { display:flex; justify-content:center; align-items:flex-end; }
+.hero-visual { display:none; justify-content:center; align-items:flex-end; }
 .hero-foto-wrap { position:relative; }
 .hero-foto { width:320px; height:420px; object-fit:cover; object-position:center top; border-radius:200px 200px 40px 40px; display:block; border:3px solid rgba(76,175,130,0.4); box-shadow:0 24px 80px rgba(0,0,0,0.4); }
 .hero-foto-badge { position:absolute; bottom:1.5rem; left:50%; transform:translateX(-50%); background:rgba(255,255,255,0.08); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.15); border-radius:12px; padding:0.75rem 1.25rem; text-align:center; white-space:nowrap; }
@@ -300,13 +300,13 @@ footer span { color:var(--green); }
   <div class="section-inner">
     <span class="section-tag fade-in">Servicios</span>
     <h2 class="section-title fade-in">¿Cómo puedo ayudarte?</h2>
-    <p class="section-lead fade-in">Trabajo de dos formas: proyectos puntuales con entregable definido, o membresía mensual para quien necesita un aliado permanente.</p>
+    <p class="section-lead fade-in">Trabajamos mediante proyectos puntuales con entregables claros, diseñados a la medida de tu operación.</p>
     <div class="servicios-grid">
       <div class="servicio-card fade-in">
         <div class="servicio-icon">📊</div>
         <h3>Espacio de trabajo en Notion</h3>
         <p style="font-size:.875rem;color:var(--gray);line-height:1.6;margin-bottom:.5rem">Clientes, proyectos, procesos, métricas y documentos en un solo lugar. Diseñado a la medida de tu operación.</p>
-        <div class="precio">Desde $3,000</div>
+        <div class="precio">Desde $6,000</div>
         <div class="precio-nota">+ IVA · Proyecto único</div>
         <ul class="servicio-items">
           <li>Diagnóstico incluido</li>
@@ -319,7 +319,7 @@ footer span { color:var(--green); }
         <div class="servicio-icon">📈</div>
         <h3>Tablero de indicadores con Power BI</h3>
         <p style="font-size:.875rem;color:var(--gray);line-height:1.6;margin-bottom:.5rem">De datos dispersos a indicadores claros. Visualiza tu operación y toma decisiones con respaldo real.</p>
-        <div class="precio">Desde $5,000</div>
+        <div class="precio">Desde $12,000</div>
         <div class="precio-nota">+ IVA · Proyecto único</div>
         <ul class="servicio-items">
           <li>Diagnóstico de fuentes de datos</li>
@@ -345,25 +345,14 @@ footer span { color:var(--green); }
         <div class="servicio-icon">🤖</div>
         <h3>IA aplicada al negocio</h3>
         <p style="font-size:.875rem;color:var(--gray);line-height:1.6;margin-bottom:.5rem">Automatización de tareas repetitivas, análisis con inteligencia artificial y herramientas de productividad integradas a tu operación.</p>
-        <div class="precio">Desde $12,000</div>
-        <div class="precio-nota">+ IVA · Proyecto único</div>
+        <div class="precio">Consultar</div>
+        <div class="precio-nota">Depende de alcance · Cotización personalizada</div>
         <ul class="servicio-items">
           <li>Diagnóstico de tareas automatizables</li>
           <li>Implementación de herramientas IA</li>
           <li>Integración con sistemas existentes</li>
           <li>Capacitación al equipo</li>
         </ul>
-      </div>
-      <div class="membresia-card fade-in">
-        <div>
-          <h3>Membresía mensual</h3>
-          <p>Para negocios que quieren un aliado permanente. Me integro a tu operación, administro y mejoro tu sistema de datos de forma continua. El trabajo duro es al inicio — después es supervisión, mejoras y seguimiento. La información de tu negocio crece contigo, no se queda estática.</p>
-        </div>
-        <div class="membresia-precio">
-          <div class="monto">$500</div>
-          <div class="periodo">MXN + IVA / mes</div>
-          <a href="https://wa.me/525543183792" class="btn-primary" style="margin-top:1.25rem;font-size:.875rem" target="_blank">Agendar diagnóstico</a>
-        </div>
       </div>
     </div>
   </div>
