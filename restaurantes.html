@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dataDesk · Restaurantes</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      background: var(--paper);
+      color: var(--ink);
+    }
+
+    /* ===== FADE IN ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      background: var(--green);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 8rem 6rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 85% 15%, rgba(196,96,58,0.18) 0%, transparent 45%),
+        radial-gradient(circle at 15% 85%, rgba(127,181,168,0.1) 0%, transparent 45%);
+    }
+
+    .hero-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--green-soft);
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--paper);
+      max-width: 900px;
+      position: relative;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--terracotta-soft);
+    }
+
+    .hero-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(245,240,232,0.6);
+      max-width: 560px;
+      line-height: 1.5;
+      position: relative;
+      margin-bottom: 3rem;
+    }
+
+    /* STATS HERO */
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      gap: 0;
+      position: relative;
+      border-top: 1px solid rgba(127,181,168,0.25);
+      padding-top: 2rem;
+      max-width: 680px;
+    }
+
+    .hero-stat {
+      padding-right: 2.5rem;
+      border-right: 1px solid rgba(127,181,168,0.2);
+      margin-right: 2.5rem;
+    }
+
+    .hero-stat:last-child {
+      border-right: none;
+      margin-right: 0;
+    }
+
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--terracotta-soft);
+      line-height: 1;
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--green-soft);
+      margin-top: 0.4rem;
+      line-height: 1.4;
+      display: block;
+    }
+
+    .hero-note {
+      margin-top: 1.5rem;
+      font-size: 0.72rem;
+      color: rgba(127,181,168,0.5);
+      font-style: italic;
+      position: relative;
+    }
+
+    /* ===== SECTION BASE ===== */
+    section {
+      padding: 6rem;
+    }
+
+    .section-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--green);
+      margin-bottom: 1rem;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--terracotta);
+    }
+
+    .section-lead {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--ink-soft);
+      max-width: 640px;
+      line-height: 1.6;
+      margin-bottom: 3rem;
+    }
+
+    .divider {
+      width: 40px;
+      height: 2px;
+      background: var(--terracotta);
+      margin: 1.5rem 0 2.5rem;
+      border: none;
+    }
+
+    /* ===== PROBLEMA ===== */
+    .problema {
+      background: var(--paper);
+    }
+
+    .problema-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+      margin-top: 2rem;
+    }
+
+    .problema-text p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--ink-soft);
+      margin-bottom: 1.2rem;
+    }
+
+    .problema-text p strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .problema-callout {
+      background: var(--green);
+      padding: 2.5rem;
+      position: relative;
+    }
+
+    .problema-callout::before {
+      content: '"';
+      position: absolute;
+      top: 0.5rem;
+      left: 1rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem;
+      line-height: 1;
+      color: var(--terracotta);
+      opacity: 0.35;
+    }
+
+    .problema-callout p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--paper);
+      line-height: 1.4;
+      position: relative;
+      z-index: 1;
+    }
+
+    .problema-callout-attr {
+      margin-top: 1.2rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--green-soft);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-style: normal;
+    }
+
+    /* ===== ESTÁNDAR ===== */
+    .estandar {
+      background: var(--paper-warm);
+    }
+
+    .estandar-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .estandar-text p {
+      font-size: 0.9rem;
+      line-height: 1.8;
+      color: var(--ink-soft);
+      margin-bottom: 1rem;
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    .kpi {
+      background: var(--paper);
+      border-left: 2px solid var(--terracotta);
+      padding: 1.25rem 1.5rem;
+    }
+
+    .kpi.prime {
+      background: var(--green);
+      border-left-color: var(--terracotta);
+      grid-column: span 2;
+    }
+
+    .kpi-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--green);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .kpi.prime .kpi-label { color: var(--green-soft); }
+
+    .kpi-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .kpi.prime .kpi-value {
+      color: var(--paper);
+      font-size: 2.5rem;
+    }
+
+    .kpi-desc {
+      font-size: 0.78rem;
+      color: var(--ink-soft);
+      line-height: 1.5;
+    }
+
+    .kpi.prime .kpi-desc { color: var(--paper-warm); }
+
+    /* ===== DIFERENCIADOR ===== */
+    .diferenciador {
+      background: var(--green);
+      color: var(--paper);
+    }
+
+    .diferenciador .section-title { color: var(--paper); }
+    .diferenciador .section-title em { color: var(--terracotta-soft); }
+    .diferenciador .section-label { color: var(--green-soft); }
+
+    .dif-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .dif-item {
+      border-top: 1px solid rgba(127,181,168,0.3);
+      padding-top: 1.5rem;
+    }
+
+    .dif-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-style: italic;
+      color: var(--terracotta-soft);
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .dif-title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--paper);
+      margin-bottom: 0.75rem;
+    }
+
+    .dif-text {
+      font-size: 0.88rem;
+      color: rgba(245,240,232,0.6);
+      line-height: 1.7;
+    }
+
+    /* ===== METODOLOGÍA ===== */
+    .metodologia {
+      background: var(--paper);
+    }
+
+    .metodologia-intro {
+      max-width: 600px;
+      margin-bottom: 3rem;
+    }
+
+    .bloques {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+    }
+
+    .bloque {
+      background: var(--paper-warm);
+      border-top: 2px solid var(--green);
+      padding: 1.5rem;
+    }
+
+    .bloque.resultado {
+      grid-column: span 3;
+      background: var(--green);
+      border-top-color: var(--terracotta);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .bloque-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--terracotta);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .bloque.resultado .bloque-num { color: var(--terracotta-soft); }
+
+    .bloque-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: 1.6rem;
+      line-height: 1;
+      color: var(--green);
+      margin-bottom: 0.5rem;
+    }
+
+    .bloque.resultado .bloque-name {
+      color: var(--paper);
+      font-size: 2rem;
+    }
+
+    .bloque-desc {
+      font-size: 0.78rem;
+      color: var(--ink-soft);
+      line-height: 1.5;
+    }
+
+    .bloque.resultado .bloque-desc {
+      color: var(--paper-warm);
+      font-size: 0.85rem;
+    }
+
+    /* ===== ANTES / DESPUÉS ===== */
+    .comparacion {
+      background: var(--paper-warm);
+    }
+
+    .comp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      margin-top: 3rem;
+      border: 1px solid var(--line);
+    }
+
+    .comp-col {
+      padding: 2.5rem;
+    }
+
+    .comp-col.despues {
+      background: var(--green);
+      color: var(--paper);
+    }
+
+    .comp-header {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .comp-col.despues .comp-header {
+      color: var(--terracotta-soft);
+      border-bottom-color: rgba(127,181,168,0.25);
+    }
+
+    .comp-item {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      align-items: flex-start;
+    }
+
+    .comp-icon {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 0.2rem 0.5rem;
+      border: 1px solid var(--line);
+      color: var(--ink-soft);
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .comp-col.despues .comp-icon {
+      border-color: rgba(127,181,168,0.3);
+      color: var(--green-soft);
+    }
+
+    .comp-item-text {
+      font-size: 0.85rem;
+      color: var(--ink-soft);
+      line-height: 1.5;
+    }
+
+    .comp-col.despues .comp-item-text {
+      color: rgba(245,240,232,0.75);
+    }
+
+    /* ===== CTA ===== */
+    .cta-section {
+      background: var(--green);
+      text-align: center;
+      padding: 6rem;
+    }
+
+    .cta-section .section-title {
+      color: var(--paper);
+      max-width: 600px;
+      margin: 0 auto 1rem;
+    }
+
+    .cta-section .section-title em { color: var(--terracotta-soft); }
+
+    .cta-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: rgba(245,240,232,0.55);
+      margin-bottom: 2.5rem;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--terracotta);
+      color: var(--white);
+      text-decoration: none;
+      padding: 1rem 2.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+
+    .cta-btn:hover { background: var(--terracotta-soft); }
+
+    .cta-note {
+      margin-top: 1.5rem;
+      font-size: 0.7rem;
+      color: rgba(127,181,168,0.5);
+      letter-spacing: 0.1em;
+    }
+
+    /* PAGE FOOTER */
+    .page-footer {
+      background: var(--ink);
+      padding: 1.5rem 6rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .page-footer span {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+    }
+
+    @media (max-width: 900px) {
+      section { padding: 4rem 2rem; }
+      .hero { padding: 7rem 2rem 3rem; }
+      .problema-grid,
+      .estandar-inner,
+      .dif-grid,
+      .comp-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .bloques { grid-template-columns: 1fr 1fr; }
+      .bloque.resultado { grid-column: span 2; }
+      .cta-section { padding: 4rem 2rem; }
+      .page-footer { padding: 1.5rem 2rem; flex-direction: column; gap: 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <a href="index.html" class="nav-brand">data<span>Desk</span></a>
+    <ul class="nav-links">
+      <li><a href="restaurantes.html" class="active">Restaurantes</a></li>
+      <li><a href="jorgeramirez/index.html">Mi trabajo</a></li>
+      <li><a href="acerca.html">Acerca de mí</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow">dataDesk · Restaurantes</p>
+    <h1 class="hero-title">Tu restaurante ya<br>opera con datos.<br><em>Solo que nadie los lee.</em></h1>
+    <p class="hero-sub">El problema no es la falta de información — es que vive dispersa en veinte lugares distintos y nadie la consolida.</p>
+
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="stat-num">3–5%</span>
+        <span class="stat-label">Margen neto promedio<br>restaurante full-service</span>
+      </div>
+      <div class="hero-stat">
+        <span class="stat-num">30–35%</span>
+        <span class="stat-label">Peso de nómina<br>sobre ventas totales</span>
+      </div>
+      <div class="hero-stat">
+        <span class="stat-num">&lt;60%</span>
+        <span class="stat-label">Umbral de prime cost<br>para ser rentable</span>
+      </div>
+    </div>
+    <p class="hero-note">En márgenes así, operar a ciegas no es ineficiencia — es el camino directo a la quiebra.</p>
+  </section>
+
+  <!-- EL PROBLEMA -->
+  <section class="problema fade-in">
+    <span class="section-label">01 · El contexto</span>
+    <h2 class="section-title">El operador<br><em>a ciegas</em></h2>
+    <hr class="divider">
+
+    <div class="problema-grid">
+      <div class="problema-text">
+        <p>El dueño de un restaurante toma decisiones con información que llega <strong>tarde, dispersa y sin contraste</strong> contra su propia industria. Opera sobre sensaciones porque los datos no llegan a tiempo ni en forma.</p>
+        <p>La información existe — está generándose todo el día. Está en el reporte Z del POS al cierre, en la libreta del chef, en las facturas por correo, en el corte de caja, en el recibo de nómina.</p>
+        <p><strong>El problema no es la falta de datos: es que viven en veinte lugares distintos, en veinte formatos distintos, y nadie los consolida.</strong></p>
+        <p>El dueño se entera cómo cerró marzo el 15 de abril. Sabe qué platillo se vende más pero no cuál le deja más margen. Cree que su food cost está controlado, pero nunca lo ha medido con precisión.</p>
+      </div>
+
+      <div class="problema-callout">
+        <p>La diferencia entre un restaurante que crece y uno que cierra está en la capacidad del operador para ver su negocio en tiempo real, contra estándares reconocidos y con datos que no se discuten.</p>
+        <p class="problema-callout-attr">dataDesk · Principio operativo</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EL ESTÁNDAR -->
+  <section class="estandar fade-in">
+    <span class="section-label">02 · El respaldo</span>
+    <h2 class="section-title">Existe un estándar.<br><em>Se llama USAR.</em></h2>
+    <hr class="divider">
+
+    <div class="estandar-inner">
+      <div class="estandar-text">
+        <p class="section-lead">Uniform System of Accounts for Restaurants — el marco financiero y operativo que la industria restaurantera mundial adoptó hace casi un siglo.</p>
+        <p>Su propósito: que cualquier restaurante, sin importar su tamaño o concepto, pueda organizar su información bajo una misma estructura. Esto permite comparar peras con peras — un bistró de cuarenta comensales contra el benchmark de la industria, con la misma precisión que una cadena de cien unidades.</p>
+        <p>dataDesk trabaja sobre este estándar. No inventamos la métrica — la aplicamos con rigor a la operación real de cada casa.</p>
+      </div>
+
+      <div>
+        <div class="kpi-grid">
+          <div class="kpi">
+            <div class="kpi-label">Food Cost</div>
+            <div class="kpi-value">28–35%</div>
+            <div class="kpi-desc">Costo de la comida vendida sobre ingreso de alimentos. Por encima del 35%, la cocina está fugando margen.</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Beverage Cost</div>
+            <div class="kpi-value">18–24%</div>
+            <div class="kpi-desc">Costo de bebidas sobre ingreso de bebidas. La barra es donde mejor margen se deja — o se pierde.</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Labor Cost</div>
+            <div class="kpi-value">30–35%</div>
+            <div class="kpi-desc">Costo total de nómina sobre ventas. Incluye sueldos, prestaciones y cargas sociales.</div>
+          </div>
+          <div class="kpi prime">
+            <div class="kpi-label">Prime Cost · el indicador rey</div>
+            <div class="kpi-value">&lt; 60%</div>
+            <div class="kpi-desc">Food + Beverage + Labor sobre ventas. Por encima de este umbral, la rentabilidad es matemáticamente imposible. El número que los operadores disciplinados miden cada semana.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIADOR -->
+  <section class="diferenciador fade-in">
+    <span class="section-label">03 · El enfoque</span>
+    <h2 class="section-title">No traemos fórmulas.<br><em>Traemos estructura.</em></h2>
+    <hr class="divider" style="background: rgba(196,96,58,0.5)">
+    <p class="section-lead" style="color: rgba(245,240,232,0.55)">El estándar existe. Las herramientas existen. Lo que falta es alguien que una ambos mundos con la operación real del negocio.</p>
+
+    <div class="dif-grid">
+      <div class="dif-item">
+        <div class="dif-num">01</div>
+        <div class="dif-title">El sistema se adapta a ti</div>
+        <p class="dif-text">No te pedimos que cambies cómo trabajas. La información que hoy se genera en papel, en mensaje, en correo — esa misma información entra al sistema por canales normalizados.</p>
+      </div>
+      <div class="dif-item">
+        <div class="dif-num">02</div>
+        <div class="dif-title">Tu equipo no cambia</div>
+        <p class="dif-text">No reemplazamos a nadie. Todo restaurante ya tiene a alguien capturando facturas, contando inventario, cuadrando caja. Solo les cambiamos el formato del registro.</p>
+      </div>
+      <div class="dif-item">
+        <div class="dif-num">03</div>
+        <div class="dif-title">La operación se mantiene</div>
+        <p class="dif-text">Lo que cambia es la visibilidad. El resultado es un sistema que respeta el conocimiento del operador, reduce la fricción del cambio y devuelve información ordenada bajo un estándar reconocido.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- METODOLOGÍA -->
+  <section class="metodologia fade-in">
+    <span class="section-label">04 · La metodología</span>
+    <h2 class="section-title">Siete bloques.<br><em>Como ya piensas tu negocio.</em></h2>
+    <hr class="divider">
+    <p class="section-lead">Tomamos la estructura USAR y la traducimos al lenguaje del operador. No hablamos de cuentas contables — hablamos de La Venta, La Cocina, La Barra, Las Compras, La Gente, La Caja y El Resultado.</p>
+
+    <div class="bloques">
+      <div class="bloque">
+        <span class="bloque-num">01</span>
+        <div class="bloque-name">La Venta</div>
+        <p class="bloque-desc">El punto de venta como fuente de todo. Lo que se vendió, cuándo, cómo.</p>
+      </div>
+      <div class="bloque">
+        <span class="bloque-num">02</span>
+        <div class="bloque-name">La Cocina</div>
+        <p class="bloque-desc">Insumos, recetas, inventario, merma. El corazón del food cost.</p>
+      </div>
+      <div class="bloque">
+        <span class="bloque-num">03</span>
+        <div class="bloque-name">La Barra</div>
+        <p class="bloque-desc">El mismo rigor aplicado a bebidas. Beverage cost propio.</p>
+      </div>
+      <div class="bloque">
+        <span class="bloque-num">04</span>
+        <div class="bloque-name">Las Compras</div>
+        <p class="bloque-desc">Proveedores, órdenes, facturas, cuentas por pagar.</p>
+      </div>
+      <div class="bloque">
+        <span class="bloque-num">05</span>
+        <div class="bloque-name">La Gente</div>
+        <p class="bloque-desc">Nómina, turnos, asistencia, productividad. El labor cost.</p>
+      </div>
+      <div class="bloque">
+        <span class="bloque-num">06</span>
+        <div class="bloque-name">La Caja</div>
+        <p class="bloque-desc">Conciliación diaria de efectivo, terminales y banco.</p>
+      </div>
+      <div class="bloque resultado">
+        <div>
+          <span class="bloque-num">07</span>
+          <div class="bloque-name">El Resultado</div>
+        </div>
+        <p class="bloque-desc">Los seis bloques anteriores alimentan un dashboard ejecutivo con los indicadores USAR vivos, contra benchmark de industria, accesible desde cualquier dispositivo. Este es el entregable — no el proceso, sino la visibilidad.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ANTES / DESPUÉS -->
+  <section class="comparacion fade-in">
+    <span class="section-label">05 · La transformación</span>
+    <h2 class="section-title">La operación no cambia.<br><em>La visibilidad sí.</em></h2>
+    <hr class="divider">
+
+    <div class="comp-grid">
+      <div class="comp-col">
+        <div class="comp-header">Antes de dataDesk</div>
+        <div class="comp-item">
+          <span class="comp-icon">—</span>
+          <p class="comp-item-text">Te enteras cómo cerró el mes cuando ya pasaron dos semanas.</p>
+        </div>
+        <div class="comp-item">
+          <span class="comp-icon">—</span>
+          <p class="comp-item-text">Sabes qué platillo se vende más, pero no cuál te deja más margen.</p>
+        </div>
+        <div class="comp-item">
+          <span class="comp-icon">—</span>
+          <p class="comp-item-text">Tu food cost es una estimación. Nunca lo has medido con precisión.</p>
+        </div>
+        <div class="comp-item">
+          <span class="comp-icon">—</span>
+          <p class="comp-item-text">No tienes contra qué comparar tu negocio. Operas a ciegas.</p>
+        </div>
+        <div class="comp-item">
+          <span class="comp-icon">—</span>
+          <p class="comp-item-text">La información existe, pero vive dispersa en papel, WhatsApp y Excel.</p>
+        </div>
+      </div>
+
+      <div class="comp-col despues">
+        <div class="comp-header">Con dataDesk</div>
+        <div class="comp-item">
+          <span class="comp-icon">+</span>
+          <p class="comp-item-text">Ves el cierre del día anterior en tiempo real, contra tu propio histórico.</p>
+        </div>
+        <div class="comp-item">
+          <span class="comp-icon">+</span>
+          <p class="comp-item-text">Conoces la rentabilidad de cada platillo. Decides con datos, no con intuición.</p>
+        </div>
+        <div class="comp-item">
+          <span class="comp-icon">+</span>
+          <p class="comp-item-text">Tu food cost se calcula solo, cada semana, con precisión de contador.</p>
+        </div>
+        <div class="comp-item">
+          <span class="comp-icon">+</span>
+          <p class="comp-item-text">Tus números se comparan contra el benchmark USAR de la industria.</p>
+        </div>
+        <div class="comp-item">
+          <span class="comp-icon">+</span>
+          <p class="comp-item-text">Tu equipo sigue haciendo lo mismo. La información ahora llega ordenada.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section fade-in">
+    <h2 class="section-title">¿Tu restaurante<br>está listo para <em>verse</em>?</h2>
+    <p class="cta-sub">La primera conversación no cuesta nada. El diagnóstico sí vale.</p>
+    <a href="https://wa.me/525512345678" class="cta-btn">Hablemos → WhatsApp</a>
+    <p class="cta-note">Bookings y consultas · dataDesk · Jorge Ramírez</p>
+  </section>
+
+  <footer class="page-footer">
+    <span>dataDesk · Jorge Ramírez · 2026</span>
+    <span>Inteligencia de negocio para restaurantes</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

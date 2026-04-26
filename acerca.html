@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dataDesk · Acerca de mí</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      background: var(--blue-deep);
+      color: var(--white);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .acerca-wrap {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 5rem 2rem 2rem;
+    }
+
+    .acerca-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--blue-accent);
+      margin-bottom: 2rem;
+    }
+
+    .acerca-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .acerca-title em {
+      font-style: italic;
+      color: rgba(255,255,255,0.25);
+    }
+
+    .acerca-sub {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .back-link {
+      margin-top: 3rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover { color: var(--white); }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <a href="index.html" class="nav-brand">data<span>Desk</span></a>
+    <ul class="nav-links">
+      <li><a href="restaurantes.html">Restaurantes</a></li>
+      <li><a href="jorgeramirez/index.html">Mi trabajo</a></li>
+      <li><a href="acerca.html" class="active">Acerca de mí</a></li>
+    </ul>
+  </nav>
+
+  <div class="acerca-wrap">
+    <p class="acerca-label">Jorge Ramírez · dataDesk</p>
+    <h1 class="acerca-title">En<br><em>construcción.</em></h1>
+    <p class="acerca-sub">Próximamente</p>
+    <a href="index.html" class="back-link">← Volver al inicio</a>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
