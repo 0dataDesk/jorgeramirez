@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dataDesk · Jorge Ramírez</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      background: var(--blue-deep);
+      color: var(--white);
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .selector-wrap {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 3rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+      padding-top: 5rem;
+    }
+
+    .selector-header {
+      margin-bottom: 3.5rem;
+    }
+
+    .selector-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--blue-accent);
+      margin-bottom: 1rem;
+    }
+
+    .selector-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--white);
+    }
+
+    .selector-title em {
+      font-style: italic;
+      color: var(--blue-accent);
+    }
+
+    .selector-sub {
+      margin-top: 0.75rem;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.45);
+      font-weight: 300;
+      letter-spacing: 0.05em;
+    }
+
+    /* CARDS */
+    .cards {
+      display: grid;
+      grid-template-columns: 6fr 3fr 1fr;
+      gap: 1rem;
+      height: 52vh;
+      min-height: 320px;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2rem;
+      transition: flex 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Card 1 — Restaurantes (60%) */
+    .card-restaurantes {
+      background: linear-gradient(160deg, #2d4a3e 0%, #1a2e28 60%, #0f1f1a 100%);
+      border: 1px solid rgba(127,181,168,0.15);
+    }
+
+    .card-restaurantes::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 80% 20%, rgba(196,96,58,0.2) 0%, transparent 50%),
+        radial-gradient(circle at 10% 90%, rgba(127,181,168,0.1) 0%, transparent 40%);
+    }
+
+    /* Card 2 — Mi trabajo (30%) */
+    .card-trabajo {
+      background: linear-gradient(160deg, #1a3a6b 0%, #0d2040 100%);
+      border: 1px solid rgba(74,144,217,0.15);
+    }
+
+    .card-trabajo::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 70% 30%, rgba(74,144,217,0.15) 0%, transparent 50%);
+    }
+
+    /* Card 3 — Acerca de mí (10%) */
+    .card-acerca {
+      background: #111827;
+      border: 1px solid rgba(255,255,255,0.06);
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem 1rem;
+    }
+
+    .card-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-tag {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+
+    .card-restaurantes .card-tag { color: var(--terracotta-soft); }
+    .card-trabajo .card-tag { color: var(--blue-accent); }
+    .card-acerca .card-tag {
+      color: rgba(255,255,255,0.35);
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      letter-spacing: 0.25em;
+      font-size: 0.6rem;
+    }
+
+    .card-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      line-height: 1.05;
+      color: var(--white);
+    }
+
+    .card-restaurantes .card-name { font-size: clamp(1.8rem, 3vw, 3rem); }
+    .card-trabajo .card-name { font-size: clamp(1.4rem, 2.2vw, 2.2rem); }
+
+    .card-desc {
+      margin-top: 0.6rem;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.5;
+      max-width: 320px;
+    }
+
+    .card-cta {
+      margin-top: 1.2rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      transition: color 0.2s;
+    }
+
+    .card-restaurantes:hover .card-cta { color: var(--terracotta-soft); }
+    .card-trabajo:hover .card-cta { color: var(--blue-accent); }
+
+    .card-cta::after {
+      content: '→';
+      transition: transform 0.2s;
+    }
+
+    .card:hover .card-cta::after { transform: translateX(4px); }
+
+    /* Hover effects */
+    .card-restaurantes:hover { border-color: rgba(196,96,58,0.3); }
+    .card-trabajo:hover { border-color: rgba(74,144,217,0.3); }
+    .card-acerca:hover { border-color: rgba(255,255,255,0.12); }
+
+    /* Footer line */
+    .selector-footer {
+      padding: 1rem 3rem;
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.2);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      body { overflow: auto; }
+      .cards {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        height: auto;
+        gap: 0.75rem;
+      }
+      .card { min-height: 180px; padding: 1.5rem; }
+      .card-acerca { min-height: 80px; align-items: flex-start; }
+      .card-acerca .card-tag { writing-mode: horizontal-tb; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <a href="index.html" class="nav-brand">data<span>Desk</span></a>
+    <ul class="nav-links">
+      <li><a href="restaurantes.html">Restaurantes</a></li>
+      <li><a href="jorgeramirez/index.html">Mi trabajo</a></li>
+      <li><a href="acerca.html">Acerca de mí</a></li>
+    </ul>
+  </nav>
+
+  <div class="selector-wrap">
+
+    <div class="selector-header">
+      <p class="selector-eyebrow">Jorge Ramírez · dataDesk</p>
+      <h1 class="selector-title">Inteligencia de negocio.<br><em>Elige por dónde entrar.</em></h1>
+      <p class="selector-sub">Convierte datos en decisiones.</p>
+    </div>
+
+    <div class="cards">
+
+      <a href="restaurantes.html" class="card card-restaurantes">
+        <div class="card-content">
+          <p class="card-tag">Nuevo · Especializado</p>
+          <h2 class="card-name">Restaurantes</h2>
+          <p class="card-desc">Un sistema de inteligencia de negocio construido sobre el estándar internacional de la industria restaurantera.</p>
+          <span class="card-cta">Entrar</span>
+        </div>
+      </a>
+
+      <a href="jorgeramirez/index.html" class="card card-trabajo">
+        <div class="card-content">
+          <p class="card-tag">Portafolio</p>
+          <h2 class="card-name">Mi trabajo</h2>
+          <p class="card-desc">Datos, análisis y decisiones para cualquier tipo de negocio.</p>
+          <span class="card-cta">Ver</span>
+        </div>
+      </a>
+
+      <a href="acerca.html" class="card card-acerca">
+        <div class="card-content">
+          <p class="card-tag">Acerca<br>de mí</p>
+        </div>
+      </a>
+
+    </div>
+
+  </div>
+
+  <div class="selector-footer">
+    <span>© 2026 dataDesk · Jorge Ramírez</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
