@@ -55,7 +55,7 @@
       font-weight: 600;
       letter-spacing: 0.35em;
       text-transform: uppercase;
-      color: var(--blue-soft);
+      color: var(--blue-accent);
       margin-bottom: 1rem;
     }
 
@@ -98,42 +98,41 @@
       flex-direction: column;
       justify-content: flex-end;
       padding: 2rem;
-      transition: box-shadow 0.3s ease, transform 0.2s ease;
+      transition: flex 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     /* Card 1 — Restaurantes */
     .card-restaurantes {
-      background: #fdfaf7;
-      border: 1px solid #e8ddd4;
-      border-top: 3px solid var(--terracotta);
+      background: linear-gradient(160deg, #2d4a3e 0%, #1a2e28 60%, #0f1f1a 100%);
+      border: 1px solid rgba(127,181,168,0.15);
     }
 
     .card-restaurantes::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 90% 10%, rgba(196,96,58,0.05) 0%, transparent 50%);
+      background:
+        radial-gradient(circle at 80% 20%, rgba(196,96,58,0.2) 0%, transparent 50%),
+        radial-gradient(circle at 10% 90%, rgba(127,181,168,0.1) 0%, transparent 40%);
     }
 
     /* Card 2 — Mi trabajo */
     .card-trabajo {
-      background: #f7f9fd;
-      border: 1px solid #ccd9ed;
-      border-top: 3px solid var(--blue-soft);
+      background: linear-gradient(160deg, #1a3a6b 0%, #0d2040 100%);
+      border: 1px solid rgba(74,144,217,0.15);
     }
 
     .card-trabajo::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 80% 15%, rgba(74,144,217,0.06) 0%, transparent 50%);
+      background: radial-gradient(circle at 70% 30%, rgba(74,144,217,0.15) 0%, transparent 50%);
     }
 
     /* Card 3 — Acerca de mí */
     .card-acerca {
-      background: #f4f8f5;
-      border: 1px solid #c8dccc;
-      border-top: 3px solid #4caf82;
+      background: #111827;
+      border: 1px solid rgba(255,255,255,0.06);
       justify-content: center;
       align-items: center;
       padding: 1.5rem 1rem;
@@ -152,10 +151,10 @@
       margin-bottom: 0.6rem;
     }
 
-    .card-restaurantes .card-tag { color: var(--terracotta); }
-    .card-trabajo .card-tag { color: var(--blue-soft); }
+    .card-restaurantes .card-tag { color: var(--terracotta-soft); }
+    .card-trabajo .card-tag { color: var(--blue-accent); }
     .card-acerca .card-tag {
-      color: #4caf82;
+      color: rgba(255,255,255,0.35);
       writing-mode: vertical-rl;
       text-orientation: mixed;
       letter-spacing: 0.25em;
@@ -166,7 +165,7 @@
       font-family: 'Cormorant Garamond', serif;
       font-weight: 400;
       line-height: 1.05;
-      color: var(--ink);
+      color: var(--white);
     }
 
     .card-restaurantes .card-name { font-size: clamp(1.8rem, 3vw, 3rem); }
@@ -175,7 +174,7 @@
     .card-desc {
       margin-top: 0.6rem;
       font-size: 0.78rem;
-      color: var(--ink-soft);
+      color: rgba(255,255,255,0.45);
       line-height: 1.5;
       max-width: 320px;
     }
@@ -189,12 +188,12 @@
       font-weight: 600;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: rgba(0,0,0,0.25);
+      color: rgba(255,255,255,0.5);
       transition: color 0.2s;
     }
 
-    .card-restaurantes:hover .card-cta { color: var(--terracotta); }
-    .card-trabajo:hover .card-cta { color: var(--blue-soft); }
+    .card-restaurantes:hover .card-cta { color: var(--terracotta-soft); }
+    .card-trabajo:hover .card-cta { color: var(--blue-accent); }
 
     .card-cta::after {
       content: '→';
@@ -204,18 +203,18 @@
     .card:hover .card-cta::after { transform: translateX(4px); }
 
     /* Hover effects */
-    .card-restaurantes:hover { box-shadow: 0 6px 24px rgba(196,96,58,0.1); }
-    .card-trabajo:hover { box-shadow: 0 6px 24px rgba(46,95,163,0.1); }
-    .card-acerca:hover { box-shadow: 0 6px 24px rgba(76,175,130,0.1); }
+    .card-restaurantes:hover { border-color: rgba(196,96,58,0.3); }
+    .card-trabajo:hover { border-color: rgba(74,144,217,0.3); }
+    .card-acerca:hover { border-color: rgba(255,255,255,0.12); }
 
     /* Footer line */
     .selector-footer {
       padding: 1rem 3rem;
       font-size: 0.65rem;
-      color: rgba(0,0,0,0.2);
+      color: rgba(0,0,0,0.3);
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      border-top: 1px solid rgba(0,0,0,0.06);
+      border-top: 1px solid rgba(0,0,0,0.08);
       max-width: 1400px;
       margin: 0 auto;
       width: 100%;
