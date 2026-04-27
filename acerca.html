@@ -3,16 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>dataDesk · Acerca de mí</title>
+  <title>Jorge Ramírez · Acerca de mí</title>
   <link rel="stylesheet" href="styles.css">
   <style>
     body {
-      background: var(--blue-deep);
+      background: #152b17;
       color: var(--white);
       height: 100vh;
       display: flex;
       flex-direction: column;
+      position: relative;
     }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 88% 12%, rgba(210,170,0,0.11) 0%, transparent 48%),
+        radial-gradient(circle at 12% 88%, rgba(170,35,25,0.09) 0%, transparent 44%);
+      pointer-events: none;
+    }
+
+    .site-nav {
+      background: rgba(16, 38, 18, 0.97);
+      border-bottom-color: rgba(100,160,100,0.15);
+    }
+    .nav-brand { color: var(--white); text-transform: none !important; letter-spacing: 0.03em !important; }
+    .nav-brand span { color: rgba(127,181,100,0.9); }
+    .nav-links { display: none; }
 
     .acerca-wrap {
       flex: 1;
@@ -22,6 +41,8 @@
       align-items: center;
       text-align: center;
       padding: 5rem 2rem 2rem;
+      position: relative;
+      z-index: 1;
     }
 
     .acerca-label {
@@ -29,7 +50,7 @@
       font-weight: 600;
       letter-spacing: 0.4em;
       text-transform: uppercase;
-      color: var(--blue-accent);
+      color: rgba(127,181,100,0.7);
       margin-bottom: 2rem;
     }
 
@@ -44,12 +65,12 @@
 
     .acerca-title em {
       font-style: italic;
-      color: rgba(255,255,255,0.25);
+      color: rgba(210,170,0,0.45);
     }
 
     .acerca-sub {
       font-size: 0.8rem;
-      color: rgba(255,255,255,0.25);
+      color: rgba(255,255,255,0.2);
       letter-spacing: 0.15em;
       text-transform: uppercase;
     }
@@ -63,18 +84,18 @@
       font-weight: 600;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.3);
+      color: rgba(127,181,100,0.4);
       text-decoration: none;
       transition: color 0.2s;
     }
 
-    .back-link:hover { color: var(--white); }
+    .back-link:hover { color: rgba(127,181,100,0.9); }
   </style>
 </head>
 <body>
 
   <nav class="site-nav">
-    <a href="index.html" class="nav-brand">data<span>Desk</span></a>
+    <a href="index.html" class="nav-brand">Jorge Ramírez</a>
     <ul class="nav-links">
       <li><a href="restaurantes.html">Restaurantes</a></li>
       <li><a href="jorgeramirez/index.html">Mi trabajo</a></li>
@@ -83,7 +104,7 @@
   </nav>
 
   <div class="acerca-wrap">
-    <p class="acerca-label">Jorge Ramírez · dataDesk</p>
+    <p class="acerca-label">Jorge Ramírez</p>
     <h1 class="acerca-title">En<br><em>construcción.</em></h1>
     <p class="acerca-sub">Próximamente</p>
     <a href="index.html" class="back-link">← Volver al inicio</a>
