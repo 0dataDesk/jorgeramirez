@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="styles.css">
   <style>
     body {
-      background: var(--white);
+      background: #f0f4f8;
       color: var(--ink);
       height: 100vh;
       overflow: hidden;
@@ -27,12 +27,13 @@
 
     /* Nav override para fondo claro */
     .site-nav {
-      background: rgba(255,255,255,0.97);
+      background: rgba(240,244,248,0.97);
       border-bottom: 1px solid rgba(0,0,0,0.06);
     }
-    .nav-brand { color: var(--blue-deep); }
+    .nav-brand { color: var(--blue-deep); text-transform: none; letter-spacing: 0.03em; }
     .nav-brand span { color: var(--blue-accent); }
     .nav-links { display: none; }
+    .brand-inline { text-transform: none; letter-spacing: 0.04em; font-weight: 700; }
 
     .selector-wrap {
       flex: 1;
@@ -87,7 +88,7 @@
       display: grid;
       grid-template-columns: 5fr 4fr 1fr;
       gap: 1rem;
-      height: 52vh;
+      height: 44vh;
       min-height: 320px;
     }
 
@@ -121,23 +122,35 @@
     /* Card 2 — Mi trabajo */
     .card-trabajo {
       background: linear-gradient(160deg, #1a3a6b 0%, #0d2040 100%);
-      border: 1px solid rgba(74,144,217,0.15);
+      border: 1px solid rgba(74,144,217,0.2);
     }
 
     .card-trabajo::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 70% 30%, rgba(74,144,217,0.15) 0%, transparent 50%);
+      background:
+        radial-gradient(circle at 78% 12%, rgba(74,144,217,0.28) 0%, transparent 45%),
+        radial-gradient(circle at 15% 80%, rgba(76,175,130,0.18) 0%, transparent 40%),
+        radial-gradient(circle at 50% 100%, rgba(196,96,58,0.12) 0%, transparent 40%);
     }
 
     /* Card 3 — Acerca de mí */
     .card-acerca {
-      background: #111827;
-      border: 1px solid rgba(255,255,255,0.06);
+      background: linear-gradient(160deg, #1b3d20 0%, #0d2211 100%);
+      border: 1px solid rgba(76,175,82,0.2);
       justify-content: center;
       align-items: center;
       padding: 1.5rem 1rem;
+    }
+
+    .card-acerca::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 80% 10%, rgba(212,175,0,0.15) 0%, transparent 45%),
+        radial-gradient(circle at 20% 90%, rgba(180,30,20,0.12) 0%, transparent 40%);
     }
 
     .card-content {
@@ -250,7 +263,7 @@
   <div class="selector-wrap">
 
     <div class="selector-header">
-      <p class="selector-eyebrow">Jorge Ramírez by dataDesk</p>
+      <p class="selector-eyebrow">Jorge Ramírez · <span class="brand-inline">dataDesk</span></p>
       <h1 class="selector-title">Inteligencia de negocio.<br><em>Elige por dónde entrar.</em></h1>
       <p class="selector-sub">Convierte datos en decisiones.</p>
     </div>
