@@ -563,9 +563,12 @@
       color: rgba(255,255,255,0.2);
     }
 
+    /* ── Tablet ── */
     @media (max-width: 900px) {
       section { padding: 4rem 2rem; }
       .hero { padding: 7rem 2rem 3rem; }
+      .hero-stats { max-width: 100%; }
+      .hero-stat { padding-right: 1.5rem; margin-right: 1.5rem; }
       .problema-grid,
       .estandar-inner,
       .dif-grid,
@@ -574,6 +577,38 @@
       .bloque.resultado { grid-column: span 2; }
       .cta-section { padding: 4rem 2rem; }
       .page-footer { padding: 1.5rem 2rem; flex-direction: column; gap: 0.5rem; }
+    }
+
+    /* ── Móvil ── */
+    @media (max-width: 560px) {
+      section { padding: 3rem 1.25rem; }
+      .hero { padding: 5.5rem 1.25rem 2.5rem; }
+
+      .hero-stats {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .hero-stat {
+        padding-right: 0;
+        margin-right: 0;
+        border-right: none;
+        border-bottom: 1px solid rgba(127,181,168,0.2);
+        padding-bottom: 1.25rem;
+        margin-bottom: 1.25rem;
+      }
+      .hero-stat:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+      .stat-num { font-size: 2.4rem; }
+
+      .bloques { grid-template-columns: 1fr; }
+      .bloque.resultado { grid-column: span 1; display: block; }
+
+      .kpi-grid { grid-template-columns: 1fr; }
+      .kpi.prime { grid-column: span 1; }
+
+      .comp-col { padding: 1.75rem 1.25rem; }
+
+      .cta-section { padding: 3rem 1.25rem; }
+      .page-footer { padding: 1.25rem; }
     }
 
     .site-nav { background: rgba(30,60,45,0.97) !important; border-bottom-color: rgba(127,181,168,0.2) !important; }
