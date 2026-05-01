@@ -62,25 +62,31 @@
 
     .selector-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.6rem, 5vw, 4.4rem);
+      font-size: clamp(3rem, 5.5vw, 5rem);
       font-weight: 500;
-      line-height: 1.1;
+      line-height: 1.05;
       color: var(--blue-deep);
       letter-spacing: -0.01em;
     }
 
-    .selector-title em {
-      font-style: italic;
-      font-weight: 400;
-      color: var(--blue-accent);
+    .selector-title::after {
+      content: '';
+      display: block;
+      width: 36px;
+      height: 2px;
+      background: var(--green-mid);
+      margin-top: 1.2rem;
     }
 
     .selector-sub {
-      margin-top: 1rem;
-      font-size: 1rem;
+      margin-top: 1.1rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.2rem, 2vw, 1.5rem);
+      font-style: italic;
+      font-weight: 300;
       color: var(--ink-soft);
-      font-weight: 400;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.01em;
+      line-height: 1.3;
     }
 
     /* CARDS */
