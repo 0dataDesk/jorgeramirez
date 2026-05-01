@@ -622,22 +622,73 @@
       --paper-warm: #f3ede2;
     }
 
-    /* Cocina + Barra — bloque doble */
+    /* Anécdotas operativas */
+    .anecdota {
+      border-left: 3px solid var(--terracotta);
+      background: var(--paper-warm);
+      padding: 1.25rem 1.5rem;
+      margin: 1.75rem 0;
+    }
+    .anecdota-label {
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+    .anecdota p { font-size: 0.88rem; line-height: 1.7; color: var(--ink-soft); margin: 0; }
+
+    /* Cocina + Barra — bloque doble rediseñado */
     .bloque-par {
       grid-column: span 2;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      padding: 0;
-      background: none;
-      border-top: none;
-    }
-    .bloque-sub {
+      display: flex;
+      flex-direction: column;
       background: var(--paper-warm);
       border-top: 2px solid var(--green);
+      padding: 0;
+    }
+    .bloque-par-header {
+      background: var(--green);
+      padding: 0.85rem 1.5rem;
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .bloque-par-header-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--terracotta-soft);
+    }
+    .bloque-par-header-title {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--paper);
+    }
+    .bloque-par-header-note {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.8rem;
+      color: rgba(245,240,232,0.5);
+      margin-left: auto;
+    }
+    .bloque-par-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      flex: 1;
+    }
+    .bloque-sub {
       padding: 1.5rem;
     }
     .bloque-sub:first-child { border-right: 1px solid var(--line); }
+
+    /* Transformación — "antes" con fondo blanco */
+    .comp-col { background: var(--white); }
 
     /* Bloque informativo USAR */
     .usar-info {
@@ -662,10 +713,13 @@
     }
 
     @media (max-width: 900px) {
-      .bloque-par { grid-column: span 2; grid-template-columns: 1fr 1fr; }
+      .bloque-par { grid-column: span 2; }
+      .bloque-par-body { grid-template-columns: 1fr 1fr; }
+      .bloque-par-header-note { display: none; }
     }
     @media (max-width: 560px) {
-      .bloque-par { grid-column: span 1; grid-template-columns: 1fr; }
+      .bloque-par { grid-column: span 1; }
+      .bloque-par-body { grid-template-columns: 1fr; }
       .bloque-sub:first-child { border-right: none; border-bottom: 1px solid var(--line); }
     }
   </style>
@@ -711,8 +765,17 @@
 
     <div class="problema-text">
       <p>El equipo que opera un restaurante toma decisiones con información que llega tarde, fragmentada y sin contexto. No porque no exista — sino porque nadie la consolida.</p>
-      <p>El inventario se levanta en papel. Alguien lo fotografía y lo manda por WhatsApp. Otra persona lo transcribe a un Excel. Dos o tres archivos más para cruzar compras, merma y existencias — y la lista de la semana ya tiene varios intermediarios y la misma posibilidad de error en cada paso.</p>
-      <p>La lista de precios del proveedor vive en el WhatsApp del contador. Cuando alguien la necesita, él va a buscarla en su carpeta. No la encuentra. Revisa el correo. Termina llamando al proveedor para que la reenvíe. Eso es el flujo de información de un solo insumo, en un solo día.</p>
+
+      <div class="anecdota">
+        <span class="anecdota-label">Inventario</span>
+        <p>Se levanta en papel. Alguien lo fotografía y lo manda por WhatsApp. Otra persona lo transcribe a un Excel. Dos o tres archivos más para cruzar compras, merma y existencias — y la lista de la semana ya tiene varios intermediarios y la misma posibilidad de error en cada paso.</p>
+      </div>
+
+      <div class="anecdota">
+        <span class="anecdota-label">Lista de precios del proveedor</span>
+        <p>Vive en el WhatsApp del contador. Cuando alguien la necesita, él va a buscarla en su carpeta. No la encuentra. Revisa el correo. Termina llamando al proveedor para que la reenvíe. Eso es el flujo de información de un solo insumo, en un solo día.</p>
+      </div>
+
       <p>Lo mismo ocurre con la nómina, el flujo de caja, las ventas por turno, el corte diario. Cada área genera su propio registro, en su propio formato, con su propio criterio. <strong>La información ya se genera — el problema no es la falta de datos. Es que viven dispersos, sin posibilidad de cruzarse.</strong></p>
       <p>El valor está en ese espacio: consolidar lo que ya existe, ordenarlo bajo una misma estructura y devolverlo en forma de indicadores. Y cuando además simplificamos la captura — automatizando lo que hoy pasa por tres intermediarios — el equipo recupera tiempo que puede dedicar a operar mejor, no a administrar archivos.</p>
     </div>
@@ -801,16 +864,23 @@
         <div class="bloque-name">La Venta</div>
         <p class="bloque-desc">El punto de venta como fuente de todo. Lo que se vendió, cuándo, cómo.</p>
       </div>
-      <div class="bloque bloque-par">
-        <div class="bloque-sub">
-          <span class="bloque-num">02</span>
-          <div class="bloque-name">La Cocina</div>
-          <p class="bloque-desc">Insumos, recetas, inventario, merma. El corazón del food cost.</p>
+      <div class="bloque-par">
+        <div class="bloque-par-header">
+          <span class="bloque-par-header-num">02 · 03</span>
+          <span class="bloque-par-header-title">La Cocina & La Barra</span>
+          <span class="bloque-par-header-note">Insumo y producto, bajo el mismo estándar</span>
         </div>
-        <div class="bloque-sub">
-          <span class="bloque-num">03</span>
-          <div class="bloque-name">La Barra</div>
-          <p class="bloque-desc">El mismo rigor aplicado a bebidas. Beverage cost propio.</p>
+        <div class="bloque-par-body">
+          <div class="bloque-sub">
+            <span class="bloque-num">02</span>
+            <div class="bloque-name">La Cocina</div>
+            <p class="bloque-desc">Insumos, recetas, inventario, merma. El corazón del food cost.</p>
+          </div>
+          <div class="bloque-sub">
+            <span class="bloque-num">03</span>
+            <div class="bloque-name">La Barra</div>
+            <p class="bloque-desc">El mismo rigor aplicado a bebidas. Beverage cost propio.</p>
+          </div>
         </div>
       </div>
       <div class="bloque">
