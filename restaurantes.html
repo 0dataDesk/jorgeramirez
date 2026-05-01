@@ -615,6 +615,59 @@
     .nav-brand { text-transform: none !important; letter-spacing: 0.03em !important; }
     .nav-links { display: none; }
     .brand-inline { text-transform: none; letter-spacing: 0.04em; font-weight: 700; }
+
+    /* Fondos más claros */
+    :root {
+      --paper: #faf7f2;
+      --paper-warm: #f3ede2;
+    }
+
+    /* Cocina + Barra — bloque doble */
+    .bloque-par {
+      grid-column: span 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      padding: 0;
+      background: none;
+      border-top: none;
+    }
+    .bloque-sub {
+      background: var(--paper-warm);
+      border-top: 2px solid var(--green);
+      padding: 1.5rem;
+    }
+    .bloque-sub:first-child { border-right: 1px solid var(--line); }
+
+    /* Bloque informativo USAR */
+    .usar-info {
+      margin-top: 2rem;
+      padding: 1.25rem 1.5rem;
+      border-left: 2px solid var(--terracotta);
+      background: var(--paper);
+    }
+    .usar-info-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+    .usar-info p {
+      font-size: 0.8rem;
+      line-height: 1.65;
+      color: var(--ink-soft);
+    }
+
+    @media (max-width: 900px) {
+      .bloque-par { grid-column: span 2; grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      .bloque-par { grid-column: span 1; grid-template-columns: 1fr; }
+      .bloque-sub:first-child { border-right: none; border-bottom: 1px solid var(--line); }
+    }
   </style>
 </head>
 <body>
@@ -630,9 +683,8 @@
 
   <!-- HERO -->
   <section class="hero">
-    <p class="hero-eyebrow"><span class="brand-inline">dataDesk</span> · Restaurantes</p>
-    <h1 class="hero-title">Tu restaurante ya<br>opera con datos.<br><em>Solo que nadie los lee.</em></h1>
-    <p class="hero-sub">El problema no es la falta de información — es que vive dispersa en veinte lugares distintos y nadie la consolida.</p>
+    <h1 class="hero-title">Tu restaurante<br>ya genera<br><em>sus propios datos.</em></h1>
+    <p class="hero-sub">La información está ahí — en el POS, en las facturas, en la nómina, en el inventario. La pregunta es si está trabajando para ti.</p>
 
     <div class="hero-stats">
       <div class="hero-stat">
@@ -648,7 +700,7 @@
         <span class="stat-label">Umbral de prime cost<br>para ser rentable</span>
       </div>
     </div>
-    <p class="hero-note">En márgenes así, operar a ciegas no es ineficiencia — es el camino directo a la quiebra.</p>
+    <p class="hero-note">Estos son los indicadores de la industria. ¿Sabes dónde están los tuyos? ¿Cómo se ubica tu operación frente al mercado?</p>
   </section>
 
   <!-- EL PROBLEMA -->
@@ -657,18 +709,12 @@
     <h2 class="section-title">El operador<br><em>a ciegas</em></h2>
     <hr class="divider">
 
-    <div class="problema-grid">
-      <div class="problema-text">
-        <p>El dueño de un restaurante toma decisiones con información que llega <strong>tarde, dispersa y sin contraste</strong> contra su propia industria. Opera sobre sensaciones porque los datos no llegan a tiempo ni en forma.</p>
-        <p>La información existe — está generándose todo el día. Está en el reporte Z del POS al cierre, en la libreta del chef, en las facturas por correo, en el corte de caja, en el recibo de nómina.</p>
-        <p><strong>El problema no es la falta de datos: es que viven en veinte lugares distintos, en veinte formatos distintos, y nadie los consolida.</strong></p>
-        <p>El dueño se entera cómo cerró marzo el 15 de abril. Sabe qué platillo se vende más pero no cuál le deja más margen. Cree que su food cost está controlado, pero nunca lo ha medido con precisión.</p>
-      </div>
-
-      <div class="problema-callout">
-        <p>La diferencia entre un restaurante que crece y uno que cierra está en la capacidad del operador para ver su negocio en tiempo real, contra estándares reconocidos y con datos que no se discuten.</p>
-        <p class="problema-callout-attr"><span class="brand-inline">dataDesk</span> · Principio operativo</p>
-      </div>
+    <div class="problema-text">
+      <p>El equipo que opera un restaurante toma decisiones con información que llega tarde, fragmentada y sin contexto. No porque no exista — sino porque nadie la consolida.</p>
+      <p>El inventario se levanta en papel. Alguien lo fotografía y lo manda por WhatsApp. Otra persona lo transcribe a un Excel. Dos o tres archivos más para cruzar compras, merma y existencias — y la lista de la semana ya tiene varios intermediarios y la misma posibilidad de error en cada paso.</p>
+      <p>La lista de precios del proveedor vive en el WhatsApp del contador. Cuando alguien la necesita, él va a buscarla en su carpeta. No la encuentra. Revisa el correo. Termina llamando al proveedor para que la reenvíe. Eso es el flujo de información de un solo insumo, en un solo día.</p>
+      <p>Lo mismo ocurre con la nómina, el flujo de caja, las ventas por turno, el corte diario. Cada área genera su propio registro, en su propio formato, con su propio criterio. <strong>La información ya se genera — el problema no es la falta de datos. Es que viven dispersos, sin posibilidad de cruzarse.</strong></p>
+      <p>El valor está en ese espacio: consolidar lo que ya existe, ordenarlo bajo una misma estructura y devolverlo en forma de indicadores. Y cuando además simplificamos la captura — automatizando lo que hoy pasa por tres intermediarios — el equipo recupera tiempo que puede dedicar a operar mejor, no a administrar archivos.</p>
     </div>
   </section>
 
@@ -681,8 +727,12 @@
     <div class="estandar-inner">
       <div class="estandar-text">
         <p class="section-lead">Uniform System of Accounts for Restaurants — el marco financiero y operativo que la industria restaurantera mundial adoptó hace casi un siglo.</p>
-        <p>Su propósito: que cualquier restaurante, sin importar su tamaño o concepto, pueda organizar su información bajo una misma estructura. Esto permite comparar peras con peras — un bistró de cuarenta comensales contra el benchmark de la industria, con la misma precisión que una cadena de cien unidades.</p>
-        <p>dataDesk trabaja sobre este estándar. No inventamos la métrica — la aplicamos con rigor a la operación real de cada casa.</p>
+        <p>Su propósito es que cualquier operación, sin importar su tamaño o concepto, pueda organizar su información bajo una misma estructura. Esto permite calibrar el negocio contra el mercado con el mismo rigor que usa una cadena internacional — sin importar si tienes cuarenta comensales o cuatrocientos.</p>
+        <p>No es nuestra propuesta. Es el estándar que la industria ya validó. Lo adoptamos porque garantiza que el análisis sea comparable, justificable y reproducible. El aplicativo se construye para leer la data de cada operación y tratarla según este marco — independientemente del modelo de negocio.</p>
+        <div class="usar-info">
+          <span class="usar-info-label">Sobre el USAR</span>
+          <p>El Uniform System of Accounts for Restaurants fue desarrollado por la National Restaurant Association de Estados Unidos, con primera edición en 1927. Es mantenido actualmente por la Hospitality Financial and Technology Professionals (HFTP) y es el estándar de referencia contable y operativo para la industria restaurantera a nivel mundial.</p>
+        </div>
       </div>
 
       <div>
@@ -722,18 +772,18 @@
     <div class="dif-grid">
       <div class="dif-item">
         <div class="dif-num">01</div>
-        <div class="dif-title">El sistema se adapta a ti</div>
-        <p class="dif-text">No te pedimos que cambies cómo trabajas. La información que hoy se genera en papel, en mensaje, en correo — esa misma información entra al sistema por canales normalizados.</p>
+        <div class="dif-title">Las prácticas cambian, el negocio no se detiene</div>
+        <p class="dif-text">Lo que desaparece son los pasos que no agregan valor: el inventario en papel, la foto por WhatsApp, el Excel intermediario, el ir y venir para conseguir una lista de precios. El mismo resultado, con menos fricción y menos margen de error.</p>
       </div>
       <div class="dif-item">
         <div class="dif-num">02</div>
-        <div class="dif-title">Tu equipo no cambia</div>
-        <p class="dif-text">No reemplazamos a nadie. Todo restaurante ya tiene a alguien capturando facturas, contando inventario, cuadrando caja. Solo les cambiamos el formato del registro.</p>
+        <div class="dif-title">Tu equipo no cambia, cambian las prácticas</div>
+        <p class="dif-text">La misma persona que hoy captura una factura en una hoja lo hace en un formulario estructurado. El mismo encargado que revisa inventario lo hace con una herramienta que ya sabe cómo procesar lo que registra. El equipo evoluciona sin cambiar.</p>
       </div>
       <div class="dif-item">
         <div class="dif-num">03</div>
-        <div class="dif-title">La operación se mantiene</div>
-        <p class="dif-text">Lo que cambia es la visibilidad. El resultado es un sistema que respeta el conocimiento del operador, reduce la fricción del cambio y devuelve información ordenada bajo un estándar reconocido.</p>
+        <div class="dif-title">La operación gana claridad</div>
+        <p class="dif-text">Menos tiempo consolidando, corrigiendo, preguntando. Más tiempo operando con certeza. Una operación que entiende su propia data — y un equipo cuyas funciones apuntan al desarrollo del negocio, no a la administración de archivos.</p>
       </div>
     </div>
   </section>
@@ -751,15 +801,17 @@
         <div class="bloque-name">La Venta</div>
         <p class="bloque-desc">El punto de venta como fuente de todo. Lo que se vendió, cuándo, cómo.</p>
       </div>
-      <div class="bloque">
-        <span class="bloque-num">02</span>
-        <div class="bloque-name">La Cocina</div>
-        <p class="bloque-desc">Insumos, recetas, inventario, merma. El corazón del food cost.</p>
-      </div>
-      <div class="bloque">
-        <span class="bloque-num">03</span>
-        <div class="bloque-name">La Barra</div>
-        <p class="bloque-desc">El mismo rigor aplicado a bebidas. Beverage cost propio.</p>
+      <div class="bloque bloque-par">
+        <div class="bloque-sub">
+          <span class="bloque-num">02</span>
+          <div class="bloque-name">La Cocina</div>
+          <p class="bloque-desc">Insumos, recetas, inventario, merma. El corazón del food cost.</p>
+        </div>
+        <div class="bloque-sub">
+          <span class="bloque-num">03</span>
+          <div class="bloque-name">La Barra</div>
+          <p class="bloque-desc">El mismo rigor aplicado a bebidas. Beverage cost propio.</p>
+        </div>
       </div>
       <div class="bloque">
         <span class="bloque-num">04</span>
@@ -781,7 +833,7 @@
           <span class="bloque-num">07</span>
           <div class="bloque-name">El Resultado</div>
         </div>
-        <p class="bloque-desc">Los seis bloques anteriores alimentan un dashboard ejecutivo con los indicadores USAR vivos, contra benchmark de industria, accesible desde cualquier dispositivo. Este es el entregable — no el proceso, sino la visibilidad.</p>
+        <p class="bloque-desc">Los seis bloques convergen en una solución de visualización en tiempo real. Tu operación, organizada bajo el estándar USAR y accesible desde cualquier dispositivo — indicadores vivos, comparados contra el benchmark de la industria. El entregable no es un reporte: es tu negocio legible, siempre disponible.</p>
       </div>
     </div>
   </section>
@@ -797,23 +849,23 @@
         <div class="comp-header">Antes de <span class="brand-inline">dataDesk</span></div>
         <div class="comp-item">
           <span class="comp-icon">—</span>
-          <p class="comp-item-text">Te enteras cómo cerró el mes cuando ya pasaron dos semanas.</p>
+          <p class="comp-item-text">El cierre del mes llega cuando ya pasaron dos semanas — información correcta, pero fuera de tiempo.</p>
         </div>
         <div class="comp-item">
           <span class="comp-icon">—</span>
-          <p class="comp-item-text">Sabes qué platillo se vende más, pero no cuál te deja más margen.</p>
+          <p class="comp-item-text">Los datos de costos existen, pero cruzarlos requiere tiempo o queda pendiente para cuando haya oportunidad.</p>
         </div>
         <div class="comp-item">
           <span class="comp-icon">—</span>
-          <p class="comp-item-text">Tu food cost es una estimación. Nunca lo has medido con precisión.</p>
+          <p class="comp-item-text">El food cost se calcula cuando alguien tiene el espacio para sentarse a los números.</p>
         </div>
         <div class="comp-item">
           <span class="comp-icon">—</span>
-          <p class="comp-item-text">No tienes contra qué comparar tu negocio. Operas a ciegas.</p>
+          <p class="comp-item-text">No hay un referente externo para saber si los números son buenos o tienen margen de mejora.</p>
         </div>
         <div class="comp-item">
           <span class="comp-icon">—</span>
-          <p class="comp-item-text">La información existe, pero vive dispersa en papel, WhatsApp y Excel.</p>
+          <p class="comp-item-text">La información está disponible — en papel, en WhatsApp, en Excel — pero no consolidada.</p>
         </div>
       </div>
 
