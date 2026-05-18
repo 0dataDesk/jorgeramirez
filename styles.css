@@ -19,6 +19,7 @@
   --blue-accent: #4a90d9;
   --white: #ffffff;
   --off-white: #f0f4f8;
+  --orange: #e67e22;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }

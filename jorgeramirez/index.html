@@ -315,42 +315,27 @@
 
     .propuesta-cta:hover { color: #5dce99; }
 
-    /* ===== VALIDADO EN OPERACIÓN ===== */
+    /* ===== TRAYECTORIA ===== */
     .validado {
       background: var(--off-white);
     }
 
-    .validado-metricas {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      margin: 2.5rem 0;
-      padding-bottom: 2.5rem;
-      border-bottom: 1px solid var(--gray-light);
+    .validado .section-label { color: var(--orange); }
+
+    .validado-text p {
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: var(--gray);
+      max-width: 580px;
+      margin-bottom: 1.2rem;
     }
 
-    .metrica-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.5rem, 5vw, 4rem);
+    .validado-origen {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
       font-style: italic;
       color: var(--navy);
-      line-height: 1;
-      margin-bottom: 0.4rem;
-    }
-
-    .metrica-sub {
-      font-size: 0.62rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gray);
-    }
-
-    .validado-text {
-      font-size: 0.9rem;
-      line-height: 1.8;
-      color: var(--gray);
-      max-width: 600px;
+      margin-top: 0.5rem;
     }
 
     /* ===== CÓMO TRABAJO ===== */
@@ -432,13 +417,15 @@
       color: rgba(255,255,255,0.2);
     }
 
+    .como-trabajo .divider { background: var(--orange); }
+    .contacto .divider { background: var(--orange); }
+
     @media (max-width: 900px) {
       .hero { padding: 7rem 2rem 3.5rem; }
       section { padding: 3.5rem 2rem; }
       .diag-grid { grid-template-columns: 1fr; }
       .pasos { grid-template-columns: 1fr 1fr; }
       .propuestas-grid { grid-template-columns: 1fr; }
-      .validado-metricas { grid-template-columns: 1fr 1fr; }
       .contacto { padding: 3.5rem 2rem; }
       .footer { padding: 1.5rem 2rem; flex-direction: column; gap: 0.5rem; }
       .hero-ctas { flex-direction: column; }
@@ -446,7 +433,6 @@
 
     @media (max-width: 560px) {
       .pasos { grid-template-columns: 1fr; }
-      .validado-metricas { grid-template-columns: 1fr; }
     }
 
     .nav-brand { text-transform: none !important; letter-spacing: 0.03em !important; }
@@ -542,28 +528,16 @@
     </div>
   </section>
 
-  <!-- VALIDADO EN OPERACIÓN -->
+  <!-- TRAYECTORIA -->
   <section class="validado">
     <span class="section-label fade-in">Trayectoria</span>
-    <h2 class="section-title fade-in">Construido en campo,<br><em>probado en operación real.</em></h2>
+    <h2 class="section-title fade-in">15 años en operación<br><em>antes de construir esto.</em></h2>
     <hr class="divider fade-in">
-
-    <div class="validado-metricas fade-in">
-      <div>
-        <div class="metrica-num">+32,000</div>
-        <div class="metrica-sub">Registros procesados · En operación continua</div>
-      </div>
-      <div>
-        <div class="metrica-num">10+</div>
-        <div class="metrica-sub">Meses · Tiempo de implementación activa</div>
-      </div>
-      <div>
-        <div class="metrica-num">Rest.</div>
-        <div class="metrica-sub">Industria restaurantera · Vertical de especialización</div>
-      </div>
+    <div class="validado-text fade-in">
+      <p>Desarrollé mi carrera en la parte más dura de las organizaciones — nómina, compensaciones, estructura, administración de personal — en sectores como el farmacéutico, el asegurador y el retail.</p>
+      <p>Siempre me preocupé más por eficientar los procesos que por cumplir las responsabilidades. Esa obsesión llegó a un punto: los sistemas de información que necesitaba para decidir bien no existían, o nadie los había construido de forma que realmente se usaran.</p>
+      <p class="validado-origen">Ahí está el origen de dataDesk.</p>
     </div>
-
-    <p class="validado-text fade-in">El sistema no es un prototipo. Está corriendo hoy en una operación real — generando reportes, procesando transacciones y produciendo los indicadores que el equipo usa para decidir semana a semana.</p>
   </section>
 
   <!-- CÓMO TRABAJO -->

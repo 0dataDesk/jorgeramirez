@@ -370,63 +370,6 @@
       flex: 1;
     }
 
-    /* ===== KPIs USAR (comprimido) ===== */
-    .numeros {
-      background: var(--paper-warm);
-    }
-
-    .kpi-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.75rem;
-      margin-top: 1rem;
-    }
-
-    .kpi {
-      background: var(--paper);
-      border-left: 2px solid var(--terracotta);
-      padding: 1.25rem 1.5rem;
-    }
-
-    .kpi.prime {
-      background: var(--green);
-      border-left-color: var(--terracotta);
-      grid-column: span 2;
-    }
-
-    .kpi-label {
-      font-size: 0.62rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--green);
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-
-    .kpi.prime .kpi-label { color: var(--green-soft); }
-
-    .kpi-value {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
-      font-weight: 500;
-      color: var(--ink);
-      line-height: 1;
-      margin-bottom: 0.4rem;
-    }
-
-    .kpi.prime .kpi-value {
-      color: var(--paper);
-      font-size: 2.5rem;
-    }
-
-    .kpi-desc {
-      font-size: 0.78rem;
-      color: var(--ink-soft);
-      line-height: 1.5;
-    }
-
-    .kpi.prime .kpi-desc { color: var(--paper-warm); }
-
     /* ===== ANTES / DESPUÉS (comprimido) ===== */
     .comparacion {
       background: var(--paper-warm);
@@ -610,8 +553,24 @@
     .brand-inline { text-transform: none; letter-spacing: 0.04em; font-weight: 700; }
 
     :root {
+      --green: #3a5e4f;
       --paper: #faf7f2;
       --paper-warm: #f3ede2;
+    }
+
+    .hero {
+      background: linear-gradient(160deg, #3a5e4f 0%, #2d4a3e 50%, #1e3328 100%);
+    }
+
+    .comparacion { padding-top: 6rem; }
+
+    .hero-note-fuente {
+      display: block;
+      margin-top: 0.4rem;
+      font-size: 0.62rem;
+      color: rgba(127,181,168,0.3);
+      font-style: normal;
+      letter-spacing: 0.1em;
     }
   </style>
 </head>
@@ -645,7 +604,10 @@
         <span class="stat-label">Umbral de prime cost<br>para ser rentable</span>
       </div>
     </div>
-    <p class="hero-note">Estos son los indicadores de la industria. ¿Sabes dónde están los tuyos?</p>
+    <p class="hero-note">
+      Estos son los indicadores de la industria. ¿Sabes dónde están los tuyos?
+      <span class="hero-note-fuente">· Fuente: NRA Restaurant Operations Data Abstract, 2025</span>
+    </p>
   </section>
 
   <!-- EL PROBLEMA (comprimido) -->
@@ -744,39 +706,9 @@
     </div>
   </section>
 
-  <!-- LOS NÚMEROS (comprimido) -->
-  <section class="numeros fade-in">
-    <span class="section-label">04 · Los indicadores</span>
-    <h2 class="section-title">Lo que mide la industria.<br><em>Lo que mediremos juntos.</em></h2>
-    <hr class="divider">
-
-    <div class="kpi-grid">
-      <div class="kpi">
-        <div class="kpi-label">Food Cost</div>
-        <div class="kpi-value">28–35%</div>
-        <div class="kpi-desc">Costo de cocina sobre ventas de alimentos.</div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-label">Beverage Cost</div>
-        <div class="kpi-value">18–24%</div>
-        <div class="kpi-desc">Costo de barra sobre ventas de bebidas.</div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-label">Labor Cost</div>
-        <div class="kpi-value">30–35%</div>
-        <div class="kpi-desc">Nómina total sobre ventas.</div>
-      </div>
-      <div class="kpi prime">
-        <div class="kpi-label">Prime Cost · el indicador rey</div>
-        <div class="kpi-value">&lt; 60%</div>
-        <div class="kpi-desc">Food + Beverage + Labor sobre ventas. Por encima de este umbral, la rentabilidad es matemáticamente imposible.</div>
-      </div>
-    </div>
-  </section>
-
   <!-- ANTES / DESPUÉS (comprimido) -->
   <section class="comparacion fade-in">
-    <span class="section-label">05 · La transformación</span>
+    <span class="section-label">04 · La transformación</span>
     <h2 class="section-title">La operación no cambia.<br><em>La visibilidad sí.</em></h2>
     <hr class="divider">
 
