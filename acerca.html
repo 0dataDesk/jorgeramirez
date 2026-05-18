@@ -9,7 +9,7 @@
     body {
       background: #152b17;
       color: var(--white);
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       position: relative;
@@ -38,11 +38,10 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 5rem 2rem 2rem;
+      padding: 7rem 6rem 4rem;
       position: relative;
       z-index: 1;
+      max-width: 860px;
     }
 
     .acerca-label {
@@ -51,32 +50,57 @@
       letter-spacing: 0.4em;
       text-transform: uppercase;
       color: rgba(127,181,100,0.7);
-      margin-bottom: 2rem;
-    }
-
-    .acerca-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.5rem, 6vw, 5rem);
-      font-weight: 300;
-      color: var(--white);
-      line-height: 1.1;
       margin-bottom: 1.5rem;
     }
 
-    .acerca-title em {
-      font-style: italic;
-      color: rgba(210,170,0,0.45);
+    .acerca-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.05;
+      margin-bottom: 2.5rem;
     }
 
-    .acerca-sub {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.2);
+    .acerca-body {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-bottom: 3rem;
+    }
+
+    .acerca-body p {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.55);
+      max-width: 540px;
+    }
+
+    .acerca-body p.dim {
+      font-style: italic;
+      color: rgba(255,255,255,0.28);
+    }
+
+    .acerca-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: rgba(196,96,58,0.85);
+      color: var(--white);
+      text-decoration: none;
+      padding: 0.9rem 2rem;
+      font-size: 0.75rem;
+      font-weight: 600;
       letter-spacing: 0.15em;
       text-transform: uppercase;
+      transition: background 0.2s;
+      align-self: flex-start;
+      margin-bottom: 2rem;
     }
 
+    .acerca-btn:hover { background: rgba(196,96,58,1); }
+
     .back-link {
-      margin-top: 3rem;
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
@@ -84,18 +108,23 @@
       font-weight: 600;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: rgba(127,181,100,0.4);
+      color: rgba(127,181,100,0.35);
       text-decoration: none;
       transition: color 0.2s;
+      align-self: flex-start;
     }
 
     .back-link:hover { color: rgba(127,181,100,0.9); }
+
+    @media (max-width: 768px) {
+      .acerca-wrap { padding: 6rem 1.5rem 3rem; }
+    }
   </style>
 </head>
 <body>
 
   <nav class="site-nav">
-    <a href="index.html" class="nav-brand">Jorge Ramírez</a>
+    <a href="index.html" class="nav-brand">Jorge Ramírez <span>by dataDesk</span></a>
     <ul class="nav-links">
       <li><a href="restaurantes.html">Restaurantes</a></li>
       <li><a href="jorgeramirez/index.html">Mi trabajo</a></li>
@@ -105,10 +134,25 @@
 
   <div class="acerca-wrap">
     <p class="acerca-label">Jorge Ramírez</p>
-    <h1 class="acerca-title">En<br><em>construcción.</em></h1>
-    <p class="acerca-sub">Próximamente</p>
+    <h1 class="acerca-name">Jorge Ramírez<br>Hernández</h1>
+
+    <div class="acerca-body">
+      <p>Fundador de dataDesk. Especialista en inteligencia de negocio y operaciones de datos para empresas en crecimiento.</p>
+      <p>Construyo sistemas que convierten la data que ya genera tu negocio en decisiones. El vertical de restaurantes es donde estamos hoy — y donde está el trabajo más avanzado.</p>
+      <p class="dim">La Ciudad de México es donde opero. El resto, próximamente.</p>
+    </div>
+
+    <a href="https://wa.me/525543183792" class="acerca-btn" target="_blank">Agendar por WhatsApp →</a>
+
     <a href="index.html" class="back-link">← Volver al inicio</a>
   </div>
+
+  <a href="https://wa.me/525543183792" class="wa-float" target="_blank" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.122 1.535 5.854L.057 23.215a.75.75 0 0 0 .921.921l5.361-1.478A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.714 9.714 0 0 1-5.003-1.384l-.36-.214-3.733 1.028 1.028-3.733-.214-.36A9.714 9.714 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/>
+    </svg>
+  </a>
 
   <script src="script.js"></script>
 </body>

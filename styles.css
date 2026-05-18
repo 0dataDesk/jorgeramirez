@@ -78,3 +78,36 @@ body {
 .nav-links a.active {
   color: var(--white);
 }
+
+/* ===== WHATSAPP FLOAT ===== */
+.wa-float {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 999;
+  width: 3rem;
+  height: 3rem;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.wa-float.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+.wa-float:hover {
+  transform: scale(1.08);
+  background: #20ba5a;
+}
+.wa-float svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  fill: white;
+}

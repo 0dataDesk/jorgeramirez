@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dataDesk · Restaurantes — Presentación</title>
+  <style>
+    /* ── Variables ── */
+    :root {
+      --verde: #2d4a3e;
+      --verde-mid: #4a7c6f;
+      --verde-soft: #7fb5a8;
+      --papel: #f5f0e8;
+      --papel-warm: #ebe4d6;
+      --terracotta: #c4603a;
+      --terracotta-soft: #e8a080;
+      --tinta: #1a2a28;
+      --tinta-soft: #3d4f4c;
+      --linea: #d4ccb9;
+      --blanco: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: var(--papel);
+      color: var(--tinta);
+      -webkit-font-smoothing: antialiased;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    /* ── Tipografía base ── */
+    .serif { font-family: Georgia, 'Times New Roman', serif; }
+
+    /* ── PORTADA ── */
+    .portada {
+      background: var(--verde);
+      padding: 4rem 4rem 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .portada::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 85% 15%, rgba(196,96,58,0.2) 0%, transparent 50%),
+        radial-gradient(circle at 15% 85%, rgba(127,181,168,0.1) 0%, transparent 45%);
+    }
+
+    .portada-inner { position: relative; z-index: 1; }
+
+    .portada-eyebrow {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--verde-soft);
+      margin-bottom: 1.5rem;
+    }
+
+    .portada-titulo {
+      font-family: Georgia, serif;
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      font-weight: normal;
+      line-height: 1.05;
+      color: var(--papel);
+      margin-bottom: 1.2rem;
+    }
+
+    .portada-titulo em {
+      font-style: italic;
+      color: var(--terracotta-soft);
+    }
+
+    .portada-tagline {
+      font-family: Georgia, serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      font-weight: normal;
+      color: rgba(245,240,232,0.55);
+      max-width: 500px;
+      line-height: 1.5;
+      margin-bottom: 2.5rem;
+    }
+
+    .portada-brand {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(127,181,168,0.6);
+      border-top: 1px solid rgba(127,181,168,0.2);
+      padding-top: 1.5rem;
+    }
+
+    /* ── BLOQUES GENERALES ── */
+    .bloque {
+      padding: 3.5rem 4rem;
+    }
+
+    .bloque-warm { background: var(--papel-warm); }
+    .bloque-verde { background: var(--verde); }
+    .bloque-blanco { background: var(--blanco); }
+
+    .bloque-label {
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .bloque-verde .bloque-label { color: var(--verde-soft); }
+
+    .bloque-titulo {
+      font-family: Georgia, serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+      font-weight: normal;
+      line-height: 1.1;
+      color: var(--verde);
+      margin-bottom: 1.5rem;
+    }
+
+    .bloque-verde .bloque-titulo { color: var(--papel); }
+
+    .bloque-titulo em {
+      font-style: italic;
+      color: var(--terracotta);
+    }
+
+    .bloque-verde .bloque-titulo em { color: var(--terracotta-soft); }
+
+    /* ── EL PROBLEMA ── */
+    .problema-puntos {
+      list-style: none;
+      margin-top: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .problema-intro {
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: var(--tinta-soft);
+      margin-bottom: 1.5rem;
+      max-width: 600px;
+    }
+
+    .problema-punto {
+      display: flex;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--linea);
+      align-items: flex-start;
+    }
+
+    .problema-punto:last-child { border-bottom: none; }
+
+    .problema-punto-icono {
+      font-family: Georgia, serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--terracotta);
+      flex-shrink: 0;
+      min-width: 1.5rem;
+      padding-top: 0.1rem;
+    }
+
+    .problema-punto-texto {
+      font-size: 0.88rem;
+      line-height: 1.65;
+      color: var(--tinta-soft);
+    }
+
+    .problema-punto-texto strong {
+      color: var(--tinta);
+      font-weight: 600;
+    }
+
+    /* ── LOS 7 BLOQUES (mapa visual) ── */
+    .mapa-intro {
+      font-family: Georgia, serif;
+      font-size: 1rem;
+      font-style: italic;
+      color: rgba(245,240,232,0.5);
+      margin-bottom: 2.5rem;
+      max-width: 520px;
+      line-height: 1.5;
+    }
+
+    .mapa-fila {
+      display: grid;
+      gap: 0.6rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .mapa-fila-1 { grid-template-columns: 1fr 2fr 1fr 1fr 1fr; }
+    .mapa-fila-2 { grid-template-columns: 1fr; }
+
+    .mapa-celda {
+      border: 1px solid rgba(127,181,168,0.25);
+      padding: 1.25rem;
+      background: rgba(0,0,0,0.15);
+    }
+
+    .mapa-celda-doble {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid rgba(127,181,168,0.25);
+      background: rgba(0,0,0,0.15);
+    }
+
+    .mapa-celda-sub {
+      padding: 1.25rem;
+    }
+
+    .mapa-celda-sub:first-child {
+      border-right: 1px solid rgba(127,181,168,0.15);
+    }
+
+    .mapa-celda-resultado {
+      border: 1px solid rgba(196,96,58,0.45);
+      padding: 1.5rem 2rem;
+      background: rgba(196,96,58,0.1);
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .mapa-num {
+      font-family: Georgia, serif;
+      font-style: italic;
+      font-size: 0.9rem;
+      color: var(--terracotta);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .mapa-nombre {
+      font-family: Georgia, serif;
+      font-size: 1rem;
+      color: var(--papel);
+      font-weight: normal;
+      margin-bottom: 0.3rem;
+      line-height: 1;
+    }
+
+    .mapa-desc {
+      font-size: 0.68rem;
+      color: rgba(245,240,232,0.35);
+      line-height: 1.4;
+    }
+
+    .mapa-celda-resultado .mapa-num { font-size: 1.5rem; flex-shrink: 0; }
+    .mapa-celda-resultado .mapa-nombre { font-size: 1.5rem; flex-shrink: 0; margin-bottom: 0; }
+    .mapa-celda-resultado .mapa-desc { font-size: 0.8rem; color: rgba(245,240,232,0.5); flex: 1; }
+
+    .mapa-flecha {
+      text-align: center;
+      color: rgba(196,96,58,0.5);
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      padding: 0.3rem 0;
+      margin-bottom: 0.3rem;
+    }
+
+    /* ── KPIs USAR ── */
+    .kpi-tabla {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    .kpi-tabla th {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--tinta-soft);
+      text-align: left;
+      padding: 0.75rem 1rem;
+      border-bottom: 2px solid var(--linea);
+    }
+
+    .kpi-tabla td {
+      font-size: 0.85rem;
+      padding: 1rem;
+      border-bottom: 1px solid var(--linea);
+      color: var(--tinta-soft);
+      vertical-align: top;
+      line-height: 1.5;
+    }
+
+    .kpi-tabla td:first-child {
+      font-family: Georgia, serif;
+      font-size: 1.1rem;
+      color: var(--verde);
+      white-space: nowrap;
+    }
+
+    .kpi-tabla td:nth-child(2) {
+      font-family: Georgia, serif;
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--terracotta);
+      white-space: nowrap;
+    }
+
+    .kpi-tabla tr.prime td {
+      background: var(--verde);
+      color: var(--papel-warm);
+    }
+
+    .kpi-tabla tr.prime td:first-child {
+      color: var(--papel);
+    }
+
+    .kpi-tabla tr.prime td:nth-child(2) {
+      color: var(--terracotta-soft);
+    }
+
+    .kpi-fuente {
+      font-size: 0.65rem;
+      color: var(--tinta-soft);
+      margin-top: 1rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--linea);
+      font-style: italic;
+      opacity: 0.6;
+    }
+
+    /* ── ANTES / DESPUÉS ── */
+    .comp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      margin-top: 1.5rem;
+      border: 1px solid var(--linea);
+    }
+
+    .comp-col {
+      padding: 2rem;
+    }
+
+    .comp-col-antes { background: var(--blanco); }
+    .comp-col-despues { background: var(--verde); }
+
+    .comp-header {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--linea);
+    }
+
+    .comp-col-despues .comp-header {
+      color: var(--terracotta-soft);
+      border-bottom-color: rgba(127,181,168,0.2);
+    }
+
+    .comp-item {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 0.9rem;
+      align-items: flex-start;
+    }
+
+    .comp-icono {
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 0.2rem 0.45rem;
+      border: 1px solid var(--linea);
+      color: var(--tinta-soft);
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .comp-col-despues .comp-icono {
+      border-color: rgba(127,181,168,0.3);
+      color: var(--verde-soft);
+    }
+
+    .comp-texto {
+      font-size: 0.83rem;
+      color: var(--tinta-soft);
+      line-height: 1.5;
+    }
+
+    .comp-col-despues .comp-texto {
+      color: rgba(245,240,232,0.75);
+    }
+
+    /* ── CONTACTO / CIERRE ── */
+    .cierre {
+      background: var(--verde);
+      padding: 3.5rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .cierre-titulo {
+      font-family: Georgia, serif;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: normal;
+      color: var(--papel);
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+
+    .cierre-titulo em {
+      font-style: italic;
+      color: var(--terracotta-soft);
+    }
+
+    .cierre-sub {
+      font-family: Georgia, serif;
+      font-style: italic;
+      font-size: 0.95rem;
+      color: rgba(245,240,232,0.5);
+      margin-bottom: 2rem;
+    }
+
+    .cierre-contacto {
+      font-size: 0.8rem;
+      color: rgba(245,240,232,0.55);
+      line-height: 2;
+    }
+
+    .cierre-contacto strong {
+      color: var(--papel);
+      font-weight: 600;
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .cierre-contacto a {
+      color: var(--verde-soft);
+      text-decoration: none;
+    }
+
+    /* QR placeholder */
+    .qr-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .qr-box {
+      width: 110px;
+      height: 110px;
+      background: var(--papel);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      padding: 8px;
+    }
+
+    /* Esquinas tipo QR */
+    .qr-box::before,
+    .qr-box::after {
+      content: '';
+      position: absolute;
+      width: 22px;
+      height: 22px;
+    }
+
+    .qr-box::before {
+      top: 8px; left: 8px;
+      border-top: 3px solid var(--verde);
+      border-left: 3px solid var(--verde);
+    }
+
+    .qr-box::after {
+      top: 8px; right: 8px;
+      border-top: 3px solid var(--verde);
+      border-right: 3px solid var(--verde);
+    }
+
+    .qr-inner {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .qr-corner-bl {
+      position: absolute;
+      bottom: 8px; left: 8px;
+      width: 22px; height: 22px;
+      border-bottom: 3px solid var(--verde);
+      border-left: 3px solid var(--verde);
+    }
+
+    .qr-dots {
+      display: grid;
+      grid-template-columns: repeat(5, 6px);
+      grid-template-rows: repeat(5, 6px);
+      gap: 2px;
+      opacity: 0.35;
+    }
+
+    .qr-dot {
+      background: var(--verde);
+      border-radius: 1px;
+    }
+
+    .qr-url {
+      font-size: 0.55rem;
+      color: rgba(245,240,232,0.45);
+      text-align: center;
+      letter-spacing: 0.05em;
+      max-width: 110px;
+      word-break: break-all;
+    }
+
+    .qr-label {
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.35);
+    }
+
+    /* ── PRINT ── */
+    @media print {
+      body { max-width: 100%; }
+      .portada, .bloque-verde, .cierre { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .mapa-celda, .mapa-celda-doble, .mapa-celda-resultado { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .comp-col-despues, .kpi-tabla tr.prime td { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+
+    /* ── Móvil ── */
+    @media (max-width: 680px) {
+      .portada { padding: 3rem 1.5rem 2.5rem; }
+      .bloque { padding: 2.5rem 1.5rem; }
+      .mapa-fila-1 { grid-template-columns: 1fr 1fr; }
+      .mapa-celda-doble { grid-template-columns: 1fr; }
+      .mapa-celda-sub:first-child { border-right: none; border-bottom: 1px solid rgba(127,181,168,0.15); }
+      .mapa-celda-resultado { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+      .comp-grid { grid-template-columns: 1fr; }
+      .cierre { grid-template-columns: 1fr; }
+      .kpi-tabla td:first-child, .kpi-tabla td:nth-child(2) { white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PORTADA -->
+  <div class="portada">
+    <div class="portada-inner">
+      <p class="portada-eyebrow">dataDesk · Inteligencia de negocio</p>
+      <h1 class="portada-titulo">Tu restaurante<br>ya genera<br><em>sus propios datos.</em></h1>
+      <p class="portada-tagline">¿Están trabajando para ti?</p>
+      <p class="portada-brand">Jorge Ramírez · dataDesk · Ciudad de México</p>
+    </div>
+  </div>
+
+  <!-- EL PROBLEMA -->
+  <div class="bloque bloque-warm">
+    <span class="bloque-label">El contexto</span>
+    <h2 class="bloque-titulo">La información<br>ya existe.</h2>
+
+    <p class="problema-intro">En el POS, en las facturas, en la nómina. El problema no es la falta de datos.</p>
+
+    <ul class="problema-puntos">
+      <li class="problema-punto">
+        <span class="problema-punto-icono">01</span>
+        <p class="problema-punto-texto"><strong>Llega tarde.</strong> El cierre del mes cuando ya pasaron dos semanas. Información correcta, pero fuera de tiempo para actuar.</p>
+      </li>
+      <li class="problema-punto">
+        <span class="problema-punto-icono">02</span>
+        <p class="problema-punto-texto"><strong>Vive dispersa.</strong> Papel, WhatsApp, Excel, correo. Cada área genera su propio registro en su propio formato — sin posibilidad de cruzarse.</p>
+      </li>
+      <li class="problema-punto">
+        <span class="problema-punto-icono">03</span>
+        <p class="problema-punto-texto"><strong>Sin referente.</strong> No sabes si tus números son buenos o tienen margen de mejora. No hay un estándar contra el cual compararse.</p>
+      </li>
+    </ul>
+  </div>
+
+  <!-- LOS 7 BLOQUES -->
+  <div class="bloque bloque-verde">
+    <span class="bloque-label">La metodología</span>
+    <h2 class="bloque-titulo">Siete bloques.<br><em>Como ya piensas tu negocio.</em></h2>
+    <p class="mapa-intro">Tomamos el estándar USAR y lo traducimos al lenguaje del operador. No hablamos de cuentas contables.</p>
+
+    <div class="mapa-fila mapa-fila-1">
+      <div class="mapa-celda">
+        <span class="mapa-num">01</span>
+        <div class="mapa-nombre">La Venta</div>
+        <p class="mapa-desc">El punto de venta como fuente de todo</p>
+      </div>
+      <div class="mapa-celda-doble">
+        <div class="mapa-celda-sub">
+          <span class="mapa-num">02</span>
+          <div class="mapa-nombre">La Cocina</div>
+          <p class="mapa-desc">Food cost, recetas, inventario, merma</p>
+        </div>
+        <div class="mapa-celda-sub">
+          <span class="mapa-num">03</span>
+          <div class="mapa-nombre">La Barra</div>
+          <p class="mapa-desc">Beverage cost propio</p>
+        </div>
+      </div>
+      <div class="mapa-celda">
+        <span class="mapa-num">04</span>
+        <div class="mapa-nombre">Las Compras</div>
+        <p class="mapa-desc">Proveedores, facturas, cuentas por pagar</p>
+      </div>
+      <div class="mapa-celda">
+        <span class="mapa-num">05</span>
+        <div class="mapa-nombre">La Gente</div>
+        <p class="mapa-desc">Nómina, turnos, labor cost</p>
+      </div>
+      <div class="mapa-celda">
+        <span class="mapa-num">06</span>
+        <div class="mapa-nombre">La Caja</div>
+        <p class="mapa-desc">Conciliación diaria</p>
+      </div>
+    </div>
+
+    <div class="mapa-flecha">↓</div>
+
+    <div class="mapa-fila mapa-fila-2">
+      <div class="mapa-celda-resultado">
+        <span class="mapa-num">07</span>
+        <div class="mapa-nombre">El Resultado</div>
+        <p class="mapa-desc">Indicadores en tiempo real, desde cualquier dispositivo. Los seis bloques convergiendo en un solo lugar.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- KPIs USAR -->
+  <div class="bloque bloque-warm">
+    <span class="bloque-label">Los indicadores</span>
+    <h2 class="bloque-titulo">Lo que mide<br>la industria.</h2>
+
+    <table class="kpi-tabla">
+      <thead>
+        <tr>
+          <th>Indicador</th>
+          <th>Rango saludable</th>
+          <th>Qué mide</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Food Cost</td>
+          <td>28 – 35%</td>
+          <td>Costo de cocina sobre ventas de alimentos</td>
+        </tr>
+        <tr>
+          <td>Beverage Cost</td>
+          <td>18 – 24%</td>
+          <td>Costo de barra sobre ventas de bebidas</td>
+        </tr>
+        <tr>
+          <td>Labor Cost</td>
+          <td>30 – 35%</td>
+          <td>Nómina total sobre ventas</td>
+        </tr>
+        <tr class="prime">
+          <td>Prime Cost</td>
+          <td>&lt; 60%</td>
+          <td>Food + Beverage + Labor · El indicador rey</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="kpi-fuente">Fuente: Uniform System of Accounts for Restaurants (USAR) · Estándar internacional de la industria</p>
+  </div>
+
+  <!-- ANTES / DESPUÉS -->
+  <div class="bloque bloque-blanco">
+    <span class="bloque-label">La transformación</span>
+    <h2 class="bloque-titulo">La operación no cambia.<br><em>La visibilidad sí.</em></h2>
+
+    <div class="comp-grid">
+      <div class="comp-col comp-col-antes">
+        <div class="comp-header">Antes de dataDesk</div>
+        <div class="comp-item">
+          <span class="comp-icono">—</span>
+          <p class="comp-texto">El cierre del mes llega cuando ya pasaron dos semanas.</p>
+        </div>
+        <div class="comp-item">
+          <span class="comp-icono">—</span>
+          <p class="comp-texto">El food cost se calcula cuando alguien tiene tiempo.</p>
+        </div>
+        <div class="comp-item">
+          <span class="comp-icono">—</span>
+          <p class="comp-texto">No hay referente externo para saber si los números son buenos.</p>
+        </div>
+        <div class="comp-item">
+          <span class="comp-icono">—</span>
+          <p class="comp-texto">La información está — pero no consolidada.</p>
+        </div>
+      </div>
+      <div class="comp-col comp-col-despues">
+        <div class="comp-header">Con dataDesk</div>
+        <div class="comp-item">
+          <span class="comp-icono">+</span>
+          <p class="comp-texto">Ves el cierre del día anterior en tiempo real.</p>
+        </div>
+        <div class="comp-item">
+          <span class="comp-icono">+</span>
+          <p class="comp-texto">Tu food cost se calcula solo, cada semana.</p>
+        </div>
+        <div class="comp-item">
+          <span class="comp-icono">+</span>
+          <p class="comp-texto">Tus números comparados contra el benchmark USAR.</p>
+        </div>
+        <div class="comp-item">
+          <span class="comp-icono">+</span>
+          <p class="comp-texto">Tu equipo sigue haciendo lo mismo. La información llega ordenada.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CIERRE / CONTACTO -->
+  <div class="cierre">
+    <div>
+      <h2 class="cierre-titulo">¿Listo para ver<br>tu restaurante <em>con claridad</em>?</h2>
+      <p class="cierre-sub">La primera conversación no cuesta nada.</p>
+      <div class="cierre-contacto">
+        <strong>Jorge Ramírez · dataDesk</strong>
+        WhatsApp: <a href="https://wa.me/525543183792">+52 55 4318 3792</a><br>
+        0datadesk.github.io/jorgeramirez
+      </div>
+    </div>
+    <div class="qr-wrap">
+      <div class="qr-box">
+        <div class="qr-corner-bl"></div>
+        <div class="qr-inner">
+          <div class="qr-dots">
+            <div class="qr-dot"></div><div></div><div class="qr-dot"></div><div class="qr-dot"></div><div></div>
+            <div class="qr-dot"></div><div class="qr-dot"></div><div></div><div class="qr-dot"></div><div class="qr-dot"></div>
+            <div></div><div class="qr-dot"></div><div class="qr-dot"></div><div></div><div class="qr-dot"></div>
+            <div class="qr-dot"></div><div></div><div class="qr-dot"></div><div class="qr-dot"></div><div></div>
+            <div class="qr-dot"></div><div class="qr-dot"></div><div></div><div class="qr-dot"></div><div class="qr-dot"></div>
+          </div>
+        </div>
+      </div>
+      <p class="qr-label">Escanear</p>
+      <p class="qr-url">0datadesk.github.io/<br>jorgeramirez</p>
+    </div>
+  </div>
+
+</body>
+</html>

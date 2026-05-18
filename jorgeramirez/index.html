@@ -235,6 +235,124 @@
       font-weight: 600;
     }
 
+    /* ===== SERVICIOS / PROPUESTAS ===== */
+    .servicios {
+      background: var(--navy);
+    }
+
+    .servicios .section-title { color: var(--white); }
+    .servicios .section-lead { color: rgba(255,255,255,0.45); }
+    .servicios .section-label { color: var(--accent); }
+    .servicios .divider { background: rgba(76,175,130,0.5); }
+
+    .propuestas-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .propuesta-card {
+      background: var(--navy);
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      transition: background 0.2s;
+    }
+
+    .propuesta-card:hover { background: rgba(255,255,255,0.04); }
+
+    .propuesta-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 0.85rem;
+      font-style: italic;
+      color: rgba(74,144,217,0.5);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .propuesta-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.35rem;
+      color: var(--white);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .propuesta-desc {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 1.75rem;
+    }
+
+    .propuesta-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .propuesta-tag {
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(74,144,217,0.55);
+    }
+
+    .propuesta-cta {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--green);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .propuesta-cta:hover { color: #5dce99; }
+
+    /* ===== VALIDADO EN OPERACIÓN ===== */
+    .validado {
+      background: var(--off-white);
+    }
+
+    .validado-metricas {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin: 2.5rem 0;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--gray-light);
+    }
+
+    .metrica-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-style: italic;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .metrica-sub {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+
+    .validado-text {
+      font-size: 0.9rem;
+      line-height: 1.8;
+      color: var(--gray);
+      max-width: 600px;
+    }
+
     /* ===== CÓMO TRABAJO ===== */
     .como-trabajo {
       background: var(--white);
@@ -245,20 +363,17 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 0;
       margin-top: 1rem;
-      counter-reset: paso;
     }
 
     .paso {
       padding: 2rem;
       border-left: 1px solid var(--gray-light);
       position: relative;
-      counter-increment: paso;
     }
 
     .paso:first-child { border-left: none; }
 
-    .paso::before {
-      content: '0' counter(paso);
+    .paso-num {
       font-family: 'DM Serif Display', serif;
       font-size: 2.5rem;
       font-style: italic;
@@ -281,131 +396,6 @@
       font-size: 0.85rem;
       color: var(--gray);
       line-height: 1.6;
-    }
-
-    /* ===== SERVICIOS ===== */
-    .servicios {
-      background: var(--navy);
-    }
-
-    .servicios .section-title { color: var(--white); }
-    .servicios .section-lead { color: rgba(255,255,255,0.45); }
-    .servicios .section-label { color: var(--accent); }
-
-    .servicios-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .servicio-card {
-      background: var(--navy);
-      padding: 2.5rem;
-      transition: background 0.2s;
-    }
-
-    .servicio-card:hover { background: rgba(255,255,255,0.04); }
-
-    .servicio-tag {
-      font-size: 0.6rem;
-      font-weight: 700;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.75rem;
-      display: block;
-    }
-
-    .servicio-nombre {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.4rem;
-      color: var(--white);
-      margin-bottom: 0.75rem;
-      line-height: 1.2;
-    }
-
-    .servicio-desc {
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.45);
-      line-height: 1.65;
-      margin-bottom: 1.5rem;
-    }
-
-    .precio {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.6rem;
-      color: var(--green);
-      line-height: 1;
-      margin-bottom: 0.3rem;
-    }
-
-    .precio-nota {
-      font-size: 0.7rem;
-      color: rgba(255,255,255,0.3);
-      letter-spacing: 0.1em;
-    }
-
-    /* ===== PROCESO SVG ===== */
-    .proceso {
-      background: var(--off-white);
-    }
-
-    .proceso-diagram {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      margin-top: 2rem;
-      position: relative;
-    }
-
-    .proceso-diagram::before {
-      content: '';
-      position: absolute;
-      top: 2.5rem;
-      left: 12.5%;
-      right: 12.5%;
-      height: 1px;
-      background: linear-gradient(to right, var(--green), var(--accent));
-    }
-
-    .proceso-step {
-      text-align: center;
-      padding: 0 1rem;
-      position: relative;
-    }
-
-    .proceso-dot {
-      width: 1.5rem;
-      height: 1.5rem;
-      background: var(--green);
-      border-radius: 50%;
-      margin: 1.75rem auto 1.25rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .proceso-num {
-      font-size: 0.6rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.4rem;
-    }
-
-    .proceso-name {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.1rem;
-      color: var(--navy);
-      margin-bottom: 0.5rem;
-    }
-
-    .proceso-desc {
-      font-size: 0.78rem;
-      color: var(--gray);
-      line-height: 1.5;
     }
 
     /* ===== CTA / CONTACTO ===== */
@@ -447,12 +437,16 @@
       section { padding: 3.5rem 2rem; }
       .diag-grid { grid-template-columns: 1fr; }
       .pasos { grid-template-columns: 1fr 1fr; }
-      .servicios-grid { grid-template-columns: 1fr; }
-      .proceso-diagram { grid-template-columns: 1fr 1fr; }
-      .proceso-diagram::before { display: none; }
+      .propuestas-grid { grid-template-columns: 1fr; }
+      .validado-metricas { grid-template-columns: 1fr 1fr; }
       .contacto { padding: 3.5rem 2rem; }
       .footer { padding: 1.5rem 2rem; flex-direction: column; gap: 0.5rem; }
       .hero-ctas { flex-direction: column; }
+    }
+
+    @media (max-width: 560px) {
+      .pasos { grid-template-columns: 1fr; }
+      .validado-metricas { grid-template-columns: 1fr; }
     }
 
     .nav-brand { text-transform: none !important; letter-spacing: 0.03em !important; }
@@ -506,6 +500,72 @@
     </div>
   </section>
 
+  <!-- SERVICIOS / PROPUESTAS -->
+  <section class="servicios" id="servicios">
+    <span class="section-label fade-in">Lo que hago</span>
+    <h2 class="section-title fade-in">Servicios</h2>
+    <hr class="divider fade-in">
+    <p class="section-lead fade-in">Tres formas de trabajar juntos — desde el sistema completo hasta el análisis puntual.</p>
+
+    <div class="propuestas-grid fade-in">
+
+      <div class="propuesta-card">
+        <span class="propuesta-num">01</span>
+        <h3 class="propuesta-title">El aplicativo web</h3>
+        <p class="propuesta-desc">Sistema de inteligencia de negocio construido a la medida de tu operación. Captura estructurada, dashboards en tiempo real, indicadores comparables contra estándares de la industria. Accesible desde cualquier dispositivo.</p>
+        <div class="propuesta-footer">
+          <span class="propuesta-tag">Producto principal</span>
+          <a href="https://wa.me/525543183792" class="propuesta-cta" target="_blank">Conversemos →</a>
+        </div>
+      </div>
+
+      <div class="propuesta-card">
+        <span class="propuesta-num">02</span>
+        <h3 class="propuesta-title">Análisis y decisiones</h3>
+        <p class="propuesta-desc">Convierte la data que ya genera tu negocio en indicadores accionables. Dashboards, modelos de rentabilidad, análisis de costos y comportamiento. Sin consultorías infladas — solo lo que necesitas para decidir mejor.</p>
+        <div class="propuesta-footer">
+          <span class="propuesta-tag">Inteligencia de negocio</span>
+          <a href="https://wa.me/525543183792" class="propuesta-cta" target="_blank">Conversemos →</a>
+        </div>
+      </div>
+
+      <div class="propuesta-card">
+        <span class="propuesta-num">03</span>
+        <h3 class="propuesta-title">Implementación y acompañamiento</h3>
+        <p class="propuesta-desc">Del diagnóstico al sistema funcionando. Integración con tus herramientas actuales, capacitación al equipo y soporte continuo. El sistema es tuyo desde el primer día.</p>
+        <div class="propuesta-footer">
+          <span class="propuesta-tag">Operación</span>
+          <a href="https://wa.me/525543183792" class="propuesta-cta" target="_blank">Conversemos →</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- VALIDADO EN OPERACIÓN -->
+  <section class="validado">
+    <span class="section-label fade-in">Trayectoria</span>
+    <h2 class="section-title fade-in">Construido en campo,<br><em>probado en operación real.</em></h2>
+    <hr class="divider fade-in">
+
+    <div class="validado-metricas fade-in">
+      <div>
+        <div class="metrica-num">+32,000</div>
+        <div class="metrica-sub">Registros procesados · En operación continua</div>
+      </div>
+      <div>
+        <div class="metrica-num">10+</div>
+        <div class="metrica-sub">Meses · Tiempo de implementación activa</div>
+      </div>
+      <div>
+        <div class="metrica-num">Rest.</div>
+        <div class="metrica-sub">Industria restaurantera · Vertical de especialización</div>
+      </div>
+    </div>
+
+    <p class="validado-text fade-in">El sistema no es un prototipo. Está corriendo hoy en una operación real — generando reportes, procesando transacciones y produciendo los indicadores que el equipo usa para decidir semana a semana.</p>
+  </section>
+
   <!-- CÓMO TRABAJO -->
   <section class="como-trabajo">
     <span class="section-label fade-in">El proceso</span>
@@ -515,98 +575,24 @@
 
     <div class="pasos fade-in">
       <div class="paso">
+        <span class="paso-num">01</span>
         <div class="paso-title">Diagnóstico</div>
         <p class="paso-desc">Entiendo cómo opera tu negocio hoy — qué datos existen, dónde viven y qué decisiones necesitas tomar.</p>
       </div>
       <div class="paso">
+        <span class="paso-num">02</span>
         <div class="paso-title">Propuesta</div>
         <p class="paso-desc">Te presento qué vamos a construir, cómo lo vamos a construir y cuánto va a costar. Sin sorpresas.</p>
       </div>
       <div class="paso">
+        <span class="paso-num">03</span>
         <div class="paso-title">Construcción</div>
         <p class="paso-desc">Construyo el sistema. Te mantengo informado en cada paso. Nada se entrega sin que entiendas cómo funciona.</p>
       </div>
       <div class="paso">
+        <span class="paso-num">04</span>
         <div class="paso-title">Entrega</div>
         <p class="paso-desc">El sistema es tuyo. Te enseño a usarlo, te dejo documentación y puedo darte soporte si lo necesitas.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICIOS -->
-  <section class="servicios" id="servicios">
-    <span class="section-label fade-in">Lo que hago</span>
-    <h2 class="section-title fade-in">Servicios</h2>
-    <hr class="divider fade-in" style="background: rgba(76,175,130,0.5)">
-    <p class="section-lead fade-in">Proyectos puntuales con entregables claros, diseñados a la medida de tu operación.</p>
-
-    <div class="servicios-grid fade-in">
-
-      <div class="servicio-card">
-        <span class="servicio-tag">Organización · Datos</span>
-        <h3 class="servicio-nombre">Espacios en Notion</h3>
-        <p class="servicio-desc">Tu operación organizada en un solo lugar. Bases de datos, tableros de seguimiento y flujos de trabajo que realmente se usan — no un manual bonito que nadie abre.</p>
-        <div class="precio">Desde $6,000</div>
-        <div class="precio-nota">+ IVA · Proyecto único</div>
-      </div>
-
-      <div class="servicio-card">
-        <span class="servicio-tag">Visualización · Análisis</span>
-        <h3 class="servicio-nombre">Dashboard en Power BI</h3>
-        <p class="servicio-desc">Tus datos convertidos en indicadores claros. Ventas, costos, rentabilidad y lo que más importa en tu operación — todo visible en tiempo real desde cualquier dispositivo.</p>
-        <div class="precio">Desde $12,000</div>
-        <div class="precio-nota">+ IVA · Proyecto único</div>
-      </div>
-
-      <div class="servicio-card">
-        <span class="servicio-tag">Procesos · Ahorro</span>
-        <h3 class="servicio-nombre">Eficiencia operativa</h3>
-        <p class="servicio-desc">Identifico dónde se pierde tiempo y dinero en tu operación. Automatizamos lo que se puede automatizar y simplificamos lo que no — para que tu equipo haga lo que importa.</p>
-        <div class="precio">Desde $8,000</div>
-        <div class="precio-nota">+ IVA · Proyecto único</div>
-      </div>
-
-      <div class="servicio-card">
-        <span class="servicio-tag">Inteligencia · Automatización</span>
-        <h3 class="servicio-nombre">IA aplicada al negocio</h3>
-        <p class="servicio-desc">Automatización de tareas repetitivas, análisis con inteligencia artificial y herramientas de productividad integradas a tu operación. El alcance define el costo.</p>
-        <div class="precio">A la medida</div>
-        <div class="precio-nota">El alcance define el costo · Conversemos sin compromiso</div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- PROCESO -->
-  <section class="proceso">
-    <span class="section-label fade-in">Cómo lo construimos</span>
-    <h2 class="section-title fade-in">Del dato a la <em>decisión</em></h2>
-    <hr class="divider fade-in">
-
-    <div class="proceso-diagram fade-in">
-      <div class="proceso-step">
-        <div class="proceso-dot"></div>
-        <div class="proceso-num">01</div>
-        <div class="proceso-name">Diagnóstico</div>
-        <p class="proceso-desc">Mapeamos tus datos y tus necesidades</p>
-      </div>
-      <div class="proceso-step">
-        <div class="proceso-dot"></div>
-        <div class="proceso-num">02</div>
-        <div class="proceso-name">Propuesta</div>
-        <p class="proceso-desc">Definimos alcance, costo y tiempos</p>
-      </div>
-      <div class="proceso-step">
-        <div class="proceso-dot"></div>
-        <div class="proceso-num">03</div>
-        <div class="proceso-name">Construcción</div>
-        <p class="proceso-desc">Construimos el sistema, paso a paso</p>
-      </div>
-      <div class="proceso-step">
-        <div class="proceso-dot"></div>
-        <div class="proceso-num">04</div>
-        <div class="proceso-name">Entrega</div>
-        <p class="proceso-desc">El sistema es tuyo, con documentación</p>
       </div>
     </div>
   </section>
@@ -624,6 +610,13 @@
     <span>Jorge Ramírez · <span class="brand-inline">dataDesk</span> · 2026</span>
     <span>Convierte datos en decisiones</span>
   </footer>
+
+  <a href="https://wa.me/525543183792" class="wa-float" target="_blank" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.122 1.535 5.854L.057 23.215a.75.75 0 0 0 .921.921l5.361-1.478A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.714 9.714 0 0 1-5.003-1.384l-.36-.214-3.733 1.028 1.028-3.733-.214-.36A9.714 9.714 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/>
+    </svg>
+  </a>
 
   <script src="../script.js"></script>
 </body>

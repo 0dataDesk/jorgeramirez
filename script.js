@@ -19,3 +19,8 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// WhatsApp float — aparece a los 2s
+setTimeout(() => {
+  document.querySelector('.wa-float')?.classList.add('visible');
+}, 2000);

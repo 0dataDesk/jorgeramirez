@@ -81,7 +81,6 @@
       margin-bottom: 3rem;
     }
 
-    /* STATS HERO */
     .hero-stats {
       display: grid;
       grid-template-columns: repeat(3, auto);
@@ -180,94 +179,207 @@
       border: none;
     }
 
-    /* ===== PROBLEMA ===== */
+    /* ===== EL PROBLEMA (comprimido) ===== */
     .problema {
       background: var(--paper);
     }
 
-    .problema-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: start;
-      margin-top: 2rem;
+    .problema-texto {
+      max-width: 620px;
     }
 
-    .problema-text p {
+    .problema-texto p {
       font-size: 0.95rem;
-      line-height: 1.8;
+      line-height: 1.85;
       color: var(--ink-soft);
-      margin-bottom: 1.2rem;
     }
 
-    .problema-text p strong {
+    .problema-texto p strong {
       color: var(--ink);
       font-weight: 600;
     }
 
-    .problema-callout {
-      background: var(--green);
-      padding: 2.5rem;
-      position: relative;
-    }
-
-    .problema-callout::before {
-      content: '"';
-      position: absolute;
-      top: 0.5rem;
-      left: 1rem;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 5rem;
-      line-height: 1;
-      color: var(--terracotta);
-      opacity: 0.35;
-    }
-
-    .problema-callout p {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem;
-      font-weight: 300;
-      font-style: italic;
-      color: var(--paper);
-      line-height: 1.4;
-      position: relative;
-      z-index: 1;
-    }
-
-    .problema-callout-attr {
-      margin-top: 1.2rem;
-      font-size: 0.65rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--green-soft);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 600;
-      font-style: normal;
-    }
-
-    /* ===== ESTÁNDAR ===== */
-    .estandar {
+    /* ===== EL SISTEMA (nuevo) ===== */
+    .el-sistema {
       background: var(--paper-warm);
     }
 
-    .estandar-inner {
-      display: grid;
-      grid-template-columns: 1fr 1.4fr;
-      gap: 5rem;
-      align-items: start;
+    .el-sistema .section-label { color: var(--terracotta); }
+    .el-sistema .section-title { color: var(--green); }
+
+    .sistema-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--ink-soft);
+      max-width: 580px;
+      line-height: 1.6;
+      margin-bottom: 3rem;
     }
 
-    .estandar-text p {
-      font-size: 0.9rem;
-      line-height: 1.8;
+    .sistema-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .sistema-card {
+      background: var(--paper);
+      border-top: 3px solid var(--terracotta);
+      padding: 2rem;
+    }
+
+    .sistema-card-tag {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .sistema-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--green);
+      margin-bottom: 0.75rem;
+      line-height: 1.15;
+    }
+
+    .sistema-card-desc {
+      font-size: 0.85rem;
+      line-height: 1.65;
       color: var(--ink-soft);
-      margin-bottom: 1rem;
+    }
+
+    /* ===== METODOLOGÍA (visual mapa) ===== */
+    .metodologia {
+      background: var(--green);
+    }
+
+    .metodologia .section-label { color: var(--green-soft); }
+    .metodologia .section-title { color: var(--paper); }
+    .metodologia .section-title em { color: var(--terracotta-soft); }
+    .metodologia .divider { background: rgba(196,96,58,0.4); }
+
+    .mapa-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 0.75rem;
+      margin-top: 2.5rem;
+    }
+
+    .mapa-bloque {
+      border: 1px solid rgba(127,181,168,0.2);
+      padding: 1.5rem;
+      background: rgba(0,0,0,0.12);
+    }
+
+    .mapa-bloque-doble {
+      grid-column: span 2;
+      border: 1px solid rgba(127,181,168,0.2);
+      background: rgba(0,0,0,0.12);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mapa-bloque-doble-header {
+      padding: 0.5rem 1.25rem;
+      background: rgba(0,0,0,0.15);
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.4);
+      border-bottom: 1px solid rgba(127,181,168,0.1);
+    }
+
+    .mapa-bloque-doble-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      flex: 1;
+    }
+
+    .mapa-bloque-sub {
+      padding: 1.25rem;
+    }
+
+    .mapa-bloque-sub:first-child {
+      border-right: 1px solid rgba(127,181,168,0.12);
+    }
+
+    .mapa-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--terracotta);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .mapa-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: 1.25rem;
+      color: var(--paper);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .mapa-desc {
+      font-size: 0.7rem;
+      color: rgba(245,240,232,0.35);
+      line-height: 1.4;
+    }
+
+    .mapa-arrow {
+      grid-column: span 6;
+      text-align: center;
+      padding: 0.4rem 0;
+      color: rgba(196,96,58,0.6);
+      font-size: 1.1rem;
+      letter-spacing: 0.1em;
+    }
+
+    .mapa-resultado {
+      grid-column: span 6;
+      border: 1px solid rgba(196,96,58,0.4);
+      background: rgba(196,96,58,0.08);
+      padding: 2rem 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .mapa-resultado .mapa-num {
+      font-size: 2rem;
+      flex-shrink: 0;
+    }
+
+    .mapa-resultado .mapa-name {
+      font-size: 1.9rem;
+      flex-shrink: 0;
+    }
+
+    .mapa-resultado .mapa-desc {
+      font-size: 0.82rem;
+      color: rgba(245,240,232,0.5);
+      flex: 1;
+    }
+
+    /* ===== KPIs USAR (comprimido) ===== */
+    .numeros {
+      background: var(--paper-warm);
     }
 
     .kpi-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 0.75rem;
+      margin-top: 1rem;
     }
 
     .kpi {
@@ -315,123 +427,10 @@
 
     .kpi.prime .kpi-desc { color: var(--paper-warm); }
 
-    /* ===== DIFERENCIADOR ===== */
-    .diferenciador {
-      background: var(--green);
-      color: var(--paper);
-    }
-
-    .diferenciador .section-title { color: var(--paper); }
-    .diferenciador .section-title em { color: var(--terracotta-soft); }
-    .diferenciador .section-label { color: var(--green-soft); }
-
-    .dif-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .dif-item {
-      border-top: 1px solid rgba(127,181,168,0.3);
-      padding-top: 1.5rem;
-    }
-
-    .dif-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.5rem;
-      font-style: italic;
-      color: var(--terracotta-soft);
-      line-height: 1;
-      margin-bottom: 0.75rem;
-    }
-
-    .dif-title {
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--paper);
-      margin-bottom: 0.75rem;
-    }
-
-    .dif-text {
-      font-size: 0.88rem;
-      color: rgba(245,240,232,0.6);
-      line-height: 1.7;
-    }
-
-    /* ===== METODOLOGÍA ===== */
-    .metodologia {
-      background: var(--paper);
-    }
-
-    .metodologia-intro {
-      max-width: 600px;
-      margin-bottom: 3rem;
-    }
-
-    .bloques {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.75rem;
-    }
-
-    .bloque {
-      background: var(--paper-warm);
-      border-top: 2px solid var(--green);
-      padding: 1.5rem;
-    }
-
-    .bloque.resultado {
-      grid-column: span 3;
-      background: var(--green);
-      border-top-color: var(--terracotta);
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .bloque-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 1rem;
-      color: var(--terracotta);
-      display: block;
-      margin-bottom: 0.3rem;
-    }
-
-    .bloque.resultado .bloque-num { color: var(--terracotta-soft); }
-
-    .bloque-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 500;
-      font-size: 1.6rem;
-      line-height: 1;
-      color: var(--green);
-      margin-bottom: 0.5rem;
-    }
-
-    .bloque.resultado .bloque-name {
-      color: var(--paper);
-      font-size: 2rem;
-    }
-
-    .bloque-desc {
-      font-size: 0.78rem;
-      color: var(--ink-soft);
-      line-height: 1.5;
-    }
-
-    .bloque.resultado .bloque-desc {
-      color: var(--paper-warm);
-      font-size: 0.85rem;
-    }
-
-    /* ===== ANTES / DESPUÉS ===== */
+    /* ===== ANTES / DESPUÉS (comprimido) ===== */
     .comparacion {
       background: var(--paper-warm);
+      padding-top: 0;
     }
 
     .comp-grid {
@@ -444,6 +443,7 @@
 
     .comp-col {
       padding: 2.5rem;
+      background: var(--white);
     }
 
     .comp-col.despues {
@@ -569,12 +569,13 @@
       .hero { padding: 7rem 2rem 3rem; }
       .hero-stats { max-width: 100%; }
       .hero-stat { padding-right: 1.5rem; margin-right: 1.5rem; }
-      .problema-grid,
-      .estandar-inner,
-      .dif-grid,
-      .comp-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .bloques { grid-template-columns: 1fr 1fr; }
-      .bloque.resultado { grid-column: span 2; }
+      .sistema-grid { grid-template-columns: 1fr; }
+      .comp-grid { grid-template-columns: 1fr; }
+      .kpi-grid { grid-template-columns: 1fr; }
+      .kpi.prime { grid-column: span 1; }
+      .mapa-grid { grid-template-columns: repeat(3, 1fr); }
+      .mapa-bloque-doble { grid-column: span 3; }
+      .mapa-arrow, .mapa-resultado { grid-column: span 3; }
       .cta-section { padding: 4rem 2rem; }
       .page-footer { padding: 1.5rem 2rem; flex-direction: column; gap: 0.5rem; }
     }
@@ -583,30 +584,22 @@
     @media (max-width: 560px) {
       section { padding: 3rem 1.25rem; }
       .hero { padding: 5.5rem 1.25rem 2.5rem; }
-
-      .hero-stats {
-        grid-template-columns: 1fr;
-        gap: 0;
-      }
+      .hero-stats { grid-template-columns: 1fr; gap: 0; }
       .hero-stat {
-        padding-right: 0;
-        margin-right: 0;
+        padding-right: 0; margin-right: 0;
         border-right: none;
         border-bottom: 1px solid rgba(127,181,168,0.2);
-        padding-bottom: 1.25rem;
-        margin-bottom: 1.25rem;
+        padding-bottom: 1.25rem; margin-bottom: 1.25rem;
       }
       .hero-stat:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
       .stat-num { font-size: 2.4rem; }
-
-      .bloques { grid-template-columns: 1fr; }
-      .bloque.resultado { grid-column: span 1; display: block; }
-
-      .kpi-grid { grid-template-columns: 1fr; }
-      .kpi.prime { grid-column: span 1; }
-
+      .mapa-grid { grid-template-columns: 1fr; }
+      .mapa-bloque-doble { grid-column: span 1; }
+      .mapa-bloque-doble-body { grid-template-columns: 1fr; }
+      .mapa-bloque-sub:first-child { border-right: none; border-bottom: 1px solid rgba(127,181,168,0.12); }
+      .mapa-arrow, .mapa-resultado { grid-column: span 1; }
+      .mapa-resultado { flex-direction: column; gap: 0.5rem; }
       .comp-col { padding: 1.75rem 1.25rem; }
-
       .cta-section { padding: 3rem 1.25rem; }
       .page-footer { padding: 1.25rem; }
     }
@@ -616,112 +609,9 @@
     .nav-links { display: none; }
     .brand-inline { text-transform: none; letter-spacing: 0.04em; font-weight: 700; }
 
-    /* Fondos más claros */
     :root {
       --paper: #faf7f2;
       --paper-warm: #f3ede2;
-    }
-
-    /* Anécdotas operativas */
-    .anecdota {
-      border-left: 3px solid var(--terracotta);
-      background: var(--paper-warm);
-      padding: 1.25rem 1.5rem;
-      margin: 1.75rem 0;
-    }
-    .anecdota-label {
-      font-size: 0.58rem;
-      font-weight: 700;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--terracotta);
-      margin-bottom: 0.6rem;
-      display: block;
-    }
-    .anecdota p { font-size: 0.88rem; line-height: 1.7; color: var(--ink-soft); margin: 0; }
-
-    /* Cocina + Barra — bloque doble rediseñado */
-    .bloque-par {
-      grid-column: span 2;
-      display: flex;
-      flex-direction: column;
-      background: var(--paper-warm);
-      border-top: 2px solid var(--green);
-      padding: 0;
-    }
-    .bloque-par-header {
-      background: var(--green);
-      padding: 0.85rem 1.5rem;
-      display: flex;
-      align-items: baseline;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .bloque-par-header-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 1rem;
-      color: var(--terracotta-soft);
-    }
-    .bloque-par-header-title {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--paper);
-    }
-    .bloque-par-header-note {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 0.8rem;
-      color: rgba(245,240,232,0.5);
-      margin-left: auto;
-    }
-    .bloque-par-body {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      flex: 1;
-    }
-    .bloque-sub {
-      padding: 1.5rem;
-    }
-    .bloque-sub:first-child { border-right: 1px solid var(--line); }
-
-    /* Transformación — "antes" con fondo blanco */
-    .comp-col { background: var(--white); }
-
-    /* Bloque informativo USAR */
-    .usar-info {
-      margin-top: 2rem;
-      padding: 1.25rem 1.5rem;
-      border-left: 2px solid var(--terracotta);
-      background: var(--paper);
-    }
-    .usar-info-label {
-      font-size: 0.6rem;
-      font-weight: 700;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--terracotta);
-      margin-bottom: 0.6rem;
-      display: block;
-    }
-    .usar-info p {
-      font-size: 0.8rem;
-      line-height: 1.65;
-      color: var(--ink-soft);
-    }
-
-    @media (max-width: 900px) {
-      .bloque-par { grid-column: span 2; }
-      .bloque-par-body { grid-template-columns: 1fr 1fr; }
-      .bloque-par-header-note { display: none; }
-    }
-    @media (max-width: 560px) {
-      .bloque-par { grid-column: span 1; }
-      .bloque-par-body { grid-template-columns: 1fr; }
-      .bloque-sub:first-child { border-right: none; border-bottom: 1px solid var(--line); }
     }
   </style>
 </head>
@@ -755,159 +645,136 @@
         <span class="stat-label">Umbral de prime cost<br>para ser rentable</span>
       </div>
     </div>
-    <p class="hero-note">Estos son los indicadores de la industria. ¿Sabes dónde están los tuyos? ¿Cómo se ubica tu operación frente al mercado?</p>
+    <p class="hero-note">Estos son los indicadores de la industria. ¿Sabes dónde están los tuyos?</p>
   </section>
 
-  <!-- EL PROBLEMA -->
+  <!-- EL PROBLEMA (comprimido) -->
   <section class="problema fade-in">
     <span class="section-label">01 · El contexto</span>
-    <h2 class="section-title">El operador<br><em>a ciegas</em></h2>
+    <h2 class="section-title">El operador<br><em>a ciegas.</em></h2>
     <hr class="divider">
 
-    <div class="problema-text">
-      <p>El equipo que opera un restaurante toma decisiones con información que llega tarde, fragmentada y sin contexto. No porque no exista — sino porque nadie la consolida.</p>
-
-      <div class="anecdota">
-        <span class="anecdota-label">Inventario</span>
-        <p>Se levanta en papel. Alguien lo fotografía y lo manda por WhatsApp. Otra persona lo transcribe a un Excel. Dos o tres archivos más para cruzar compras, merma y existencias — y la lista de la semana ya tiene varios intermediarios y la misma posibilidad de error en cada paso.</p>
-      </div>
-
-      <div class="anecdota">
-        <span class="anecdota-label">Lista de precios del proveedor</span>
-        <p>Vive en el WhatsApp del contador. Cuando alguien la necesita, él va a buscarla en su carpeta. No la encuentra. Revisa el correo. Termina llamando al proveedor para que la reenvíe. Eso es el flujo de información de un solo insumo, en un solo día.</p>
-      </div>
-
-      <p>Lo mismo ocurre con la nómina, el flujo de caja, las ventas por turno, el corte diario. Cada área genera su propio registro, en su propio formato, con su propio criterio. <strong>La información ya se genera — el problema no es la falta de datos. Es que viven dispersos, sin posibilidad de cruzarse.</strong></p>
-      <p>El valor está en ese espacio: consolidar lo que ya existe, ordenarlo bajo una misma estructura y devolverlo en forma de indicadores. Y cuando además simplificamos la captura — automatizando lo que hoy pasa por tres intermediarios — el equipo recupera tiempo que puede dedicar a operar mejor, no a administrar archivos.</p>
+    <div class="problema-texto">
+      <p>La información ya existe — en el POS, en las facturas, en la nómina. El problema no es la falta de datos: es que viven dispersos, sin posibilidad de cruzarse. Cuando llegan consolidados, ya es tarde para actuar.<br><br><strong>Eso tiene solución.</strong></p>
     </div>
   </section>
 
-  <!-- EL ESTÁNDAR -->
-  <section class="estandar fade-in">
-    <span class="section-label">02 · El respaldo</span>
-    <h2 class="section-title">Existe un estándar.<br><em>Se llama USAR.</em></h2>
+  <!-- EL SISTEMA (nuevo) -->
+  <section class="el-sistema fade-in">
+    <span class="section-label">02 · El producto</span>
+    <h2 class="section-title">Un aplicativo construido<br>para la industria restaurantera.</h2>
     <hr class="divider">
+    <p class="sistema-subtitle">No es un dashboard genérico. Es un sistema que habla el lenguaje de tu operación — y la mide contra el estándar internacional.</p>
 
-    <div class="estandar-inner">
-      <div class="estandar-text">
-        <p class="section-lead">Uniform System of Accounts for Restaurants — el marco financiero y operativo que la industria restaurantera mundial adoptó hace casi un siglo.</p>
-        <p>Su propósito es que cualquier operación, sin importar su tamaño o concepto, pueda organizar su información bajo una misma estructura. Esto permite calibrar el negocio contra el mercado con el mismo rigor que usa una cadena internacional — sin importar si tienes cuarenta comensales o cuatrocientos.</p>
-        <p>No es nuestra propuesta. Es el estándar que la industria ya validó. Lo adoptamos porque garantiza que el análisis sea comparable, justificable y reproducible. El aplicativo se construye para leer la data de cada operación y tratarla según este marco — independientemente del modelo de negocio.</p>
-        <div class="usar-info">
-          <span class="usar-info-label">Sobre el USAR</span>
-          <p>El Uniform System of Accounts for Restaurants fue desarrollado por la National Restaurant Association de Estados Unidos, con primera edición en 1927. Es mantenido actualmente por la Hospitality Financial and Technology Professionals (HFTP) y es el estándar de referencia contable y operativo para la industria restaurantera a nivel mundial.</p>
-        </div>
+    <div class="sistema-grid">
+      <div class="sistema-card">
+        <span class="sistema-card-tag">Captura estructurada</span>
+        <h3 class="sistema-card-title">Datos desde la fuente</h3>
+        <p class="sistema-card-desc">Formularios diseñados para el equipo de operación. Sin Excel intermediario, sin foto por WhatsApp. La información entra donde debe estar.</p>
       </div>
-
-      <div>
-        <div class="kpi-grid">
-          <div class="kpi">
-            <div class="kpi-label">Food Cost</div>
-            <div class="kpi-value">28–35%</div>
-            <div class="kpi-desc">Costo de la comida vendida sobre ingreso de alimentos. Por encima del 35%, la cocina está fugando margen.</div>
-          </div>
-          <div class="kpi">
-            <div class="kpi-label">Beverage Cost</div>
-            <div class="kpi-value">18–24%</div>
-            <div class="kpi-desc">Costo de bebidas sobre ingreso de bebidas. La barra es donde mejor margen se deja — o se pierde.</div>
-          </div>
-          <div class="kpi">
-            <div class="kpi-label">Labor Cost</div>
-            <div class="kpi-value">30–35%</div>
-            <div class="kpi-desc">Costo total de nómina sobre ventas. Incluye sueldos, prestaciones y cargas sociales.</div>
-          </div>
-          <div class="kpi prime">
-            <div class="kpi-label">Prime Cost · el indicador rey</div>
-            <div class="kpi-value">&lt; 60%</div>
-            <div class="kpi-desc">Food + Beverage + Labor sobre ventas. Por encima de este umbral, la rentabilidad es matemáticamente imposible. El número que los operadores disciplinados miden cada semana.</div>
-          </div>
-        </div>
+      <div class="sistema-card">
+        <span class="sistema-card-tag">Tiempo real</span>
+        <h3 class="sistema-card-title">Indicadores siempre disponibles</h3>
+        <p class="sistema-card-desc">Accesible desde cualquier dispositivo. El cierre del día anterior visible hoy — no en dos semanas.</p>
+      </div>
+      <div class="sistema-card">
+        <span class="sistema-card-tag">Estándar USAR</span>
+        <h3 class="sistema-card-title">Comparable con la industria</h3>
+        <p class="sistema-card-desc">Tus números medidos con el mismo criterio que usa una cadena internacional.</p>
       </div>
     </div>
   </section>
 
-  <!-- DIFERENCIADOR -->
-  <section class="diferenciador fade-in">
-    <span class="section-label">03 · El enfoque</span>
-    <h2 class="section-title">No traemos fórmulas.<br><em>Traemos estructura.</em></h2>
-    <hr class="divider" style="background: rgba(196,96,58,0.5)">
-    <p class="section-lead" style="color: rgba(245,240,232,0.55)">El estándar existe. Las herramientas existen. Lo que falta es alguien que una ambos mundos con la operación real del negocio.</p>
-
-    <div class="dif-grid">
-      <div class="dif-item">
-        <div class="dif-num">01</div>
-        <div class="dif-title">Las prácticas cambian, el negocio no se detiene</div>
-        <p class="dif-text">Lo que desaparece son los pasos que no agregan valor: el inventario en papel, la foto por WhatsApp, el Excel intermediario, el ir y venir para conseguir una lista de precios. El mismo resultado, con menos fricción y menos margen de error.</p>
-      </div>
-      <div class="dif-item">
-        <div class="dif-num">02</div>
-        <div class="dif-title">Tu equipo no cambia, cambian las prácticas</div>
-        <p class="dif-text">La misma persona que hoy captura una factura en una hoja lo hace en un formulario estructurado. El mismo encargado que revisa inventario lo hace con una herramienta que ya sabe cómo procesar lo que registra. El equipo evoluciona sin cambiar.</p>
-      </div>
-      <div class="dif-item">
-        <div class="dif-num">03</div>
-        <div class="dif-title">La operación gana claridad</div>
-        <p class="dif-text">Menos tiempo consolidando, corrigiendo, preguntando. Más tiempo operando con certeza. Una operación que entiende su propia data — y un equipo cuyas funciones apuntan al desarrollo del negocio, no a la administración de archivos.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- METODOLOGÍA -->
+  <!-- LA METODOLOGÍA (visual) -->
   <section class="metodologia fade-in">
-    <span class="section-label">04 · La metodología</span>
+    <span class="section-label">03 · La metodología</span>
     <h2 class="section-title">Siete bloques.<br><em>Como ya piensas tu negocio.</em></h2>
     <hr class="divider">
-    <p class="section-lead">Tomamos la estructura USAR y la traducimos al lenguaje del operador. No hablamos de cuentas contables — hablamos de La Venta, La Cocina, La Barra, Las Compras, La Gente, La Caja y El Resultado.</p>
 
-    <div class="bloques">
-      <div class="bloque">
-        <span class="bloque-num">01</span>
-        <div class="bloque-name">La Venta</div>
-        <p class="bloque-desc">El punto de venta como fuente de todo. Lo que se vendió, cuándo, cómo.</p>
+    <div class="mapa-grid">
+
+      <div class="mapa-bloque">
+        <span class="mapa-num">01</span>
+        <div class="mapa-name">La Venta</div>
+        <p class="mapa-desc">El punto de venta como fuente de todo</p>
       </div>
-      <div class="bloque-par">
-        <div class="bloque-par-header">
-          <span class="bloque-par-header-title">La Cocina & La Barra</span>
-        </div>
-        <div class="bloque-par-body">
-          <div class="bloque-sub">
-            <span class="bloque-num">02</span>
-            <div class="bloque-name">Cocina</div>
-            <p class="bloque-desc">Insumos, recetas, inventario, merma. El corazón del food cost.</p>
+
+      <div class="mapa-bloque-doble">
+        <div class="mapa-bloque-doble-header">La Cocina &amp; La Barra</div>
+        <div class="mapa-bloque-doble-body">
+          <div class="mapa-bloque-sub">
+            <span class="mapa-num">02</span>
+            <div class="mapa-name">Cocina</div>
+            <p class="mapa-desc">Food cost, recetas, inventario, merma</p>
           </div>
-          <div class="bloque-sub">
-            <span class="bloque-num">03</span>
-            <div class="bloque-name">Barra</div>
-            <p class="bloque-desc">El mismo rigor aplicado a bebidas. Beverage cost propio.</p>
+          <div class="mapa-bloque-sub">
+            <span class="mapa-num">03</span>
+            <div class="mapa-name">Barra</div>
+            <p class="mapa-desc">Beverage cost propio</p>
           </div>
         </div>
       </div>
-      <div class="bloque">
-        <span class="bloque-num">04</span>
-        <div class="bloque-name">Las Compras</div>
-        <p class="bloque-desc">Proveedores, órdenes, facturas, cuentas por pagar.</p>
+
+      <div class="mapa-bloque">
+        <span class="mapa-num">04</span>
+        <div class="mapa-name">Las Compras</div>
+        <p class="mapa-desc">Proveedores, facturas, cuentas por pagar</p>
       </div>
-      <div class="bloque">
-        <span class="bloque-num">05</span>
-        <div class="bloque-name">La Gente</div>
-        <p class="bloque-desc">Nómina, turnos, asistencia, productividad. El labor cost.</p>
+
+      <div class="mapa-bloque">
+        <span class="mapa-num">05</span>
+        <div class="mapa-name">La Gente</div>
+        <p class="mapa-desc">Nómina, turnos, labor cost</p>
       </div>
-      <div class="bloque">
-        <span class="bloque-num">06</span>
-        <div class="bloque-name">La Caja</div>
-        <p class="bloque-desc">Conciliación diaria de efectivo, terminales y banco.</p>
+
+      <div class="mapa-bloque">
+        <span class="mapa-num">06</span>
+        <div class="mapa-name">La Caja</div>
+        <p class="mapa-desc">Conciliación diaria</p>
       </div>
-      <div class="bloque resultado">
-        <div>
-          <span class="bloque-num">07</span>
-          <div class="bloque-name">El Resultado</div>
-        </div>
-        <p class="bloque-desc">Los seis bloques convergen en una solución de visualización en tiempo real. Tu operación, organizada bajo el estándar USAR y accesible desde cualquier dispositivo — indicadores vivos, comparados contra el benchmark de la industria. El entregable no es un reporte: es tu negocio legible, siempre disponible.</p>
+
+      <div class="mapa-arrow">↓</div>
+
+      <div class="mapa-resultado">
+        <span class="mapa-num">07</span>
+        <div class="mapa-name">El Resultado</div>
+        <p class="mapa-desc">Los seis bloques en un solo lugar — indicadores en tiempo real, desde cualquier dispositivo, comparados contra el benchmark de la industria.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LOS NÚMEROS (comprimido) -->
+  <section class="numeros fade-in">
+    <span class="section-label">04 · Los indicadores</span>
+    <h2 class="section-title">Lo que mide la industria.<br><em>Lo que mediremos juntos.</em></h2>
+    <hr class="divider">
+
+    <div class="kpi-grid">
+      <div class="kpi">
+        <div class="kpi-label">Food Cost</div>
+        <div class="kpi-value">28–35%</div>
+        <div class="kpi-desc">Costo de cocina sobre ventas de alimentos.</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Beverage Cost</div>
+        <div class="kpi-value">18–24%</div>
+        <div class="kpi-desc">Costo de barra sobre ventas de bebidas.</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Labor Cost</div>
+        <div class="kpi-value">30–35%</div>
+        <div class="kpi-desc">Nómina total sobre ventas.</div>
+      </div>
+      <div class="kpi prime">
+        <div class="kpi-label">Prime Cost · el indicador rey</div>
+        <div class="kpi-value">&lt; 60%</div>
+        <div class="kpi-desc">Food + Beverage + Labor sobre ventas. Por encima de este umbral, la rentabilidad es matemáticamente imposible.</div>
       </div>
     </div>
   </section>
 
-  <!-- ANTES / DESPUÉS -->
+  <!-- ANTES / DESPUÉS (comprimido) -->
   <section class="comparacion fade-in">
     <span class="section-label">05 · La transformación</span>
     <h2 class="section-title">La operación no cambia.<br><em>La visibilidad sí.</em></h2>
@@ -918,23 +785,19 @@
         <div class="comp-header">Antes de <span class="brand-inline">dataDesk</span></div>
         <div class="comp-item">
           <span class="comp-icon">—</span>
-          <p class="comp-item-text">El cierre del mes llega cuando ya pasaron dos semanas — información correcta, pero fuera de tiempo.</p>
+          <p class="comp-item-text">El cierre del mes llega cuando ya pasaron dos semanas.</p>
         </div>
         <div class="comp-item">
           <span class="comp-icon">—</span>
-          <p class="comp-item-text">Los datos de costos existen, pero cruzarlos requiere tiempo o queda pendiente para cuando haya oportunidad.</p>
+          <p class="comp-item-text">El food cost se calcula cuando alguien tiene tiempo.</p>
         </div>
         <div class="comp-item">
           <span class="comp-icon">—</span>
-          <p class="comp-item-text">El food cost se calcula cuando alguien tiene el espacio para sentarse a los números.</p>
+          <p class="comp-item-text">No hay referente externo para saber si los números son buenos.</p>
         </div>
         <div class="comp-item">
           <span class="comp-icon">—</span>
-          <p class="comp-item-text">No hay un referente externo para saber si los números son buenos o tienen margen de mejora.</p>
-        </div>
-        <div class="comp-item">
-          <span class="comp-icon">—</span>
-          <p class="comp-item-text">La información está disponible — en papel, en WhatsApp, en Excel — pero no consolidada.</p>
+          <p class="comp-item-text">La información está — pero no consolidada.</p>
         </div>
       </div>
 
@@ -942,23 +805,19 @@
         <div class="comp-header">Con <span class="brand-inline">dataDesk</span></div>
         <div class="comp-item">
           <span class="comp-icon">+</span>
-          <p class="comp-item-text">Ves el cierre del día anterior en tiempo real, contra tu propio histórico.</p>
+          <p class="comp-item-text">Ves el cierre del día anterior en tiempo real.</p>
         </div>
         <div class="comp-item">
           <span class="comp-icon">+</span>
-          <p class="comp-item-text">Conoces la rentabilidad de cada platillo. Decides con datos, no con intuición.</p>
+          <p class="comp-item-text">Tu food cost se calcula solo, cada semana.</p>
         </div>
         <div class="comp-item">
           <span class="comp-icon">+</span>
-          <p class="comp-item-text">Tu food cost se calcula solo, cada semana, con precisión de contador.</p>
+          <p class="comp-item-text">Tus números comparados contra el benchmark USAR.</p>
         </div>
         <div class="comp-item">
           <span class="comp-icon">+</span>
-          <p class="comp-item-text">Tus números se comparan contra el benchmark USAR de la industria.</p>
-        </div>
-        <div class="comp-item">
-          <span class="comp-icon">+</span>
-          <p class="comp-item-text">Tu equipo sigue haciendo lo mismo. La información ahora llega ordenada.</p>
+          <p class="comp-item-text">Tu equipo sigue haciendo lo mismo. La información llega ordenada.</p>
         </div>
       </div>
     </div>
@@ -976,6 +835,13 @@
     <span><span class="brand-inline">dataDesk</span> · Jorge Ramírez · 2026</span>
     <span>Inteligencia de negocio para restaurantes</span>
   </footer>
+
+  <a href="https://wa.me/525543183792" class="wa-float" target="_blank" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.122 1.535 5.854L.057 23.215a.75.75 0 0 0 .921.921l5.361-1.478A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.714 9.714 0 0 1-5.003-1.384l-.36-.214-3.733 1.028 1.028-3.733-.214-.36A9.714 9.714 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/>
+    </svg>
+  </a>
 
   <script src="script.js"></script>
 </body>
