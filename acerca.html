@@ -2,26 +2,407 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=https://0datadesk.github.io/jorge-malgesto/">
-  <title>Redirigiendo…</title>
-  <script>window.location.replace("https://0datadesk.github.io/jorge-malgesto/");</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acerca de mí — Jorge Ramírez · Malgesto</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
   <style>
+    :root {
+      --rasta-bg:      #07100a;
+      --rasta-bg-card: #0d1a10;
+      --rasta-border:  rgba(122,182,72,0.12);
+      --rasta-border-gold: rgba(200,146,42,0.2);
+      --rasta-text:    #e8e0cc;
+      --rasta-soft:    #b8a98a;
+      --rasta-dim:     #6b5e3a;
+      --rasta-faint:   #3a3020;
+      --green:  #7ab648;
+      --gold:   #c8922a;
+      --red:    #c84030;
+      --serif:  'Cormorant Garamond', Georgia, serif;
+      --mono:   'JetBrains Mono', monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      background: #0d0d0d;
-      color: #f0ebe2;
+      background: var(--rasta-bg);
+      color: var(--rasta-text);
       font-family: 'DM Sans', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100dvh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .site-nav {
+      background: rgba(7, 16, 10, 0.97) !important;
+      border-bottom: 1px solid var(--rasta-border) !important;
+    }
+
+    .rasta-stripe {
+      display: flex;
+      height: 3px;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+    }
+    .rasta-stripe span { flex: 1; }
+    .rasta-stripe span:nth-child(1) { background: var(--green); }
+    .rasta-stripe span:nth-child(2) { background: var(--gold); }
+    .rasta-stripe span:nth-child(3) { background: var(--red); }
+
+    .wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 8rem 2rem 6rem;
+    }
+
+    /* Hero */
+    .hero { margin-bottom: 5rem; }
+
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.28em;
+      color: var(--rasta-dim);
+      margin-bottom: 2rem;
+      display: block;
+    }
+
+    .hero-names {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 9vw, 6rem);
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      margin-bottom: 2rem;
+    }
+
+    .name-ramirez { display: block; color: var(--rasta-text); }
+    .name-separator {
+      display: block;
+      font-size: clamp(1rem, 3vw, 1.6rem);
+      font-style: italic;
+      color: var(--rasta-dim);
+      letter-spacing: 0.05em;
+      margin: 0.4rem 0;
+    }
+    .name-malgesto { display: block; color: var(--green); font-style: italic; }
+
+    .hero-tagline {
+      font-family: var(--serif);
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--rasta-soft);
+      max-width: 520px;
+      line-height: 1.7;
+    }
+
+    /* Secciones */
+    .section {
+      border-top: 0.5px solid var(--rasta-border);
+      padding: 3.5rem 0;
+    }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.28em;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .label-green { color: var(--green); }
+    .label-gold  { color: var(--gold); }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 400;
+      color: var(--rasta-text);
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+    .section-title em { font-style: italic; color: var(--green); }
+
+    .section-body p {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: var(--rasta-soft);
+      max-width: 580px;
+      margin-bottom: 1.1rem;
+    }
+    .section-body p:last-child { margin-bottom: 0; }
+    .section-body strong { color: var(--rasta-text); font-weight: 500; }
+
+    .rule {
+      width: 32px; height: 1px;
+      margin: 2rem 0;
+    }
+    .rule-gold { background: var(--gold); opacity: 0.4; }
+
+    /* Grid identidad */
+    .identity-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      margin-top: 2rem;
+    }
+
+    .identity-col {
+      border-left: 1px solid var(--rasta-border);
+      padding-left: 1.5rem;
+    }
+    .identity-col.col-malgesto { border-left-color: rgba(122,182,72,0.25); }
+
+    .identity-col-label {
+      font-family: var(--mono);
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--rasta-dim);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .identity-col-name {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--rasta-text);
+      margin-bottom: 1rem;
+      line-height: 1;
+    }
+    .col-malgesto .identity-col-name { color: var(--green); font-style: italic; }
+
+    .identity-col p {
+      font-size: 0.88rem;
+      line-height: 1.75;
+      color: var(--rasta-soft);
+    }
+
+    /* Suite card */
+    .suite-card {
+      border: 0.5px solid var(--rasta-border-gold);
+      background: var(--rasta-bg-card);
+      border-radius: 6px;
+      padding: 2rem 2.5rem;
       display: flex;
       align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      margin: 0;
-      font-size: 13px;
-      letter-spacing: 0.05em;
-      opacity: 0.4;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-top: 3.5rem;
+      transition: border-color 200ms;
+    }
+    .suite-card:hover { border-color: rgba(200,146,42,0.4); }
+
+    .suite-card-label {
+      font-family: var(--mono);
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--rasta-dim);
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+
+    .suite-card-title {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--rasta-text);
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+
+    .suite-card-desc {
+      font-size: 0.85rem;
+      color: var(--rasta-dim);
+      line-height: 1.5;
+    }
+
+    .suite-card-ig {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+      flex-shrink: 0;
+    }
+
+    .suite-ig-handle {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .suite-ig-sub {
+      font-family: var(--mono);
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--rasta-dim);
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 0.5px solid var(--rasta-border);
+      padding: 1.5rem 0;
+      margin-top: 4rem;
+      font-family: var(--mono);
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--rasta-faint);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer a { color: var(--rasta-dim); transition: color 150ms; }
+    .footer a:hover { color: var(--rasta-soft); }
+
+    /* Animación entrada */
+    .fade {
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.7s ease-out forwards;
+    }
+    .fade-1 { animation-delay: 0.05s; }
+    .fade-2 { animation-delay: 0.2s; }
+    .fade-3 { animation-delay: 0.35s; }
+    .fade-4 { animation-delay: 0.5s; }
+    .fade-5 { animation-delay: 0.65s; }
+
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 600px) {
+      .wrap { padding: 7rem 1.25rem 4rem; }
+      .identity-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .suite-card { flex-direction: column; align-items: flex-start; }
+      .suite-card-ig { align-items: flex-start; }
     }
   </style>
 </head>
 <body>
-  Redirigiendo…
+
+  <div class="rasta-stripe">
+    <span></span><span></span><span></span>
+  </div>
+
+  <nav class="site-nav">
+    <a href="index.html" class="nav-brand">Jorge Ramírez <span>by dataDesk</span></a>
+    <ul class="nav-links">
+      <li><a href="restaurantes.html">Restaurantes</a></li>
+      <li><a href="jorgeramirez/index.html">Mi trabajo</a></li>
+      <li><a href="acerca.html" class="active">Acerca de mí</a></li>
+    </ul>
+  </nav>
+
+  <div class="wrap">
+
+    <header class="hero fade fade-1">
+      <span class="hero-eyebrow">Acerca de mí</span>
+      <h1 class="hero-names">
+        <span class="name-ramirez">Ramírez</span>
+        <span class="name-separator">y también</span>
+        <span class="name-malgesto">Malgesto.</span>
+      </h1>
+      <p class="hero-tagline">
+        Los dos nombres son el mismo. La diferencia está en cuál traje llevo puesto ese día.
+      </p>
+    </header>
+
+    <section class="section fade fade-2">
+      <div class="identity-grid">
+        <div class="identity-col">
+          <span class="identity-col-label">El que construye</span>
+          <div class="identity-col-name">Jorge Ramírez</div>
+          <p>
+            Quince años en el mundo corporativo — recursos humanos, compensaciones,
+            nómina, operaciones. Farma, aseguradoras, retail. Aprendí que las decisiones
+            que más cuestan son las que se toman sin información confiable.
+            Construí dataDesk exactamente para eso.
+          </p>
+        </div>
+        <div class="identity-col col-malgesto">
+          <span class="identity-col-label">El que toca</span>
+          <div class="identity-col-name">Malgesto</div>
+          <p>
+            El apodo me lo puso Ramón — mi voz es muy grave, como la de Paco Malgesto.
+            Más de diez años con el bajo: surf rock, radio por internet.
+            Hoy en tres bandas al mismo tiempo: Davis Don, Leocadio y Juana la Rodillona.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade fade-3">
+      <span class="section-label label-gold">La historia</span>
+      <h2 class="section-title">Un momento me fui.<br><em>Siempre volví.</em></h2>
+      <hr class="rule rule-gold">
+      <div class="section-body">
+        <p>
+          Cuando entendí que la música no me iba a dar de comer, me metí al traje.
+          Quince años en escritorios, auditorías, procesos. Lo hice bien.
+          Pero el bajo siempre estuvo ahí, esperando.
+        </p>
+        <p>
+          Salí del mundo corporativo de forma deliberada. No fue un tropiezo —
+          fue una decisión. Y cuando volví a tomar el instrumento, la gente de aquella época
+          me volvió a llamar Malgesto. <strong>Como si nunca me hubiera ido.</strong>
+        </p>
+        <p>
+          Hoy construyo sistemas de inteligencia de negocio de día
+          y toco el bajo de noche. No me parece una contradicción.
+          Me parece exactamente quién soy.
+        </p>
+      </div>
+    </section>
+
+    <section class="section fade fade-4">
+      <span class="section-label label-green">Suite personal</span>
+      <a href="https://instagram.com/jorgemalgesto"
+         class="suite-card"
+         target="_blank"
+         rel="noopener noreferrer">
+        <div class="suite-card-left">
+          <span class="suite-card-label">Herramientas · Conocimiento</span>
+          <div class="suite-card-title">Tengo una suite personal.</div>
+          <p class="suite-card-desc">
+            Herramientas para el bajo y el show. Material de estudio.<br>
+            Escribime por Instagram y te comparto el acceso.
+          </p>
+        </div>
+        <div class="suite-card-ig">
+          <span class="suite-ig-handle">@jorgemalgesto</span>
+          <span class="suite-ig-sub">Instagram →</span>
+        </div>
+      </a>
+    </section>
+
+    <footer class="footer fade fade-5">
+      <a href="index.html">← Inicio</a>
+      <span>Jorge Ramírez · Malgesto · CDMX · 2026</span>
+    </footer>
+
+  </div>
+
+  <a href="https://wa.me/525543183792" class="wa-float" target="_blank" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.122 1.535 5.854L.057 23.215a.75.75 0 0 0 .921.921l5.361-1.478A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.714 9.714 0 0 1-5.003-1.384l-.36-.214-3.733 1.028 1.028-3.733-.214-.36A9.714 9.714 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/>
+    </svg>
+  </a>
+
+  <script src="script.js"></script>
 </body>
 </html>
