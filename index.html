@@ -21,7 +21,7 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       height: 2px;
-      background: linear-gradient(to right, var(--blue-accent) 0%, var(--blue-accent) 33%, #4caf82 33%, #4caf82 66%, var(--terracotta) 66%, var(--terracotta) 100%);
+      background: linear-gradient(to right, var(--blue-accent) 0%, var(--blue-accent) 50%, var(--terracotta) 50%, var(--terracotta) 90%, rgba(76,175,130,0.6) 90%, rgba(76,175,130,0.6) 100%);
       z-index: 200;
     }
 
@@ -189,8 +189,8 @@
       color: var(--white);
     }
 
-    .card-restaurantes .card-name { font-size: clamp(1.8rem, 3vw, 3rem); }
-    .card-trabajo .card-name { font-size: clamp(1.4rem, 2.2vw, 2.2rem); }
+    .card-trabajo .card-name { font-size: clamp(1.8rem, 3vw, 3rem); }
+    .card-restaurantes .card-name { font-size: clamp(1.4rem, 2.2vw, 2.2rem); }
 
     .card-desc {
       margin-top: 0.6rem;
@@ -294,15 +294,6 @@
 
     <div class="cards">
 
-      <a href="restaurantes.html" class="card card-restaurantes">
-        <div class="card-content">
-          <p class="card-tag">Nuevo · Especializado</p>
-          <h2 class="card-name">Restaurantes</h2>
-          <p class="card-desc">Sistema especializado · Estándar USAR · Implementado en operación real</p>
-          <span class="card-cta">Entrar</span>
-        </div>
-      </a>
-
       <a href="jorgeramirez/index.html" class="card card-trabajo">
         <div class="card-content">
           <p class="card-tag">Portafolio</p>
@@ -310,6 +301,15 @@
           <p class="card-desc">Datos, análisis y decisiones para cualquier tipo de negocio.</p>
           <p class="card-subtitle">Aplicativo web · Dashboards · Análisis de decisiones</p>
           <span class="card-cta">Ver</span>
+        </div>
+      </a>
+
+      <a href="restaurantes.html" class="card card-restaurantes">
+        <div class="card-content">
+          <p class="card-tag">Nuevo · Especializado</p>
+          <h2 class="card-name">Restaurantes</h2>
+          <p class="card-desc">Sistema especializado · Estándar USAR · Implementado en operación real</p>
+          <span class="card-cta">Entrar</span>
         </div>
       </a>
 
