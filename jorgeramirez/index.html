@@ -235,6 +235,19 @@
       font-weight: 600;
     }
 
+    .diag-sep {
+      border-top: 1px solid var(--gray-light);
+      margin-top: 1rem;
+      padding-top: 1rem;
+    }
+
+    .diag-solve {
+      font-size: 0.82rem;
+      color: var(--green);
+      line-height: 1.55;
+      font-weight: 500;
+    }
+
     /* ===== SERVICIOS / PROPUESTAS ===== */
     .servicios {
       background: var(--navy);
@@ -314,6 +327,11 @@
     }
 
     .propuesta-cta:hover { color: #5dce99; }
+
+    .servicios-cta {
+      text-align: center;
+      margin-top: 2.5rem;
+    }
 
     /* ===== TRAYECTORIA ===== */
     .validado {
@@ -470,18 +488,27 @@
     <div class="diag-grid">
       <div class="diag-card fade-in">
         <span class="diag-icon">01 · Datos dispersos</span>
-        <h3 class="diag-problem">La información existe pero nadie la lee</h3>
-        <p class="diag-solution">Está en el POS, en el Excel del contador, en el correo del proveedor. <strong>La consolidamos en un solo lugar.</strong></p>
+        <h3 class="diag-problem">La información existe pero no vive junta.</h3>
+        <p class="diag-solution">Está en el sistema de ventas, en los archivos del contador, en el correo del proveedor.</p>
+        <div class="diag-sep">
+          <p class="diag-solve">La concentramos en un solo lugar, en un solo formato.</p>
+        </div>
       </div>
       <div class="diag-card fade-in">
         <span class="diag-icon">02 · Decisiones tardías</span>
-        <h3 class="diag-problem">Te enteras cómo cerró el mes dos semanas después</h3>
-        <p class="diag-solution">Cuando los datos llegan, ya es tarde para actuar. <strong>Construimos reportes que llegan antes de que el problema crezca.</strong></p>
+        <h3 class="diag-problem">Te enterás cómo cerró el mes dos semanas después.</h3>
+        <p class="diag-solution">Cuando la información llega, el momento de actuar ya pasó.</p>
+        <div class="diag-sep">
+          <p class="diag-solve">Construimos reportes que llegan cuando todavía sirven.</p>
+        </div>
       </div>
       <div class="diag-card fade-in">
         <span class="diag-icon">03 · Sin estándar</span>
-        <h3 class="diag-problem">No tienes contra qué comparar tu negocio</h3>
-        <p class="diag-solution">Sin benchmarks, operas a ciegas. <strong>Trabajamos sobre estándares reconocidos de la industria.</strong></p>
+        <h3 class="diag-problem">Sin referentes externos, operás en el vacío.</h3>
+        <p class="diag-solution">No sabés si tus números son buenos o tienen margen de mejora.</p>
+        <div class="diag-sep">
+          <p class="diag-solve">Trabajamos sobre estándares reconocidos de la industria.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -501,7 +528,6 @@
         <p class="propuesta-desc">Sistema de inteligencia de negocio construido a la medida de tu operación. Captura estructurada, dashboards en tiempo real, indicadores comparables contra estándares de la industria. Accesible desde cualquier dispositivo.</p>
         <div class="propuesta-footer">
           <span class="propuesta-tag">Producto principal</span>
-          <a href="https://wa.me/525543183792" class="propuesta-cta" target="_blank">Conversemos →</a>
         </div>
       </div>
 
@@ -511,7 +537,6 @@
         <p class="propuesta-desc">Convierte la data que ya genera tu negocio en indicadores accionables. Dashboards, modelos de rentabilidad, análisis de costos y comportamiento. Sin consultorías infladas — solo lo que necesitas para decidir mejor.</p>
         <div class="propuesta-footer">
           <span class="propuesta-tag">Inteligencia de negocio</span>
-          <a href="https://wa.me/525543183792" class="propuesta-cta" target="_blank">Conversemos →</a>
         </div>
       </div>
 
@@ -521,10 +546,13 @@
         <p class="propuesta-desc">Del diagnóstico al sistema funcionando. Integración con tus herramientas actuales, capacitación al equipo y soporte continuo. El sistema es tuyo desde el primer día.</p>
         <div class="propuesta-footer">
           <span class="propuesta-tag">Operación</span>
-          <a href="https://wa.me/525543183792" class="propuesta-cta" target="_blank">Conversemos →</a>
         </div>
       </div>
 
+    </div>
+
+    <div class="servicios-cta">
+      <a href="https://wa.me/525543183792" class="btn-primary" target="_blank">Conversemos →</a>
     </div>
   </section>
 
@@ -535,8 +563,8 @@
     <hr class="divider fade-in">
     <div class="validado-text fade-in">
       <p>Quince años en el sector privado — recursos humanos, compensaciones, nómina, administración de personal — en industrias como la farmacéutica, aseguradora y retail.</p>
-      <p>En ese tiempo ejecuté, audité y rediseñé procesos en organizaciones de distinta escala. Lo que aprendí: las decisiones que más cuestan son las que se toman sin información confiable — no porque los datos no existan, sino porque nadie los consolida de forma que se puedan usar a tiempo.</p>
-      <p class="validado-origen">dataDesk nació de esa experiencia.</p>
+      <p>En ese tiempo ejecuté, audité y rediseñé procesos en organizaciones de distinta escala. Lo que aprendí: las decisiones que más cuestan son las que se toman sin información confiable — y casi siempre, esa información existe pero vive dispersa, sin forma de leerse junta.</p>
+      <p class="validado-origen">dataDesk nació de esa experiencia — de tomar lo que funciona en las organizaciones grandes y llevarlo al alcance de cualquier negocio, sin importar su tamaño.</p>
     </div>
   </section>
 
