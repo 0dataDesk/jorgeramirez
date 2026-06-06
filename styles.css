@@ -11,8 +11,6 @@
   --terracotta: #c4603a;
   --terracotta-soft: #e8a080;
   --line: #d4ccb9;
-
-  /* dataDesk brand */
   --blue-deep: #0d1f3c;
   --blue-mid: #1a3a6b;
   --blue-soft: #2e5fa3;
@@ -29,12 +27,9 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ===== SHARED NAV ===== */
 .site-nav {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   z-index: 100;
   display: flex;
   justify-content: space-between;
@@ -55,9 +50,7 @@ body {
   text-decoration: none;
 }
 
-.nav-brand span {
-  color: var(--blue-accent);
-}
+.nav-brand span { color: var(--blue-accent); }
 
 .nav-links {
   display: flex;
@@ -76,18 +69,13 @@ body {
 }
 
 .nav-links a:hover,
-.nav-links a.active {
-  color: var(--white);
-}
+.nav-links a.active { color: var(--white); }
 
-/* ===== WHATSAPP FLOAT ===== */
 .wa-float {
   position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
+  bottom: 1.5rem; right: 1.5rem;
   z-index: 999;
-  width: 3rem;
-  height: 3rem;
+  width: 3rem; height: 3rem;
   background: #25D366;
   border-radius: 50%;
   display: flex;
@@ -99,16 +87,6 @@ body {
   transition: opacity 0.3s ease, transform 0.3s ease;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
-.wa-float.visible {
-  opacity: 1;
-  transform: scale(1);
-}
-.wa-float:hover {
-  transform: scale(1.08);
-  background: #20ba5a;
-}
-.wa-float svg {
-  width: 1.4rem;
-  height: 1.4rem;
-  fill: white;
-}
+.wa-float.visible { opacity: 1; transform: scale(1); }
+.wa-float:hover { transform: scale(1.08); background: #20ba5a; }
+.wa-float svg { width: 1.4rem; height: 1.4rem; fill: white; }
