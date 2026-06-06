@@ -3,22 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jorge Ramírez · dataDesk — Convierte datos en decisiones</title>
+  <title>Jorge Ramírez · dataDesk</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
     :root {
       --navy: #0d1f3c;
-      --navy-mid: #1a3a6b;
-      --blue: #2e5fa3;
       --accent: #4a90d9;
       --green: #4caf82;
       --white: #ffffff;
-      --off-white: #f0f4f8;
       --gray: #6b7a90;
       --gray-light: #e8edf4;
+      --off-white: #f0f4f8;
       --ink: #1a2333;
     }
 
@@ -26,30 +24,65 @@
 
     body {
       font-family: 'DM Sans', sans-serif;
-      background: var(--white);
-      color: var(--ink);
+      background: var(--navy);
+      color: var(--white);
+      min-height: 100dvh;
       -webkit-font-smoothing: antialiased;
     }
 
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
+    a { color: inherit; text-decoration: none; }
+
+    /* NAV */
+    .site-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 3rem;
+      background: rgba(13,31,60,0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(74,144,217,0.15);
     }
 
+    .nav-brand {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .nav-brand span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    /* HERO */
     .hero {
-      min-height: 100vh;
-      background: var(--navy);
+      min-height: 100dvh;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
       padding: 9rem 5rem 5rem;
       position: relative;
       overflow: hidden;
+      background: var(--navy);
     }
 
     .hero::before {
@@ -72,9 +105,9 @@
     }
 
     .hero-title {
-      font-family: 'DM Serif Display', serif;
+      font-family: 'Cormorant Garamond', serif;
       font-size: clamp(2.8rem, 6vw, 5.5rem);
-      font-weight: 400;
+      font-weight: 300;
       line-height: 1.05;
       color: var(--white);
       max-width: 820px;
@@ -97,461 +130,153 @@
       margin-bottom: 3rem;
     }
 
-    .hero-ctas {
-      display: flex;
-      gap: 1rem;
-      position: relative;
-    }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: var(--green);
-      color: var(--white);
-      text-decoration: none;
-      padding: 0.9rem 2rem;
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      transition: background 0.2s;
-    }
-
-    .btn-primary:hover { background: #3d9e72; }
-
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      border: 1px solid rgba(255,255,255,0.2);
-      color: rgba(255,255,255,0.7);
-      text-decoration: none;
-      padding: 0.9rem 2rem;
-      font-size: 0.78rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      transition: border-color 0.2s, color 0.2s;
-    }
-
-    .btn-secondary:hover {
-      border-color: rgba(255,255,255,0.5);
-      color: var(--white);
-    }
-
-    section { padding: 5rem; }
-
-    .section-label {
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.75rem;
-      display: block;
-    }
-
-    .section-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(1.8rem, 3.5vw, 3rem);
-      font-weight: 400;
-      line-height: 1.1;
-      color: var(--navy);
-      margin-bottom: 1rem;
-    }
-
-    .section-title em {
-      font-style: italic;
-      color: var(--green);
-    }
-
-    .section-lead {
-      font-size: 1rem;
-      color: var(--gray);
-      max-width: 560px;
-      line-height: 1.7;
-      margin-bottom: 3rem;
-    }
-
-    .divider {
-      width: 40px;
-      height: 2px;
-      background: var(--green);
-      border: none;
-      margin: 1rem 0 2.5rem;
-    }
-
-    .diagnostico { background: var(--off-white); }
-
-    .diag-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-top: 1rem;
-    }
-
-    .diag-card {
-      background: var(--white);
-      padding: 2rem;
-      border-top: 3px solid var(--gray-light);
-      transition: border-color 0.2s;
-    }
-
-    .diag-card:hover { border-top-color: var(--green); }
-
-    .diag-icon {
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.75rem;
-      display: block;
-    }
-
-    .diag-problem {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.2rem;
-      color: var(--navy);
-      margin-bottom: 0.75rem;
-      line-height: 1.2;
-    }
-
-    .diag-solution {
-      font-size: 0.85rem;
-      color: var(--gray);
-      line-height: 1.6;
-    }
-
-    .diag-solution strong { color: var(--green); font-weight: 600; }
-
-    .diag-sep {
-      border-top: 1px solid var(--gray-light);
-      margin-top: 1rem;
-      padding-top: 1rem;
-    }
-
-    .diag-solve {
-      font-size: 0.82rem;
-      color: var(--green);
-      line-height: 1.55;
-      font-weight: 500;
-    }
-
-    .servicios { background: var(--navy); }
-    .servicios .section-title { color: var(--white); }
-    .servicios .section-lead { color: rgba(255,255,255,0.45); }
-    .servicios .section-label { color: var(--accent); }
-    .servicios .divider { background: rgba(76,175,130,0.5); }
-
-    .propuestas-grid {
+    /* NAV CARDS */
+    .nav-cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1px;
       background: rgba(255,255,255,0.08);
       border: 1px solid rgba(255,255,255,0.08);
+      position: relative;
+      max-width: 860px;
     }
 
-    .propuesta-card {
+    .nav-card {
       background: var(--navy);
-      padding: 2.5rem;
+      padding: 2rem 2.5rem;
       display: flex;
       flex-direction: column;
+      gap: 0.5rem;
       transition: background 0.2s;
+      cursor: pointer;
     }
 
-    .propuesta-card:hover { background: rgba(255,255,255,0.04); }
-
-    .propuesta-num {
-      font-family: 'DM Serif Display', serif;
-      font-size: 0.85rem;
-      font-style: italic;
-      color: rgba(74,144,217,0.5);
-      display: block;
-      margin-bottom: 0.5rem;
+    .nav-card:hover {
+      background: rgba(255,255,255,0.05);
     }
 
-    .propuesta-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.35rem;
-      color: var(--white);
-      margin-bottom: 1rem;
-      line-height: 1.2;
+    .nav-card:hover .card-arrow {
+      opacity: 1;
+      transform: translateX(4px);
     }
 
-    .propuesta-desc {
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.45);
-      line-height: 1.65;
-      flex: 1;
-      margin-bottom: 1.75rem;
-    }
-
-    .propuesta-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 1.25rem;
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .propuesta-tag {
-      font-size: 0.58rem;
+    .card-num {
+      font-size: 0.6rem;
       font-weight: 700;
-      letter-spacing: 0.25em;
+      letter-spacing: 0.3em;
       text-transform: uppercase;
-      color: rgba(74,144,217,0.55);
+      color: rgba(74,144,217,0.5);
     }
 
-    .servicios-cta { text-align: center; margin-top: 2.5rem; }
-
-    .validado { background: var(--off-white); }
-
-    .validado-text p {
-      font-size: 0.95rem;
-      line-height: 1.85;
-      color: var(--gray);
-      max-width: 580px;
-      margin-bottom: 1.2rem;
+    .card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--white);
+      line-height: 1.1;
     }
 
-    .validado-origen {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.1rem;
-      font-style: italic;
-      color: var(--navy);
+    .card-desc {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.5;
+    }
+
+    .card-arrow {
+      font-size: 1rem;
+      color: var(--green);
+      opacity: 0;
+      transition: opacity 0.2s, transform 0.2s;
       margin-top: 0.5rem;
     }
 
-    .como-trabajo { background: var(--white); }
-
-    .pasos {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      margin-top: 1rem;
-    }
-
-    .paso {
-      padding: 2rem;
-      border-left: 1px solid var(--gray-light);
-      position: relative;
-    }
-
-    .paso:first-child { border-left: none; }
-
-    .paso-num {
-      font-family: 'DM Serif Display', serif;
-      font-size: 2.5rem;
-      font-style: italic;
-      color: var(--gray-light);
-      display: block;
-      margin-bottom: 1rem;
-      line-height: 1;
-    }
-
-    .paso-title {
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--navy);
-      margin-bottom: 0.5rem;
-    }
-
-    .paso-desc {
-      font-size: 0.85rem;
-      color: var(--gray);
-      line-height: 1.6;
-    }
-
-    .contacto {
-      background: var(--white);
-      text-align: center;
-      padding: 6rem 5rem;
-    }
-
-    .contacto .section-title { max-width: 500px; margin: 0 auto 1rem; }
-    .contacto .section-lead { margin: 0 auto 2.5rem; text-align: center; }
-
+    /* FOOTER */
     .footer {
-      background: var(--navy);
-      padding: 1.5rem 5rem;
+      background: rgba(0,0,0,0.3);
+      padding: 1.2rem 5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-top: 1px solid rgba(255,255,255,0.06);
+      position: relative;
     }
 
     .footer span {
-      font-size: 0.65rem;
+      font-size: 0.62rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: rgba(255,255,255,0.2);
     }
 
-    .como-trabajo .divider { background: var(--orange); }
-    .contacto .divider { background: var(--orange); }
+    /* ANIMATIONS */
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
 
+    .hero-eyebrow { animation: rise 0.6s ease-out 0.1s both; }
+    .hero-title   { animation: rise 0.6s ease-out 0.2s both; }
+    .hero-sub     { animation: rise 0.6s ease-out 0.3s both; }
+    .nav-cards    { animation: rise 0.6s ease-out 0.4s both; }
+
+    /* RESPONSIVE */
     @media (max-width: 900px) {
+      .site-nav { padding: 1rem 1.5rem; }
       .hero { padding: 7rem 2rem 3.5rem; }
-      section { padding: 3.5rem 2rem; }
-      .diag-grid { grid-template-columns: 1fr; }
-      .pasos { grid-template-columns: 1fr 1fr; }
-      .propuestas-grid { grid-template-columns: 1fr; }
-      .contacto { padding: 3.5rem 2rem; }
-      .footer { padding: 1.5rem 2rem; flex-direction: column; gap: 0.5rem; }
-      .hero-ctas { flex-direction: column; }
+      .nav-cards { grid-template-columns: 1fr; max-width: 100%; }
+      .footer { padding: 1.2rem 2rem; flex-direction: column; gap: 0.4rem; }
     }
 
     @media (max-width: 560px) {
-      .pasos { grid-template-columns: 1fr; }
+      .hero { padding: 5.5rem 1.25rem 2.5rem; }
+      .nav-card { padding: 1.5rem; }
     }
-
-    .nav-brand { text-transform: none !important; letter-spacing: 0.03em !important; }
-    .nav-links { display: none; }
-    .brand-inline { text-transform: none; letter-spacing: 0.04em; font-weight: 700; }
   </style>
 </head>
 <body>
 
   <nav class="site-nav">
-    <a href="index.html" class="nav-brand">Jorge Ramírez <span>by dataDesk</span></a>
+    <span class="nav-brand">Jorge Ramírez <span>by dataDesk</span></span>
     <ul class="nav-links">
-      <li><a href="../restaurantes.html">Restaurantes</a></li>
-      <li><a href="index.html" class="active">Mi trabajo</a></li>
-      <li><a href="../acerca.html">Acerca de mí</a></li>
+      <li><a href="restaurantes.html">Restaurantes</a></li>
+      <li><a href="jorgeramirez/index.html">Mi trabajo</a></li>
+      <li><a href="acerca.html">Acerca de mí</a></li>
     </ul>
   </nav>
 
   <section class="hero">
-    <h1 class="hero-title">Tu negocio ya<br>genera datos.<br><em>Yo los convierto<br>en decisiones.</em></h1>
+    <span class="hero-eyebrow">dataDesk · Inteligencia de negocio · CDMX</span>
+    <h1 class="hero-title">
+      Tu negocio ya<br>
+      genera datos.<br>
+      <em>Yo los convierto<br>en decisiones.</em>
+    </h1>
     <p class="hero-sub">Construyo sistemas de inteligencia de negocio a la medida de tu operación — sin consultorías infladas ni software que nadie usa.</p>
-    <div class="hero-ctas">
-      <a href="https://wa.me/525543183792" class="btn-primary" target="_blank">Agendar diagnóstico</a>
-      <a href="#servicios" class="btn-secondary">Ver servicios</a>
-    </div>
-  </section>
 
-  <section class="diagnostico">
-    <span class="section-label fade-in">El problema</span>
-    <h2 class="section-title fade-in">Lo que frena a la mayoría<br><em>de los negocios</em></h2>
-    <hr class="divider fade-in">
-    <div class="diag-grid">
-      <div class="diag-card fade-in">
-        <span class="diag-icon">01 · Datos dispersos</span>
-        <h3 class="diag-problem">La información existe pero no vive junta.</h3>
-        <p class="diag-solution">Está en el sistema de ventas, en los archivos del contador, en el correo del proveedor.</p>
-        <div class="diag-sep">
-          <p class="diag-solve">La concentramos en un solo lugar, en un solo formato.</p>
-        </div>
-      </div>
-      <div class="diag-card fade-in">
-        <span class="diag-icon">02 · Decisiones tardías</span>
-        <h3 class="diag-problem">Te enterás cómo cerró el mes dos semanas después.</h3>
-        <p class="diag-solution">Cuando la información llega, el momento de actuar ya pasó.</p>
-        <div class="diag-sep">
-          <p class="diag-solve">Construimos reportes que llegan cuando todavía sirven.</p>
-        </div>
-      </div>
-      <div class="diag-card fade-in">
-        <span class="diag-icon">03 · Sin estándar</span>
-        <h3 class="diag-problem">Sin referentes externos, operás en el vacío.</h3>
-        <p class="diag-solution">No sabés si tus números son buenos o tienen margen de mejora.</p>
-        <div class="diag-sep">
-          <p class="diag-solve">Trabajamos sobre estándares reconocidos de la industria.</p>
-        </div>
-      </div>
+    <div class="nav-cards">
+      <a href="jorgeramirez/index.html" class="nav-card">
+        <span class="card-num">01</span>
+        <div class="card-title">Mi trabajo</div>
+        <p class="card-desc">Servicios, proceso y trayectoria.</p>
+        <span class="card-arrow">→</span>
+      </a>
+      <a href="restaurantes.html" class="nav-card">
+        <span class="card-num">02</span>
+        <div class="card-title">Restaurantes</div>
+        <p class="card-desc">Inteligencia de negocio para la industria restaurantera.</p>
+        <span class="card-arrow">→</span>
+      </a>
+      <a href="acerca.html" class="nav-card">
+        <span class="card-num">03</span>
+        <div class="card-title">Acerca de mí</div>
+        <p class="card-desc">Ramírez y Malgesto. La misma persona.</p>
+        <span class="card-arrow">→</span>
+      </a>
     </div>
-  </section>
-
-  <section class="servicios" id="servicios">
-    <span class="section-label fade-in">Lo que hago</span>
-    <h2 class="section-title fade-in">Servicios</h2>
-    <hr class="divider fade-in">
-    <p class="section-lead fade-in">Tres formas de trabajar juntos — desde el sistema completo hasta el análisis puntual.</p>
-    <div class="propuestas-grid fade-in">
-      <div class="propuesta-card">
-        <span class="propuesta-num">01</span>
-        <h3 class="propuesta-title">El aplicativo web</h3>
-        <p class="propuesta-desc">Sistema de inteligencia de negocio construido a la medida de tu operación. Captura estructurada, dashboards en tiempo real, indicadores comparables contra estándares de la industria. Accesible desde cualquier dispositivo.</p>
-        <div class="propuesta-footer">
-          <span class="propuesta-tag">Producto principal</span>
-        </div>
-      </div>
-      <div class="propuesta-card">
-        <span class="propuesta-num">02</span>
-        <h3 class="propuesta-title">Análisis y decisiones</h3>
-        <p class="propuesta-desc">Convierte la data que ya genera tu negocio en indicadores accionables. Dashboards, modelos de rentabilidad, análisis de costos y comportamiento. Sin consultorías infladas — solo lo que necesitas para decidir mejor.</p>
-        <div class="propuesta-footer">
-          <span class="propuesta-tag">Inteligencia de negocio</span>
-        </div>
-      </div>
-      <div class="propuesta-card">
-        <span class="propuesta-num">03</span>
-        <h3 class="propuesta-title">Implementación y acompañamiento</h3>
-        <p class="propuesta-desc">Del diagnóstico al sistema funcionando. Integración con tus herramientas actuales, capacitación al equipo y soporte continuo. El sistema es tuyo desde el primer día.</p>
-        <div class="propuesta-footer">
-          <span class="propuesta-tag">Operación</span>
-        </div>
-      </div>
-    </div>
-    <div class="servicios-cta">
-      <a href="https://wa.me/525543183792" class="btn-primary" target="_blank">Conversemos →</a>
-    </div>
-  </section>
-
-  <section class="validado">
-    <span class="section-label fade-in">Trayectoria</span>
-    <h2 class="section-title fade-in">15 años en operación<br><em>antes de construir esto.</em></h2>
-    <hr class="divider fade-in">
-    <div class="validado-text fade-in">
-      <p>Quince años en el sector privado — recursos humanos, compensaciones, nómina, administración de personal — en industrias como la farmacéutica, aseguradora y retail.</p>
-      <p>En ese tiempo ejecuté, audité y rediseñé procesos en organizaciones de distinta escala. Lo que aprendí: las decisiones que más cuestan son las que se toman sin información confiable — y casi siempre, esa información existe pero vive dispersa, sin forma de leerse junta.</p>
-      <p class="validado-origen">dataDesk nació de esa experiencia — de tomar lo que funciona en las organizaciones grandes y llevarlo al alcance de cualquier negocio, sin importar su tamaño.</p>
-    </div>
-  </section>
-
-  <section class="como-trabajo">
-    <span class="section-label fade-in">El proceso</span>
-    <h2 class="section-title fade-in">Cómo trabajo</h2>
-    <hr class="divider fade-in">
-    <p class="section-lead fade-in">Sin metodologías inventadas. Cuatro pasos que van del diagnóstico al sistema funcionando.</p>
-    <div class="pasos fade-in">
-      <div class="paso">
-        <span class="paso-num">01</span>
-        <div class="paso-title">Diagnóstico</div>
-        <p class="paso-desc">Entiendo cómo opera tu negocio hoy — qué datos existen, dónde viven y qué decisiones necesitas tomar.</p>
-      </div>
-      <div class="paso">
-        <span class="paso-num">02</span>
-        <div class="paso-title">Propuesta</div>
-        <p class="paso-desc">Te presento qué vamos a construir, cómo lo vamos a construir y cuánto va a costar. Sin sorpresas.</p>
-      </div>
-      <div class="paso">
-        <span class="paso-num">03</span>
-        <div class="paso-title">Construcción</div>
-        <p class="paso-desc">Construyo el sistema. Te mantengo informado en cada paso. Nada se entrega sin que entiendas cómo funciona.</p>
-      </div>
-      <div class="paso">
-        <span class="paso-num">04</span>
-        <div class="paso-title">Entrega</div>
-        <p class="paso-desc">El sistema es tuyo. Te enseño a usarlo, te dejo documentación y puedo darte soporte si lo necesitas.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="contacto">
-    <span class="section-label fade-in">Siguiente paso</span>
-    <h2 class="section-title fade-in">¿Listo para ver<br>tu negocio <em>con claridad</em>?</h2>
-    <hr class="divider fade-in" style="margin: 1rem auto 2rem">
-    <p class="section-lead fade-in">El diagnóstico no cuesta nada. Platicamos 30 minutos y te digo si puedo ayudarte — y cómo.</p>
-    <a href="https://wa.me/525543183792" class="btn-primary fade-in" target="_blank" style="display:inline-flex">Agendar por WhatsApp</a>
   </section>
 
   <footer class="footer">
-    <span>Jorge Ramírez · <span class="brand-inline">dataDesk</span> · 2026</span>
+    <span>Jorge Ramírez · dataDesk · 2026</span>
     <span>Convierte datos en decisiones</span>
   </footer>
 
@@ -562,6 +287,6 @@
     </svg>
   </a>
 
-  <script src="../script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
