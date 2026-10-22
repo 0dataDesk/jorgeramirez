@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Malgesto · Jorge</title>
+<meta name="description" content="El lado musical de Jorge: bajo, teclados, guitarra acústica, mezcla y master.">
+<meta name="theme-color" content="#0b1a33">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Malgesto · Jorge">
+<meta property="og:description" content="Bajo, teclados, guitarra acústica, mezcla y master.">
+<meta property="og:image" content="https://0datadesk.github.io/jorgeramirez/malgesto/assets/malgesto-bajo-retrato.jpg">
+<meta property="og:url" content="https://0datadesk.github.io/jorgeramirez/malgesto/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b1a33;--sf:#11244a;--sf2:#183058;--tx:#eef1f6;--mu:#93a1b8;--ac:#e8a33d;--sg:#4caf82;--ln:rgba(232,237,244,.14);--mono:'JetBrains Mono',monospace;--serif:'Instrument Serif',serif}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg)}
+a{color:inherit;text-decoration:none}
+a:hover{opacity:.9}
+body{min-height:100vh;color:var(--tx);font-family:'Archivo Narrow',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a:focus-visible,button:focus-visible{outline:3px solid var(--tx);outline-offset:3px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 clamp(18px,4vw,40px)}
+.etiqueta{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mu)}
+
+/* Hero */
+.hero{position:relative;height:min(92svh,860px);min-height:560px;overflow:hidden;background:#000}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:55% 30%;filter:contrast(1.06) saturate(.85)}
+.hero .velo{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.45) 0%,rgba(0,0,0,0) 22%,rgba(0,0,0,0) 45%,var(--bg) 100%)}
+.hero header{position:absolute;top:0;left:0;right:0;max-width:1200px;margin:0 auto;padding:14px clamp(18px,4vw,40px);display:flex;justify-content:space-between;align-items:center}
+.volver{display:flex;align-items:center;gap:10px;min-height:44px;font-weight:600;font-size:16px;color:#f2e9dc}
+.volver i{width:34px;height:34px;border-radius:50%;background:rgba(0,0,0,.4);border:1px solid rgba(242,233,220,.3);display:flex;align-items:center;justify-content:center;font-style:normal}
+.fecha{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:#f2e9dc}
+.hero .pie{position:absolute;left:0;right:0;bottom:0}
+.hero .texto{max-width:1200px;margin:0 auto;padding:0 clamp(18px,4vw,40px) 28px;display:flex;flex-direction:column;gap:16px}
+.hero .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ac)}
+h1{margin:0;font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(96px,17vw,240px);line-height:.8;letter-spacing:-.02em}
+.barra{display:flex;align-items:center;gap:14px;padding-top:12px;border-top:1px solid var(--ln)}
+.barra .play{width:40px;height:40px;flex:none;border-radius:50%;background:var(--ac);color:#14110e;display:flex;align-items:center;justify-content:center;font-size:14px}
+.barra .riel{position:relative;flex:1;height:2px;background:var(--ln)}
+.barra .riel span{position:absolute;left:0;top:0;height:2px;width:34%;background:var(--ac)}
+.barra .lado{font-family:var(--mono);font-size:11px;color:var(--mu)}
+
+/* Bio */
+.bio{padding:clamp(28px,5vw,64px) 0 clamp(56px,8vw,104px)}
+.bio p{margin:0;max-width:22ch;font-size:clamp(28px,4.4vw,52px);line-height:1.12;font-weight:500;letter-spacing:-.01em;text-wrap:pretty}
+.bio p span{color:var(--mu)}
+
+/* Pistas */
+.pistas{display:flex;flex-direction:column;padding-bottom:clamp(56px,8vw,104px)}
+.pistas .cab{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:12px}
+.pista{border-top:1px solid var(--ln)}
+.pista:last-of-type{border-bottom:1px solid var(--ln)}
+.pista button{all:unset;box-sizing:border-box;cursor:pointer;width:100%;display:grid;grid-template-columns:auto 6px minmax(0,1fr) auto;align-items:center;gap:14px;padding:18px 0;min-height:72px}
+.pista button:focus-visible{outline:3px solid var(--tx);outline-offset:3px}
+.pista .num{font-family:var(--mono);font-size:12px;color:var(--mu)}
+.pista .barrita{width:6px;height:36px;border-radius:2px}
+.pista .info{display:flex;flex-direction:column;gap:4px;min-width:0}
+.pista .nombre{font-size:clamp(24px,3.4vw,40px);font-weight:700;letter-spacing:-.02em;line-height:1}
+.pista .rol{font-family:var(--mono);font-size:11px;color:var(--ac);letter-spacing:.08em;text-transform:uppercase}
+.pista .icono{width:44px;height:44px;border-radius:50%;border:1px solid var(--ln);display:flex;align-items:center;justify-content:center;font-size:13px}
+.pista .reproductor{display:none;height:152px;border-radius:12px;overflow:hidden;background:var(--sf);margin-bottom:18px}
+.pista.abierta .reproductor{display:block}
+.pista iframe{display:block;border:0;width:100%;height:152px}
+
+/* Hoja de contacto */
+.hoja{display:flex;flex-direction:column;gap:14px;padding-bottom:clamp(56px,8vw,104px)}
+.hoja .cab{max-width:1200px;width:100%;margin:0 auto;padding:0 clamp(18px,4vw,40px);display:flex;justify-content:space-between}
+.tira{display:flex;gap:6px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:10px max(clamp(18px,4vw,40px),calc((100% - 1200px) / 2 + 40px));background:#060e1c}
+.tira::-webkit-scrollbar{display:none}
+.tira figure{flex:none;width:72%;margin:0;display:flex;flex-direction:column;gap:6px;scroll-snap-align:start}
+.tira .foto{position:relative;aspect-ratio:3/4;overflow:hidden;background:#0e1830}
+.tira img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tira figcaption{font-family:var(--mono);font-size:10px;color:var(--ac);letter-spacing:.1em}
+
+/* Escuchando + app + IG */
+.dos{display:grid;grid-template-columns:minmax(0,1fr);gap:48px;padding-bottom:clamp(56px,8vw,104px)}
+.col{display:flex;flex-direction:column;gap:14px}
+.lista{height:352px;border-radius:12px;overflow:hidden;background:var(--sf)}
+.lista iframe{display:block;border:0;width:100%;height:352px}
+.rack{position:relative;display:flex;flex-direction:column;gap:14px;padding:22px 26px;background:var(--sf);border:1px solid var(--ln);border-radius:3px}
+.rack .tornillo{position:absolute;width:6px;height:6px;border-radius:50%;background:var(--ln)}
+.rack .fila{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.rack .app{font-family:var(--serif);font-style:italic;font-size:30px;line-height:1}
+.rack .on{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;color:var(--mu)}
+.rack .on i{width:7px;height:7px;border-radius:50%;background:var(--sg);box-shadow:0 0 8px var(--sg)}
+.rack .titulo{font-size:clamp(24px,2.8vw,32px);font-weight:700;line-height:1.05;letter-spacing:-.02em}
+.rack .desc{font-size:17px;line-height:1.4;color:var(--mu);text-wrap:pretty}
+.rack .boton{align-self:flex-start;display:flex;align-items:center;height:48px;padding:0 20px;border-radius:3px;background:var(--ac);color:#14110e;font-weight:700;font-size:16px}
+.ig{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:0 26px;height:72px;background:radial-gradient(circle at 15% 120%,#fdc468 0%,#fa7e1e 22%,#d62976 50%,#962fbf 75%,#4f5bd5 100%);color:#fff;border-radius:3px;font-weight:700;font-size:18px}
+.ig span{display:flex;align-items:center;gap:12px}
+
+/* Amigos */
+.amigos{display:none;flex-direction:column;padding-bottom:clamp(56px,8vw,100px)}
+.amigos.hay{display:flex}
+.amigos .cab{display:flex;justify-content:space-between;padding-bottom:12px}
+.amigos a{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:64px;border-top:1px solid var(--ln);font-size:22px;font-weight:700}
+.amigos a:last-child{border-bottom:1px solid var(--ln)}
+.amigos a small{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--mu)}
+
+footer{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:20px 0 32px;border-top:1px solid var(--ln);font-family:var(--mono);font-size:12px;color:var(--mu)}
+footer a{color:var(--tx);min-height:44px;display:flex;align-items:center}
+
+@media (min-width:900px){
+  .hero img{object-position:center 28%}
+  .dos{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}
+  .tira figure{width:340px}
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <img src="assets/malgesto-bajo-retrato.jpg" alt="Jorge tocando el bajo">
+  <div class="velo"></div>
+  <header>
+    <a class="volver" href="../"><i aria-hidden="true">←</i><span>Jorge</span></a>
+    <span class="fecha">10 | 2026</span>
+  </header>
+  <div class="pie">
+    <div class="texto">
+      <span class="kicker">Jorge · Bajo, teclados, mezcla</span>
+      <h1>Malgesto</h1>
+      <div class="barra" aria-hidden="true">
+        <span class="play">▶</span>
+        <span class="riel"><span></span></span>
+        <span class="lado">Lado B</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <section class="bio">
+    <p>Empecé con los teclados de niño, después llegó el bajo y hoy aprendo guitarra acústica. <span>Siempre me ha gustado la mezcla y el master: cómo suena todo junto.</span></p>
+  </section>
+
+  <section class="pistas">
+    <div class="cab etiqueta"><span>Pistas · lo que he hecho</span><span>Rol</span></div>
+    <div class="pista" data-embed="https://open.spotify.com/embed/artist/08tQxQVAyPB9RuN4IdxqFe?utm_source=generator&theme=0" data-titulo="El Yelo">
+      <button type="button" aria-expanded="false">
+        <span class="num">01</span><span class="barrita" style="background:var(--ac)"></span>
+        <span class="info"><span class="nombre">El Yelo</span><span class="rol">Master</span></span>
+        <span class="icono" aria-hidden="true">▶</span>
+      </button>
+      <div class="reproductor"></div>
+    </div>
+    <div class="pista" data-embed="https://open.spotify.com/embed/artist/3wZLGBoyBc8dOZZadpMzXm?utm_source=generator&theme=0" data-titulo="Champetin Sound System">
+      <button type="button" aria-expanded="false">
+        <span class="num">02</span><span class="barrita" style="background:var(--sg)"></span>
+        <span class="info"><span class="nombre">Champetin Sound System</span><span class="rol">Mezcla y master</span></span>
+        <span class="icono" aria-hidden="true">▶</span>
+      </button>
+      <div class="reproductor"></div>
+    </div>
+  </section>
+</div>
+
+<section class="hoja">
+  <div class="cab etiqueta"><span>Hoja de contacto</span><span>05 tomas</span></div>
+  <div class="tira">
+    <figure><div class="foto"><img src="assets/malgesto-bajo-cerca.jpg" alt="Jorge con el bajo" loading="lazy" style="object-position:55% 30%"></div><figcaption>▸ TOMA 01</figcaption></figure>
+    <figure><div class="foto"><img src="assets/malgesto-escenario-rosa.jpg" alt="Jorge en escenario con luz rosa" loading="lazy" style="object-position:45% 62%"></div><figcaption>▸ TOMA 02</figcaption></figure>
+    <figure><div class="foto"><img src="assets/malgesto-escenario-azul.jpg" alt="Jorge en escenario con luz azul" loading="lazy" style="object-position:40% 45%"></div><figcaption>▸ TOMA 03</figcaption></figure>
+    <figure><div class="foto"><img src="assets/malgesto-bar-stickers.jpg" alt="Jorge tocando en un bar" loading="lazy" style="object-position:58% 50%"></div><figcaption>▸ TOMA 04</figcaption></figure>
+    <figure><div class="foto"><img src="assets/malgesto-bajo-retrato.jpg" alt="Retrato con el bajo" loading="lazy" style="object-position:50% 35%"></div><figcaption>▸ TOMA 05</figcaption></figure>
+  </div>
+</section>
+
+<div class="wrap">
+  <section class="dos">
+    <div class="col">
+      <span class="etiqueta">Lo que estoy escuchando</span>
+      <div class="lista"><iframe src="https://open.spotify.com/embed/playlist/0rAUbXEaFNWzyqVjfJdYqB?utm_source=generator&theme=0" title="Playlist Malgesto recomienda en Spotify" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe></div>
+    </div>
+    <div class="col">
+      <span class="etiqueta">Rack</span>
+      <a class="rack" href="https://malgesto.vercel.app/inicio" target="_blank" rel="noopener">
+        <span class="tornillo" style="top:8px;left:8px"></span><span class="tornillo" style="top:8px;right:8px"></span><span class="tornillo" style="bottom:8px;left:8px"></span><span class="tornillo" style="bottom:8px;right:8px"></span>
+        <div class="fila"><span class="app">Malgesto app</span><span class="on"><i></i>ON</span></div>
+        <span class="titulo">La suite del músico</span>
+        <span class="desc">Setlist, afinador, armonía y repertorio en un solo lugar, para ensayar y tocar en vivo.</span>
+        <span class="boton">Abrir app ↗</span>
+      </a>
+      <a class="ig" href="https://instagram.com/jorgemalgesto" target="_blank" rel="noopener">
+        <span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>Sígueme en Instagram</span>
+        <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Amigos músicos: se llena solo con usuarios de Instagram. Vacío = la sección no aparece. -->
+  <section class="amigos" id="amigos">
+    <div class="cab etiqueta"><span>Amigos músicos</span><span id="amigos-n"></span></div>
+    <div id="amigos-lista"></div>
+  </section>
+
+  <footer>
+    <span>Malgesto · Jorge Ramírez</span>
+    <a href="../">← Volver a la portada</a>
+  </footer>
+</div>
+
+<script>
+// Pistas: el reproductor de Spotify se carga solo al abrir la pista.
+document.querySelectorAll('.pista').forEach(function(p){
+  var b=p.querySelector('button'), box=p.querySelector('.reproductor'), ic=p.querySelector('.icono');
+  b.addEventListener('click',function(){
+    var abierta=p.classList.toggle('abierta');
+    b.setAttribute('aria-expanded',abierta);
+    ic.textContent=abierta?'✕':'▶';
+    if(abierta && !box.firstChild){
+      var f=document.createElement('iframe');
+      f.src=p.dataset.embed; f.title=p.dataset.titulo+' en Spotify'; f.loading='lazy';
+      f.allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
+      box.appendChild(f);
+    }
+  });
+});
+// Amigos músicos: solo usuarios de Instagram, sin @. Ejemplo: ['usuario1','usuario2']
+var AMIGOS=[];
+if(AMIGOS.length){
+  var s=document.getElementById('amigos'), l=document.getElementById('amigos-lista');
+  AMIGOS.forEach(function(u){
+    var a=document.createElement('a'); a.href='https://instagram.com/'+u; a.target='_blank'; a.rel='noopener';
+    a.innerHTML='<span>@'+u+'</span><small>Seguir ↗</small>'; l.appendChild(a);
+  });
+  document.getElementById('amigos-n').textContent=AMIGOS.length+(AMIGOS.length===1?' canal':' canales');
+  s.classList.add('hay');
+}
+</script>
+</body>
+</html>
