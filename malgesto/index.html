@@ -61,6 +61,7 @@ h1{margin:0;font-family:var(--serif);font-style:italic;font-weight:400;font-size
 .pista .info{display:flex;flex-direction:column;gap:4px;min-width:0}
 .pista .nombre{font-size:clamp(24px,3.4vw,40px);font-weight:700;letter-spacing:-.02em;line-height:1}
 .pista .rol{font-family:var(--mono);font-size:11px;color:var(--ac);letter-spacing:.08em;text-transform:uppercase}
+.pista .nota{font-size:15px;line-height:1.35;color:var(--mu);font-weight:400;text-wrap:pretty;padding:0 0 18px 20px;margin:-6px 0 0;max-width:46ch}
 .pista .icono{width:44px;height:44px;border-radius:50%;border:1px solid var(--ln);display:flex;align-items:center;justify-content:center;font-size:13px}
 .pista .reproductor{display:none;height:152px;border-radius:12px;overflow:hidden;background:var(--sf);margin-bottom:18px}
 .pista.abierta .reproductor{display:block}
@@ -94,12 +95,13 @@ h1{margin:0;font-family:var(--serif);font-style:italic;font-weight:400;font-size
 .ig span{display:flex;align-items:center;gap:12px}
 
 /* Amigos */
-.amigos{display:none;flex-direction:column;padding-bottom:clamp(56px,8vw,100px)}
-.amigos.hay{display:flex}
-.amigos .cab{display:flex;justify-content:space-between;padding-bottom:12px}
-.amigos a{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:64px;border-top:1px solid var(--ln);font-size:22px;font-weight:700}
-.amigos a:last-child{border-bottom:1px solid var(--ln)}
-.amigos a small{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--mu)}
+.amigos{display:flex;flex-direction:column;gap:clamp(36px,5vw,56px);padding-bottom:clamp(56px,8vw,100px)}
+.amigos:empty{display:none}
+.grupo{display:flex;flex-direction:column}
+.grupo .cab{display:flex;justify-content:space-between;padding-bottom:12px}
+.grupo a{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:64px;border-top:1px solid var(--ln);font-size:22px;font-weight:700}
+.grupo a:last-child{border-bottom:1px solid var(--ln)}
+.grupo a small{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--mu)}
 
 footer{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:20px 0 32px;border-top:1px solid var(--ln);font-family:var(--mono);font-size:12px;color:var(--mu)}
 footer a{color:var(--tx);min-height:44px;display:flex;align-items:center}
@@ -146,6 +148,7 @@ footer a{color:var(--tx);min-height:44px;display:flex;align-items:center}
         <span class="info"><span class="nombre">El Yelo</span><span class="rol">Master</span></span>
         <span class="icono" aria-hidden="true">▶</span>
       </button>
+      <p class="nota">Me encargo del master para subir su música a plataformas.</p>
       <div class="reproductor"></div>
     </div>
     <div class="pista" data-embed="https://open.spotify.com/embed/artist/3wZLGBoyBc8dOZZadpMzXm?utm_source=generator&theme=0" data-titulo="Champetin Sound System">
@@ -154,6 +157,7 @@ footer a{color:var(--tx);min-height:44px;display:flex;align-items:center}
         <span class="info"><span class="nombre">Champetin Sound System</span><span class="rol">Mezcla y master</span></span>
         <span class="icono" aria-hidden="true">▶</span>
       </button>
+      <p class="nota" data-hasta="2026-10-29" data-despues="Me encargo de la mezcla y el master de su música.">Mezcla y master. Su siguiente lanzamiento sale el 29 de octubre.</p>
       <div class="reproductor"></div>
     </div>
   </section>
@@ -192,11 +196,8 @@ footer a{color:var(--tx);min-height:44px;display:flex;align-items:center}
     </div>
   </section>
 
-  <!-- Amigos músicos: se llena solo con usuarios de Instagram. Vacío = la sección no aparece. -->
-  <section class="amigos" id="amigos">
-    <div class="cab etiqueta"><span>Amigos músicos</span><span id="amigos-n"></span></div>
-    <div id="amigos-lista"></div>
-  </section>
+  <!-- Bandas y amigos: solo usuarios de Instagram (sin @). Se editan en GRUPOS, al final de la página. -->
+  <section class="amigos" id="grupos"></section>
 
   <footer>
     <span>Malgesto · Jorge Ramírez</span>
@@ -220,17 +221,30 @@ document.querySelectorAll('.pista').forEach(function(p){
     }
   });
 });
-// Amigos músicos: solo usuarios de Instagram, sin @. Ejemplo: ['usuario1','usuario2']
-var AMIGOS=[];
-if(AMIGOS.length){
-  var s=document.getElementById('amigos'), l=document.getElementById('amigos-lista');
-  AMIGOS.forEach(function(u){
-    var a=document.createElement('a'); a.href='https://instagram.com/'+u; a.target='_blank'; a.rel='noopener';
-    a.innerHTML='<span>@'+u+'</span><small>Seguir ↗</small>'; l.appendChild(a);
+// Nota de lanzamiento: después de la fecha se muestra el texto normal.
+(function(){
+  var hoy=new Date(); var y=hoy.getFullYear(), m=('0'+(hoy.getMonth()+1)).slice(-2), dd=('0'+hoy.getDate()).slice(-2);
+  var h=y+'-'+m+'-'+dd;
+  document.querySelectorAll('.nota[data-hasta]').forEach(function(n){ if(h>n.dataset.hasta) n.textContent=n.dataset.despues; });
+})();
+// Bandas y amigos: usuarios de Instagram sin @.
+var GRUPOS=[
+  {titulo:'Bandas', usuarios:['juana.larodillona']},
+  {titulo:'Amigos', usuarios:['_davisdon','odr.jaja','aquilessaja','sonidochampetin']}
+];
+var cont=document.getElementById('grupos');
+GRUPOS.forEach(function(g){
+  if(!g.usuarios.length) return;
+  var sec=document.createElement('div'); sec.className='grupo';
+  var cab=document.createElement('div'); cab.className='cab etiqueta';
+  var t=document.createElement('span'); t.textContent=g.titulo; cab.appendChild(t); sec.appendChild(cab);
+  g.usuarios.forEach(function(u){
+    var a=document.createElement('a'); a.href='https://instagram.com/'+encodeURIComponent(u); a.target='_blank'; a.rel='noopener';
+    var n=document.createElement('span'); n.textContent='@'+u; var sm=document.createElement('small'); sm.textContent='Seguir ↗';
+    a.appendChild(n); a.appendChild(sm); sec.appendChild(a);
   });
-  document.getElementById('amigos-n').textContent=AMIGOS.length+(AMIGOS.length===1?' canal':' canales');
-  s.classList.add('hay');
-}
+  cont.appendChild(sec);
+});
 </script>
 </body>
 </html>
