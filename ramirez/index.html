@@ -1,292 +1,294 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jorge Ramírez · dataDesk</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    :root {
-      --navy: #0d1f3c;
-      --accent: #4a90d9;
-      --green: #4caf82;
-      --white: #ffffff;
-      --gray: #6b7a90;
-      --gray-light: #e8edf4;
-      --off-white: #f0f4f8;
-      --ink: #1a2333;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--navy);
-      color: var(--white);
-      min-height: 100dvh;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    /* NAV */
-    .site-nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.2rem 3rem;
-      background: rgba(13,31,60,0.97);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(74,144,217,0.15);
-    }
-
-    .nav-brand {
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--white);
-    }
-
-    .nav-brand span { color: var(--accent); }
-
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.6);
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--white); }
-
-    /* HERO */
-    .hero {
-      min-height: 100dvh;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 9rem 5rem 5rem;
-      position: relative;
-      overflow: hidden;
-      background: var(--navy);
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 90% 10%, rgba(74,144,217,0.12) 0%, transparent 45%),
-        radial-gradient(circle at 10% 90%, rgba(76,175,130,0.08) 0%, transparent 40%);
-    }
-
-    .hero-eyebrow {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1.5rem;
-      position: relative;
-    }
-
-    .hero-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.8rem, 6vw, 5.5rem);
-      font-weight: 300;
-      line-height: 1.05;
-      color: var(--white);
-      max-width: 820px;
-      position: relative;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-title em {
-      font-style: italic;
-      color: var(--green);
-    }
-
-    .hero-sub {
-      font-size: 1rem;
-      font-weight: 300;
-      color: rgba(255,255,255,0.5);
-      max-width: 480px;
-      line-height: 1.7;
-      position: relative;
-      margin-bottom: 3rem;
-    }
-
-    /* NAV CARDS */
-    .nav-cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.08);
-      position: relative;
-      max-width: 860px;
-    }
-
-    .nav-card {
-      background: var(--navy);
-      padding: 2rem 2.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      transition: background 0.2s;
-      cursor: pointer;
-    }
-
-    .nav-card:hover {
-      background: rgba(255,255,255,0.05);
-    }
-
-    .nav-card:hover .card-arrow {
-      opacity: 1;
-      transform: translateX(4px);
-    }
-
-    .card-num {
-      font-size: 0.6rem;
-      font-weight: 700;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: rgba(74,144,217,0.5);
-    }
-
-    .card-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
-      font-weight: 500;
-      color: var(--white);
-      line-height: 1.1;
-    }
-
-    .card-desc {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.4);
-      line-height: 1.5;
-    }
-
-    .card-arrow {
-      font-size: 1rem;
-      color: var(--green);
-      opacity: 0;
-      transition: opacity 0.2s, transform 0.2s;
-      margin-top: 0.5rem;
-    }
-
-    /* FOOTER */
-    .footer {
-      background: rgba(0,0,0,0.3);
-      padding: 1.2rem 5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-top: 1px solid rgba(255,255,255,0.06);
-      position: relative;
-    }
-
-    .footer span {
-      font-size: 0.62rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.2);
-    }
-
-    /* ANIMATIONS */
-    @keyframes rise {
-      from { opacity: 0; transform: translateY(16px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .hero-eyebrow { animation: rise 0.6s ease-out 0.1s both; }
-    .hero-title   { animation: rise 0.6s ease-out 0.2s both; }
-    .hero-sub     { animation: rise 0.6s ease-out 0.3s both; }
-    .nav-cards    { animation: rise 0.6s ease-out 0.4s both; }
-
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-      .site-nav { padding: 1rem 1.5rem; }
-      .hero { padding: 7rem 2rem 3.5rem; }
-      .nav-cards { grid-template-columns: 1fr; max-width: 100%; }
-      .footer { padding: 1.2rem 2rem; flex-direction: column; gap: 0.4rem; }
-    }
-
-    @media (max-width: 560px) {
-      .hero { padding: 5.5rem 1.25rem 2.5rem; }
-      .nav-card { padding: 1.5rem; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jorge Ramírez · Inteligencia de negocios</title>
+<meta name="description" content="Pasé 15 años en operación. Elige tu negocio y te enseño dónde busco los puntos críticos y cómo los resuelvo.">
+<meta name="theme-color" content="#0d1f3c">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jorge Ramírez · Inteligencia de negocios">
+<meta property="og:description" content="Muéstrame tu negocio por dentro. Elige el tuyo y te enseño dónde busco.">
+<meta property="og:image" content="https://0datadesk.github.io/jorgeramirez/img/jorge.jpg">
+<meta property="og:url" content="https://0datadesk.github.io/jorgeramirez/ramirez/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0d1f3c;--blue:#4a90d9;--green:#4caf82;--white:#fff;--gl:#e8edf4;--g:#6b7a90;--gm:#93a1b8;--warn:#ff7a59;--mono:'IBM Plex Mono',ui-monospace,monospace;--sans:'Archivo',system-ui,sans-serif}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{min-height:100vh;color:var(--white);font-family:var(--sans);-webkit-font-smoothing:antialiased;background-color:var(--navy);background-image:linear-gradient(rgba(74,144,217,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(74,144,217,.09) 1px,transparent 1px);background-size:24px 24px;padding-bottom:110px}
+a{color:inherit;text-decoration:none}
+a:hover{opacity:.9}
+button{font:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--white);outline-offset:2px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 clamp(16px,4vw,40px);display:flex;flex-direction:column;gap:clamp(18px,3vw,32px)}
+header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:12px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--gl)}
+header a{display:flex;align-items:center;min-height:44px;font-size:14px;letter-spacing:0}
+.hero{display:flex;flex-direction:column;gap:14px}
+.hero h1{margin:0;max-width:14ch;font-stretch:72%;font-weight:800;font-size:clamp(44px,8vw,96px);line-height:.92;text-transform:uppercase}
+.hero p{margin:0;max-width:40ch;font-size:clamp(17px,1.8vw,20px);line-height:1.45;color:var(--gl);text-wrap:pretty}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(20px,4vw,56px);align-items:start}
+.col{display:flex;flex-direction:column;gap:12px}
+.col.der{gap:20px}
+.fila{display:flex;gap:6px}
+.fila button.tipo{flex:1;min-height:48px;padding:0 8px;border:1.5px solid rgba(74,144,217,.5);background:rgba(13,31,60,.8);color:var(--white);font-weight:700;font-size:15px;cursor:pointer}
+.fila button.tipo.sel{border-color:var(--blue);background:var(--blue);color:var(--navy)}
+.plano{position:relative;aspect-ratio:4/3;border:2px solid var(--blue);background:rgba(13,31,60,.7)}
+.zona{position:absolute;display:flex;align-items:flex-start;justify-content:space-between;padding:7px;cursor:pointer;text-align:left;transition:background .3s,border-color .3s;border-style:solid}
+.zona .n{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.zona .b{flex:none;width:20px;height:20px;border-radius:50%;color:var(--navy);font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.pie{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;color:var(--gl);letter-spacing:.06em}
+.lista{display:flex;flex-direction:column;gap:10px}
+.lista button{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:76px;padding:12px 18px;border:1.5px solid var(--blue);background:rgba(13,31,60,.8);color:var(--white);text-align:left;cursor:pointer}
+.lista .t{display:flex;flex-direction:column;gap:3px}
+.lista .t b{font-stretch:75%;font-weight:800;font-size:28px;text-transform:uppercase}
+.lista .t span{font-family:var(--mono);font-size:12px;color:var(--gl)}
+.lista .f{font-size:22px}
+.pasos{display:flex;flex-direction:column;gap:18px}
+.tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}
+.tabs button{display:flex;flex-direction:column;gap:4px;min-height:56px;padding:8px;border:0;border-top:3px solid rgba(232,237,244,.25);background:transparent;color:var(--gm);text-align:left;cursor:pointer}
+.tabs button.cur{border-top-color:var(--blue);color:var(--white)}
+.tabs button.past{border-top-color:var(--green);color:var(--white)}
+.tabs .tn{font-family:var(--mono);font-size:12px}
+.tabs .ts{font-size:13px;font-weight:600;line-height:1.15}
+h2{margin:0;font-stretch:72%;font-weight:800;font-size:clamp(38px,5vw,60px);line-height:.95;text-transform:uppercase}
+.lead{margin:0;font-size:19px;line-height:1.45;color:var(--gl)}
+.ej{display:flex;flex-direction:column;gap:8px;padding:16px 18px;background:var(--gl);color:var(--navy)}
+.ej small{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.1em}
+.ej span{font-size:20px;line-height:1.35;font-weight:500;text-wrap:pretty}
+.zn{display:flex;flex-direction:column;gap:4px;padding:12px 0;border-top:1px solid rgba(232,237,244,.2)}
+.zn small{font-family:var(--mono);font-size:12px;color:var(--blue);letter-spacing:.08em;text-transform:uppercase}
+.zn span{font-size:16px;line-height:1.45}
+.demo{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px;border:1.5px dashed var(--g);font-family:var(--mono);font-size:13px;color:var(--gl)}
+.demo small{font-size:11px}
+.nav{display:flex;gap:8px}
+.nav .prev{width:56px;height:56px;border:1.5px solid var(--blue);background:transparent;color:var(--white);font-size:18px;cursor:pointer}
+.nav .next{flex:1;height:56px;border:0;background:var(--blue);color:var(--navy);font-weight:800;font-size:16px;cursor:pointer}
+.diag{display:flex;flex-direction:column;gap:16px}
+.diag .k{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--blue)}
+.diag h2{font-size:clamp(36px,5vw,56px)}
+.tabla{display:flex;flex-direction:column;border-top:1px solid rgba(232,237,244,.2)}
+.tabla .r{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid rgba(232,237,244,.2);font-size:16px}
+.tabla .r span{color:var(--gl);flex:none}
+.tabla .r strong{text-align:right}
+.tabla .s{display:flex;flex-direction:column;gap:10px;padding:12px 0}
+.tabla .s>span{color:var(--gl);font-size:16px}
+.tam button{flex:1;min-height:48px;border:1.5px solid rgba(74,144,217,.5);background:transparent;color:var(--white);font-weight:700;font-size:14px;cursor:pointer}
+.tam button.sel{border-color:var(--blue);background:var(--blue);color:var(--navy)}
+.res{display:flex;flex-direction:column;gap:12px;padding:20px;background:var(--gl);color:var(--navy)}
+.res .m{font-family:var(--mono);font-size:12px}
+.res .p{font-size:23px;line-height:1.25;font-weight:800;text-wrap:pretty}
+.res .s2{font-size:18px;line-height:1.4;font-weight:500;text-wrap:pretty}
+.res .x{font-size:14px;line-height:1.5}
+.res .wa{display:flex;align-items:center;justify-content:center;height:60px;margin-top:4px;background:var(--green);color:var(--navy);font-weight:800;font-size:16px}
+.res .nota{font-size:12px;text-align:center}
+.wafab{position:fixed;right:16px;bottom:16px;z-index:20;display:flex;align-items:center;gap:8px;height:56px;padding:0 20px 0 16px;border-radius:28px;background:var(--green);color:var(--navy);font-weight:800;font-size:15px;box-shadow:0 10px 26px rgba(0,0,0,.3)}
+.wafab svg{fill:var(--navy)}
+[hidden]{display:none!important}
+</style>
 </head>
 <body>
+<div class="wrap">
+  <header>
+    <a href="../">← Jorge</a>
+    <span>RAMÍREZ · PLANO</span>
+    <span>10 | 2026</span>
+  </header>
 
-  <nav class="site-nav">
-    <span class="nav-brand">Jorge Ramírez <span>by dataDesk</span></span>
-    <ul class="nav-links">
-      <li><a href="restaurantes.html">Restaurantes</a></li>
-      <li><a href="jorgeramirez/index.html">Mi trabajo</a></li>
-      <li><a href="acerca.html">Acerca de mí</a></li>
-    </ul>
-  </nav>
+  <div class="hero" id="hero">
+    <h1>Muéstrame tu negocio por dentro.</h1>
+    <p>Pasé 15 años en operación. Los problemas casi nunca están donde se ven. Elige tu negocio y te enseño dónde busco.</p>
+  </div>
 
-  <section class="hero">
-    <span class="hero-eyebrow">dataDesk · Inteligencia de negocio · CDMX</span>
-    <h1 class="hero-title">
-      Tu negocio ya<br>
-      genera datos.<br>
-      <em>Yo los convierto<br>en decisiones.</em>
-    </h1>
-    <p class="hero-sub">Construyo sistemas de inteligencia de negocio a la medida de tu operación — sin consultorías infladas ni software que nadie usa.</p>
-
-    <div class="nav-cards">
-      <a href="jorgeramirez/index.html" class="nav-card">
-        <span class="card-num">01</span>
-        <div class="card-title">Mi trabajo</div>
-        <p class="card-desc">Servicios, proceso y trayectoria.</p>
-        <span class="card-arrow">→</span>
-      </a>
-      <a href="restaurantes.html" class="nav-card">
-        <span class="card-num">02</span>
-        <div class="card-title">Restaurantes</div>
-        <p class="card-desc">Inteligencia de negocio para la industria restaurantera.</p>
-        <span class="card-arrow">→</span>
-      </a>
-      <a href="acerca.html" class="nav-card">
-        <span class="card-num">03</span>
-        <div class="card-title">Acerca de mí</div>
-        <p class="card-desc">Ramírez y Malgesto. La misma persona.</p>
-        <span class="card-arrow">→</span>
-      </a>
+  <div class="cols">
+    <div class="col">
+      <div class="fila" id="tipos" role="group" aria-label="Tipo de negocio"></div>
+      <div class="plano" id="plano" role="group" aria-label="Plano del negocio"></div>
+      <div class="pie"><span id="hint"></span><span>ESC 1:100</span></div>
     </div>
-  </section>
+    <div class="col der" id="panel" aria-live="polite"></div>
+  </div>
+</div>
 
-  <footer class="footer">
-    <span>Jorge Ramírez · dataDesk · 2026</span>
-    <span>Convierte datos en decisiones</span>
-  </footer>
+<a class="wafab" id="wagen" href="#" target="_blank" rel="noopener">
+  <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>
+  <span>WhatsApp</span>
+</a>
 
-  <a href="https://wa.me/525543183792" class="wa-float" target="_blank" aria-label="WhatsApp">
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.122 1.535 5.854L.057 23.215a.75.75 0 0 0 .921.921l5.361-1.478A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.714 9.714 0 0 1-5.003-1.384l-.36-.214-3.733 1.028 1.028-3.733-.214-.36A9.714 9.714 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/>
-    </svg>
-  </a>
+<script>
+(function(){
+var META=[
+ {n:'01',title:'Conocer tu negocio',short:'Conocer',lead:'Cómo opera de verdad, no como te lo imaginas.'},
+ {n:'02',title:'Encontrar los puntos críticos',short:'Puntos críticos',lead:'Dónde se pierde dinero, tiempo o información.'},
+ {n:'03',title:'Elegir la solución',short:'Solución',lead:'La más sencilla que lo resuelve. No siempre es software.'},
+ {n:'04',title:'Implementar y acompañarte',short:'Acompañar',lead:'Me quedo hasta que funcione y se use, no hasta que se entregue.'}
+];
+var BIZ={
+ restaurante:{label:'Restaurante',sub:'Cocina, barra, salón',noun:'restaurante',art:'un',item:'platillo',items:'platillos',demo:'Demo de restaurante',
+  ex:['En el papel, la orden de chilaquiles lleva 120 g de pollo. En la línea, a las 2 de la tarde, salen con 160.',
+      '40 g de más por plato, 90 platos al día: casi 110 kg de pollo al mes que nadie cobra.',
+      'Muchas veces basta una báscula junto a la plancha y la hoja de porciones a la vista. Sin sistema nuevo.',
+      'Se revisa la merma cada lunes durante 6 semanas, hasta que el equipo lo hace solo.'],
+  merma:'Se me va en merma',mermaRes:{punto:'Las porciones y la recepción de mercancía.',sol:'Porcionar con báscula y revisar lo que entra contra la factura, todos los días.'},
+  cajaPunto:'Cancelaciones, descuentos y propinas sin una regla clara.',crit:['cocina','almacen','caja'],sol:'cocina',
+  zones:[
+   {k:'salon',name:'Salón',pain:'ganancia',p:[0,0,60,62],note:'Mesas llenas no siempre son ganancia: depende de qué se vende.'},
+   {k:'cocina',name:'Cocina',pain:'merma',p:[60,0,40,58],note:'Porciones de más en hora pico: la merma que no se ve.'},
+   {k:'barra',name:'Barra',pain:'ganancia',p:[0,62,36,38],note:'Las bebidas suelen dejar más margen que los platillos. ¿Sabes cuánto?'},
+   {k:'caja',name:'Caja',pain:'caja',p:[36,62,24,38],note:'Cancelaciones y descuentos: donde el corte deja de cuadrar.'},
+   {k:'almacen',name:'Almacén',pain:'merma',p:[60,58,22,42],note:'Lo que entra sin revisarse contra la factura.'},
+   {k:'oficina',name:'Oficina',pain:'dependo',p:[82,58,18,42],note:'Si todo pasa por ti, el negocio se detiene cuando no estás.'}]},
+ tienda:{label:'Tienda',sub:'Mostrador, bodega, caja',noun:'tienda',art:'una',item:'producto',items:'productos',demo:'Demo de tienda',
+  ex:['En el sistema hay 24 piezas. En el anaquel, 17. Nadie sabe cuándo se fueron.',
+      'Un faltante de 3% en 800 mil pesos de inventario son 24 mil pesos que pagaste y no vas a vender.',
+      'Conteo cíclico: 20 productos al día, 15 minutos antes de abrir. Sin sistema nuevo.',
+      'Las primeras 4 semanas contamos juntos. Después lo hace el encargado y yo reviso los números.'],
+  merma:'El inventario no cuadra',mermaRes:{punto:'Entradas y salidas que no se registran.',sol:'Conteo cíclico: pocos productos cada día, en lugar de un inventario gigante al año.'},
+  cajaPunto:'Devoluciones y cancelaciones sin autorización.',crit:['bodega','recepcion','caja'],sol:'bodega',
+  zones:[
+   {k:'piso',name:'Piso de venta',pain:'ganancia',p:[0,0,64,62],note:'Lo que más se vende no siempre es lo que más deja.'},
+   {k:'bodega',name:'Bodega',pain:'merma',p:[64,0,36,62],note:'Piezas que están en el sistema y no en el anaquel.'},
+   {k:'caja',name:'Caja',pain:'caja',p:[0,62,30,38],note:'Devoluciones sin autorización: el corte no cuadra.'},
+   {k:'mostrador',name:'Mostrador',pain:'ganancia',p:[30,62,34,38],note:'Descuentos al cliente frecuente que nadie registra.'},
+   {k:'recepcion',name:'Recepción',pain:'merma',p:[64,62,18,38],note:'Mercancía que entra sin contarse.'},
+   {k:'oficina',name:'Oficina',pain:'dependo',p:[82,62,18,38],note:'Si todo pasa por ti, la tienda se detiene cuando no estás.'}]},
+ otro:{label:'Otro',sub:'Servicios, distribución, oficina',noun:'negocio',art:'un',item:'servicio',items:'servicios',demo:'Demos de restaurante y tienda',
+  ex:['Te pregunto cómo se hace una venta, de la llamada al cobro. Casi siempre hay 3 versiones distintas.',
+      'Si cada pedido pasa por 4 personas y 2 chats, cada error cuesta una hora en averiguar quién lo tuvo.',
+      'Un solo formato de pedido y un responsable por etapa. A veces basta una hoja compartida.',
+      'Lo usamos con pedidos reales hasta que nadie tiene que preguntar por fuera.'],
+  merma:'Se pierden pedidos o material',mermaRes:{punto:'El paso de un área a otra.',sol:'Un solo formato de pedido, con un responsable por etapa.'},
+  cajaPunto:'Cobros que se registran en más de un lugar.',crit:['operacion','entregas','cobranza'],sol:'operacion',
+  zones:[
+   {k:'ventas',name:'Ventas',pain:'ganancia',p:[0,0,56,56],note:'Cotizaciones que se hacen a ojo.'},
+   {k:'operacion',name:'Operación',pain:'merma',p:[56,0,44,56],note:'Pedidos que pasan por 4 personas y 2 chats.'},
+   {k:'entregas',name:'Entregas',pain:'merma',p:[0,56,40,44],note:'Lo que se promete contra lo que se entrega.'},
+   {k:'cobranza',name:'Cobranza',pain:'caja',p:[40,56,30,44],note:'Cobros registrados en más de un lugar.'},
+   {k:'oficina',name:'Dirección',pain:'dependo',p:[70,56,30,44],note:'Si todo pasa por ti, el negocio se detiene cuando no estás.'}]}
+};
+var SIZES=['Una','2 o 3','4 o más'];
+var PALETA={obs:['#4a90d9','rgba(74,144,217,.10)','#e8edf4'],ghost:['rgba(74,144,217,.45)','transparent','#93a1b8'],dim:['rgba(74,144,217,.35)','transparent','#93a1b8'],crit:['#ff7a59','rgba(255,122,89,.24)','#ffffff'],critF:['rgba(255,122,89,.65)','rgba(255,122,89,.08)','#e8edf4'],sol:['#4caf82','rgba(76,175,130,.3)','#ffffff'],ok:['#4caf82','rgba(76,175,130,.10)','#e8edf4']};
+var WA='https://wa.me/525543183792?text=';
 
-  <script src="script.js"></script>
+var S={phase:'inicio',step:0,biz:null,pain:null,size:null,zone:null};
+try{var q=new URLSearchParams(location.search),b=q.get('biz');if(BIZ[b])S.biz=b;}catch(e){}
+
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function bk(){return S.biz||'restaurante'}
+function $(id){return document.getElementById(id)}
+function irArriba(){try{window.scrollTo({top:0,behavior:'smooth'})}catch(e){window.scrollTo(0,0)}}
+
+function set(o,arriba){for(var k in o)S[k]=o[k];render();if(arriba)irArriba();}
+function pickBiz(k){
+  if(S.phase==='inicio') set({biz:k,phase:'pasos',step:0,zone:null},true);
+  else set({biz:k,zone:null,pain:S.phase==='diag'?null:S.pain});
+}
+
+function painLabels(B){return {ganancia:'Vendo bien, pero no veo la ganancia',merma:B.merma,caja:'El corte de caja no cuadra',dependo:'Todo depende de mí'}}
+function resultado(B){
+  var r={ganancia:{punto:'El costo real de cada '+B.item+': casi nunca es el que crees.',sol:'Costear tus 20 '+B.items+' que más vendes y revisar precios. En dos semanas sabes cuáles te dejan y cuáles te cuestan.'},
+    merma:B.mermaRes,caja:{punto:B.cajaPunto,sol:'Un corte de caja con formato fijo, por turno, firmado por quien entrega y quien recibe.'},
+    dependo:{punto:'Decisiones que hoy solo tú sabes tomar.',sol:'Escribir las 5 decisiones diarias que pasan por ti y quién las toma cuando no estás. Primero en papel.'}}[S.pain];
+  return {punto:r.punto,sol:r.sol,extra:S.size>0?'Con varias sucursales, se resuelve primero en una y luego se copia a las demás.':''};
+}
+
+function render(){
+  var inicio=S.phase==='inicio',pasos=S.phase==='pasos',diag=S.phase==='diag';
+  var B=BIZ[bk()];
+  $('hero').hidden=!inicio;
+
+  // tipos de negocio (barra sobre el plano)
+  $('tipos').innerHTML=Object.keys(BIZ).map(function(k){
+    var sel=S.biz===k&&!inicio;
+    return '<button type="button" class="tipo'+(sel?' sel':'')+'" data-biz="'+k+'" aria-pressed="'+sel+'">'+esc(BIZ[k].label)+'</button>';
+  }).join('');
+
+  // plano
+  $('plano').innerHTML=B.zones.map(function(z){
+    var st='obs';
+    if(inicio)st='ghost';
+    if(pasos&&S.step===1)st=B.crit.indexOf(z.k)>-1?'crit':'dim';
+    if(pasos&&S.step===2)st=z.k===B.sol?'sol':(B.crit.indexOf(z.k)>-1?'critF':'dim');
+    if(pasos&&S.step===3)st='ok';
+    if(diag&&S.pain)st=z.pain===S.pain?'crit':'dim';
+    var sel=S.zone===z.k&&!inicio,c=PALETA[st];
+    var badge=['crit','critF','sol','ok'].indexOf(st)>-1;
+    var warn=st.indexOf('crit')===0;
+    return '<button type="button" class="zona" data-zona="'+z.k+'" style="left:calc('+z.p[0]+'% + 4px);top:calc('+z.p[1]+'% + 4px);width:calc('+z.p[2]+'% - 8px);height:calc('+z.p[3]+'% - 8px);border-width:'+(sel?'2.5px':'1.5px')+';border-color:'+(sel?'#ffffff':c[0])+';background:'+c[1]+';color:'+c[2]+'">'
+      +'<span class="n">'+esc(z.name)+'</span>'
+      +(badge?'<span class="b" style="background:'+(warn?'#ff7a59':'#4caf82')+'">'+(warn?'!':'✓')+'</span>':'')
+      +'</button>';
+  }).join('');
+
+  $('hint').textContent=diag?'TOCA DÓNDE TE DUELE':'TOCA UNA ZONA';
+
+  // panel derecho
+  var h='';
+  if(inicio){
+    h='<div class="lista">'+Object.keys(BIZ).map(function(k){
+      return '<button type="button" data-pick="'+k+'"><span class="t"><b>'+esc(BIZ[k].label)+'</b><span>'+esc(BIZ[k].sub)+'</span></span><span class="f" aria-hidden="true">→</span></button>';
+    }).join('')+'</div>';
+  }
+  if(pasos){
+    var m=META[S.step],zn=B.zones.filter(function(z){return z.k===S.zone})[0];
+    h='<div class="pasos"><div class="tabs">'+META.map(function(t,i){
+      var cls=i===S.step?' cur':(i<S.step?' past':'');
+      return '<button type="button" class="'+cls.trim()+'" data-paso="'+i+'"><span class="tn">'+t.n+'</span><span class="ts">'+esc(t.short)+'</span></button>';
+    }).join('')+'</div>'
+    +'<h2>'+esc(m.title)+'</h2><p class="lead">'+esc(m.lead)+'</p>'
+    +'<div class="ej"><small>EJEMPLO EN '+esc(B.art.toUpperCase()+' '+B.noun.toUpperCase())+'</small><span>'+esc(B.ex[S.step])+'</span></div>'
+    +(zn?'<div class="zn"><small>'+esc(zn.name)+'</small><span>'+esc(zn.note)+'</span></div>':'')
+    +(S.step===3?'<div class="demo"><span>'+esc(B.demo)+' con datos ficticios</span><small>PRÓXIMAMENTE</small></div>':'')
+    +'<div class="nav">'+(S.step>0?'<button type="button" class="prev" data-prev aria-label="Paso anterior">←</button>':'')
+    +'<button type="button" class="next" data-next>'+(S.step<3?'Siguiente: '+esc(META[S.step+1].short):'Hacer mi diagnóstico')+' →</button></div></div>';
+  }
+  if(diag){
+    var pl2=painLabels(B);
+    h='<div class="diag"><span class="k">DIAGNÓSTICO · 3 TOQUES</span><h2>Toca dónde te duele.</h2>'
+    +'<div class="tabla"><div class="r"><span>1 · Negocio</span><strong>'+esc(B.label)+'</strong></div>'
+    +'<div class="r"><span>2 · En el plano</span><strong>'+esc(S.pain?pl2[S.pain]:'Toca una zona')+'</strong></div>'
+    +'<div class="s"><span>3 · Sucursales</span><div class="fila tam">'+SIZES.map(function(l,i){return '<button type="button" class="'+(S.size===i?'sel':'')+'" data-size="'+i+'" aria-pressed="'+(S.size===i)+'">'+esc(l)+'</button>'}).join('')+'</div></div></div>';
+    if(S.pain&&S.size!==null){
+      var r=resultado(B);
+      var sz=S.size===0?'una sucursal':SIZES[S.size]+' sucursales';
+      var msg='Hola Jorge, vengo de tu página. Tengo '+B.art+' '+B.noun+' con '+sz+'. Lo que más me duele: '+pl2[S.pain].toLowerCase()+'. ¿Platicamos?';
+      h+='<div class="res"><span class="m">En casos así, el punto crítico suele ser:</span><span class="p">'+esc(r.punto)+'</span>'
+        +'<span class="m">Y la solución, algo como:</span><span class="s2">'+esc(r.sol)+'</span>'
+        +(r.extra?'<span class="x">'+esc(r.extra)+'</span>':'')
+        +'<a class="wa" href="'+WA+encodeURIComponent(msg)+'" target="_blank" rel="noopener">Mandar mi diagnóstico por WhatsApp</a>'
+        +'<span class="nota">Se abre WhatsApp con tus respuestas ya escritas.</span></div>';
+    }
+    h+='</div>';
+  }
+  $('panel').innerHTML=h;
+
+  // WhatsApp general
+  var gen=S.biz?'Hola Jorge, vi tu página. Tengo '+B.art+' '+B.noun+' y me gustaría platicar.':'Hola Jorge, vi tu página y me gustaría platicar.';
+  $('wagen').href=WA+encodeURIComponent(gen);
+}
+
+document.addEventListener('click',function(e){
+  var t=e.target.closest('button');if(!t)return;
+  var B=BIZ[bk()];
+  if(t.dataset.biz){pickBiz(t.dataset.biz);return;}
+  if(t.dataset.pick){set({biz:t.dataset.pick,phase:'pasos',step:0,zone:null},true);return;}
+  if(t.dataset.paso!==undefined){set({phase:'pasos',step:+t.dataset.paso,zone:null,biz:S.biz||'restaurante'},true);return;}
+  if(t.hasAttribute('data-next')){
+    if(S.step<3)set({step:S.step+1,zone:null},true);else set({phase:'diag',zone:null},true);return;}
+  if(t.hasAttribute('data-prev')){set({step:Math.max(0,S.step-1),zone:null},true);return;}
+  if(t.dataset.size!==undefined){set({size:+t.dataset.size});return;}
+  if(t.dataset.zona){
+    var z=B.zones.filter(function(x){return x.k===t.dataset.zona})[0];
+    if(S.phase==='diag')set({zone:z.k,pain:z.pain});
+    else if(S.phase==='inicio')set({biz:bk(),phase:'pasos',step:0,zone:z.k},true);
+    else set({zone:z.k});
+  }
+});
+render();
+})();
+</script>
 </body>
 </html>
